@@ -1,0 +1,14 @@
+# Ignore all files in the media directory
+media/
+
+# Ignore all files in the static directory
+static/
+
+# Ignore the .env file, which contains environment variables
+.env
+
+# Ignore the .pytest file, which is used for running tests
+.pytest
+
+# Ignore the db.sqlite3 file, which is the database file for your Django project
+db.sqlite3
