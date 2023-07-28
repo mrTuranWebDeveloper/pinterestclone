@@ -2,185 +2,194 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  *, button, input {
-    font-family: -apple-system, Ubuntu, arial, sans-serif;
-  }
-  
-  *, li {
-    list-style: none;
-  }
-  
-  .animate-before {
-    transform: translateY(40px);
-    opacity: 0;
-    pointer-events: none;
-  }
-  
-  .animate-after {
-    transform: translateY(-40px);
-    opacity: 0;
-    pointer-events: none;
-  }
-  
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 28px 15px 24px;
-  }
- 
-header .navbtn button{
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .navbtn button{
     border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
-header ul li a:hover {
-    text-decoration: underline; /* Hover durumunda alt çizgi ekler */
+.nav .navbtn a {
+    font-size: 14px;
+    font-weight: bold;
 }
 
-.heading {
-    margin-top: 120px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.heading .text {
-    font-size: 60px;
-    font-weight: 600;
-}
-
-.heading .wrapper {
+.nav .align-items-center li a {
+    font-size: 14px;
+    font-weight: bold;
     position: relative;
 }
 
-.heading .wrapper .offsetone {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateX(-50%);
+.nav .align-items-center li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* Alt çizginin konumu */
+  width: 100%;
+  height: 2px; 
+  background-color: black;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.4s ease-in-out;
 }
 
-.heading .wrapper .offsettwo{
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateX(-50%);
+.nav .align-items-center li a:hover::after {
+  visibility: visible;
+  transform: scaleX(1);
 }
 
-.heading .wrapper .offsetthree {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateX(-50%);
+/* slaytın ortasındaki animasyon text kısmı */
+
+.animate-before {
+  opacity: 0;
+  pointer-events: none;
 }
 
-.heading .wrapper .offsetfour {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateX(-50%);
+.animate-before.visible {
+  animation: fade-in 6s infinite;
 }
 
-.heading .wrapper .offsetone .text {
-    white-space: nowrap;
-    color: #e60023;
-    transition-duration: 1.5s;
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
-.heading .wrapper .offsettwo .text {
-    white-space: nowrap;
-    color: blue;
-    transition-duration: 1.5s;
+.heading {
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 400px;
 }
 
-.heading .wrapper .offsetthree .text {
-    white-space: nowrap;
-    color: brown;
-    transition-duration: 1.5s;
+.heading .text {
+  font-size: 60px;
+  font-weight: 600;
 }
 
-.heading .wrapper .offsetfour .text {
-    white-space: nowrap;
-    color: green;
-    transition-duration: 1.5s;
+.heading .wrapper {
+  position: relative;
+}
+
+.heading .wrapper .offset {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%);
+}
+
+.heading .wrapper .text {
+  white-space: nowrap;
+  color: #e60023;
+  transition-duration: 1s;
 }
 
 .grid-container {
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(7, 252px);
-    visibility: hidden;
-    pointer-events: none;
-    max-height: 0px;
+  display: grid;
+  grid-template-columns: repeat(7, 252px);
+  visibility: hidden;
+  pointer-events: none;
+  max-height: 0px;
 }
 
 .grid.active {
-    max-height: unset;
-    visibility: visible;
-    pointer-events: auto;
+  max-height: unset;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .column {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: 1s;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 1s;
 }
 
 .column:nth-child(1) {
-    margin-top: 0;
-    transition-delay: 0s;
+  margin-top: 0;
+  transition-delay: 0s;
 }
 
 .column:nth-child(2) {
-    margin-top: 160px;
-    transition-delay: 0.2s;
+  margin-top: 160px;
+  transition-delay: 0.2s;
 }
 
 .column:nth-child(3) {
-    margin-top: 320px;
-    transition-delay: 0.4s;
+  margin-top: 320px;
+  transition-delay: 0.4s;
 }
 
-  .column:nth-child(4) {
-    margin-top: 480px;
-    transition-delay: 0.6s;
-  }
-  
-  .column:nth-child(5) {
-    margin-top: 320px;
-    transition-delay: 0.8s;
-  }
-  
-  .column:nth-child(6) {
-    margin-top: 160px;
-    transition-delay: 1s;
-  }
-  
-  .column:nth-child(7) {
-    margin-top: 0;
-    transition-delay: 1.2s;
-  }
-  
-  .item {
-    width: 100%;
-    height: 100%;
-    background: #e60023;
-    border-radius: 10px;
-  }
-  
-  .item:not(:first-child) {
-    margin-top: 16px;
-  }
-  
+.column:nth-child(4) {
+  margin-top: 480px;
+  transition-delay: 0.6s;
+}
+
+.column:nth-child(5) {
+  margin-top: 320px;
+  transition-delay: 0.8s;
+}
+
+.column:nth-child(6) {
+  margin-top: 160px;
+  transition-delay: 1s;
+}
+
+.column:nth-child(7) {
+  margin-top: 0;
+  transition-delay: 1.2s;
+}
+
+.item {
+  width: 236px;
+  height: 350px;
+  background: #e60023;
+  border-radius: 10px;
+}
+
+.item:not(:first-child) {
+  margin-top: 16px;
+}
+
+#wrapper {
+  width: 90%;
+  max-width: 1100px;
+  min-width: 800px;
+  margin: 50px auto;
+}
+
+#columns {
+  -webkit-column-count: 3;
+  -webkit-column-gap: 10px;
+  -webkit-column-fill: auto;
+  -moz-column-count: 3;
+  -moz-column-gap: 10px;
+  -moz-column-fill: auto;
+  column-count: 3;
+  column-gap: 10px;
+  column-fill: auto;
+}
