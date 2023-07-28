@@ -47,60 +47,77 @@
 
 /* slaytın ortasındaki animasyon text kısmı */
 
-.animate-before {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.animate-before.visible {
-  animation: fade-in 6s infinite;
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
 .heading {
-  margin-top: 120px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  height: 400px;
 }
 
-.heading .text {
-  font-size: 60px;
-  font-weight: 600;
+.heading .title{
+  font-size: 40px;
+  font-weight: 400;  
 }
 
 .heading .wrapper {
   position: relative;
 }
 
-.heading .wrapper .offset {
+.heading .wrapper .offsetone {
   position: absolute;
   top: 0;
   left: 0;
   transform: translateX(-50%);
 }
 
-.heading .wrapper .text {
+.heading .wrapper .offsettwo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%);
+}
+
+.heading .wrapper .offsetthree {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%);
+}
+
+.heading .wrapper .offsetfour {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%);
+}
+
+.heading .wrapper .offsetone .text{
   white-space: nowrap;
   color: #e60023;
   transition-duration: 1s;
 }
 
+.heading .wrapper .offsettwo .text{
+  white-space: nowrap;
+  color: blue;
+  transition-duration: 1s;
+}
+
+.heading .wrapper .offsetthree .text{
+  white-space: nowrap;
+  color: brown;
+  transition-duration: 1s;
+}
+
+.heading .wrapper .offsetfour .text{
+  white-space: nowrap;
+  color: green;
+  transition-duration: 1s;
+}
+
 .grid-container {
-  height: 500px;
+  height: 450px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -109,7 +126,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(7, 252px);
+  grid-template-columns: repeat(5, 252px);
   visibility: hidden;
   pointer-events: none;
   max-height: 0px;
@@ -126,7 +143,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: 1s;
+  transition: 1.5s;
 }
 
 .column:nth-child(1) {
@@ -135,27 +152,27 @@
 }
 
 .column:nth-child(2) {
-  margin-top: 160px;
+  margin-top: 100px;
   transition-delay: 0.2s;
 }
 
 .column:nth-child(3) {
-  margin-top: 320px;
+  margin-top: 200px;
   transition-delay: 0.4s;
 }
 
 .column:nth-child(4) {
-  margin-top: 480px;
+  margin-top: 300px;
   transition-delay: 0.6s;
 }
 
 .column:nth-child(5) {
-  margin-top: 320px;
+  margin-top: 200px;
   transition-delay: 0.8s;
 }
 
 .column:nth-child(6) {
-  margin-top: 160px;
+  margin-top: 100px;
   transition-delay: 1s;
 }
 
@@ -175,21 +192,14 @@
   margin-top: 16px;
 }
 
-#wrapper {
-  width: 90%;
-  max-width: 1100px;
-  min-width: 800px;
-  margin: 50px auto;
+.animate-before {
+  transform: translateY(40px);
+  opacity: 0;
+  pointer-events: none;
 }
 
-#columns {
-  -webkit-column-count: 3;
-  -webkit-column-gap: 10px;
-  -webkit-column-fill: auto;
-  -moz-column-count: 3;
-  -moz-column-gap: 10px;
-  -moz-column-fill: auto;
-  column-count: 3;
-  column-gap: 10px;
-  column-fill: auto;
+.animate-after {
+  transform: translateY(-40px);
+  opacity: 0;
+  pointer-events: none;
 }
