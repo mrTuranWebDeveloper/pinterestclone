@@ -95,25 +95,25 @@
 .heading .wrapper .offsetone .text{
   white-space: nowrap;
   color: #e60023;
-  transition-duration: 1s;
+  transition-duration: 1.5s;
 }
 
 .heading .wrapper .offsettwo .text{
   white-space: nowrap;
   color: blue;
-  transition-duration: 1s;
+  transition-duration: 1.5s;
 }
 
 .heading .wrapper .offsetthree .text{
   white-space: nowrap;
   color: brown;
-  transition-duration: 1s;
+  transition-duration: 1.5s;
 }
 
 .heading .wrapper .offsetfour .text{
   white-space: nowrap;
   color: green;
-  transition-duration: 1s;
+  transition-duration: 1.5s;
 }
 
 .grid-container {
@@ -126,7 +126,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, 252px);
+  grid-template-columns: repeat(7, 252px);
   visibility: hidden;
   pointer-events: none;
   max-height: 0px;
@@ -182,14 +182,22 @@
 }
 
 .item {
-  width: 236px;
-  height: 350px;
+  width: 100%; /* .column öğesi ile aynı genişlikte */
+  height: 100%; /* .column öğesi ile aynı yükseklikte */
+  overflow: hidden; /* Resimler dışında taşan içerikleri gizlemek için */
   background: #e60023;
   border-radius: 10px;
 }
 
 .item:not(:first-child) {
   margin-top: 16px;
+}
+
+
+.item img {
+  width: 100%; /* Resmi .item öğesinin genişliğine sığdırmak */
+  height: 100%; /* Resmi .item öğesinin yüksekliğine sığdırmak */
+  object-fit: cover; /* Resmi orantılı bir şekilde doldurmak */
 }
 
 .animate-before {
@@ -203,3 +211,61 @@
   opacity: 0;
   pointer-events: none;
 }
+
+/* scroll button */
+
+.scroll-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  z-index: 999;
+  animation: scrollAnimation 2s infinite;
+  border: none;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  background-color: #e60023;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 15px solid #fff;
+}
+
+.arrow-down:hover {
+  border-top-color: #f9f9f9;
+}
+
+@keyframes scrollAnimation {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+}
+/* ikinci kısım content */
+
+.content {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 500px;
+}
+
+
+
