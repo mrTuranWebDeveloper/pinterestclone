@@ -31,7 +31,7 @@
   content: "";
   position: absolute;
   left: 0;
-  bottom: -2px; /* Alt çizginin konumu */
+  bottom: -2px; 
   width: 100%;
   height: 2px; 
   background-color: black;
@@ -45,7 +45,7 @@
   transform: scaleX(1);
 }
 
-/* slaytın ortasındaki animasyon text kısmı */
+/* slaytın ortasındaki grid animasyon ve text animasyon kısmı */
 
 .heading {
   margin-top: 10px;
@@ -182,9 +182,9 @@
 }
 
 .item {
-  width: 100%; /* .column öğesi ile aynı genişlikte */
-  height: 100%; /* .column öğesi ile aynı yükseklikte */
-  overflow: hidden; /* Resimler dışında taşan içerikleri gizlemek için */
+  width: 100%; 
+  height: 100%; 
+  overflow: hidden; 
   background: #e60023;
   border-radius: 10px;
 }
@@ -195,9 +195,9 @@
 
 
 .item img {
-  width: 100%; /* Resmi .item öğesinin genişliğine sığdırmak */
-  height: 100%; /* Resmi .item öğesinin yüksekliğine sığdırmak */
-  object-fit: cover; /* Resmi orantılı bir şekilde doldurmak */
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
 }
 
 .animate-before {
@@ -212,7 +212,7 @@
   pointer-events: none;
 }
 
-/* scroll button */
+/* scroll button ve animasyon */
 
 .scroll-btn {
   position: absolute;
@@ -259,13 +259,140 @@
 /* ikinci kısım content */
 
 .content {
-  margin-top: 10px;
+  margin-top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  height: 500px;
+  height: 575px;
+  background-color: #fffd92;
+}
+
+.content button {
+  border: none;
+  background-color: #fffd92;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 15px;
 }
 
 
+
+.container {
+  max-width: 900px;
+  margin-top: 40px;
+}
+
+.content .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content .col {
+  text-align: center;
+  position: relative;
+}
+
+.content .col img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.center {
+  width: 250px;
+  height: 400px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+#targetSection .left,
+#targetSection .right,
+#targetSection .bottom {
+  width: 130px;
+  height: 180px;
+  position: absolute;
+  top: 0;
+}
+
+#targetSection .left {
+  left: -20px;
+  z-index: 0;
+  top: 70px;
+}
+
+#targetSection .right {
+  right: 10px;
+  z-index: 0; 
+}
+
+#targetSection .bottom {
+  left: 80%;
+  transform: translateX(-50%);
+  top: 250px;
+  z-index: 0; 
+}
+
+/* content keşfet butonu ve text kısmı */
+.content .col button.bg-danger {
+  font-size: 12px;
+  font-weight: bold;
+  color: #fffd92;
+  border-radius: 15px;
+  width: 60px;
+  height: 30px;
+}
+
+.content .col h1 {
+  font-weight: bold;
+  color: #e60023; 
+  margin-left: 30px;
+}
+
+.content .col p {
+  color: #e60023; 
+}
+
+/* header üçüncü kısım */
+
+.header {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 575px;
+  background-color: #dafff6;
+}
+
+.header .col {
+  margin-top: 50px;
+}
+
+.header .col a img {
+  width: 300px;
+}
+
+/* header keşfet butonu ve text kısmı */
+.header .col .btn {
+  font-size: 12px;
+  font-weight: bold;
+  color: #dafff6;
+  border-radius: 15px;
+  width: 60px;
+  height: 30px;
+  background: #006b6c;
+}
+
+.header .col h1 {
+  font-weight: bold;
+  color: #006b6c; 
+  margin-left: 30px;
+}
+
+.header .col p {
+  color: #006b6c; 
+}
 

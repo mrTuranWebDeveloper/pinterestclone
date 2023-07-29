@@ -54,3 +54,16 @@ setupAnimationCycle({
   timePerScreen: 2000, // ms
   exitDelay: 200 * 7 // ms
 })
+
+
+function scrollToTargetSection() {
+    // Alt bölüme kaydırma
+    const targetSection = document.getElementById('targetSection');
+    const targetSectionOffset = targetSection.offsetTop; // Hedef elementin üst kenarının sayfanın üstünden uzaklığı
+  
+    window.scrollTo({
+      top: targetSectionOffset,
+      behavior: 'smooth'
+    });
+  }
+  
