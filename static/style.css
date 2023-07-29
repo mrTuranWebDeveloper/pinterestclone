@@ -376,6 +376,7 @@
 }
 
 /* header keşfet butonu ve text kısmı */
+
 .header .col .btn {
   font-size: 12px;
   font-weight: bold;
@@ -394,5 +395,70 @@
 
 .header .col p {
   color: #006b6c; 
+} 
+
+/* header karmaşık resim yapısı!!! */
+
+/* Future divini yatay düzende hizala ve içeriğin taşmasını engelle */
+
+.header .col .future {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  overflow: hidden;
+  position: relative;
 }
+
+
+
+.header .col .future img:first-child {
+  width: 300px;
+  display: block;
+  margin-right: 10px;
+}
+
+
+.header .col .future .home1,
+.header .col .future .home2,
+.header .col .future .home3 {
+  width: 65px;
+  height: 90px;
+  justify-content: flex-start;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* Diğer resimlerin yan yana gelmesini sağla */
+
+.header .col .future .home1 {
+  margin-left: 30px;
+}
+
+.header .col .future .home2 {
+  margin-left: 105px;
+} 
+
+.header .col .future .home3 {
+  margin-left: 180px;
+}
+
+
+.header .col .future p {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  color: #fff;
+  font-size: 40px;
+  width: 300px;
+  font-weight: bold;
+  text-align: start;
+}
+
+
+
+
+
+
+
 
