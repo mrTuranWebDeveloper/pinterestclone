@@ -25,6 +25,5 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pinterestmain.urls')),
-    path('register/', userRegister, name='register'),
-    path('login/', userLogin, name='login')
+    path('user/', include('user.urls'))
 ]  + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
