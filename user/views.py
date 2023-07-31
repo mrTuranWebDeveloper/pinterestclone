@@ -2,22 +2,44 @@ from django.shortcuts import render, redirect
 from .forms import *
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
 def userRegister(request):
-    form = UserForm()
     if request.method == 'POST':
-        form = UserForm(request.POST)
-        print(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Registration successful. You may now login.')
-            return redirect('login')    
-    context = {
-        'form':form
-    }
-    return render(request, 'register.html', context)
+        kullanici = request.POST['kullanici']
+        email = request.POST.get('email')
+        resim = request.FILES['resim']
+        sifre = request.POST['sifre']
+        sifre2 = request.POST['sifre2']
+
+        if sifre == sifre2:
+            if User.objects.filter(username = kullanici).exists():
+                messages.error(request, 'Kullanıcı adı zaten mevcut!')
+            elif User.objects.filter(email = email).exists():
+                messages.error(request, 'Email kullanımda!')
+            elif len(sifre) < 6:
+                messages.error(request, 'Şifre en az 6 karakter olmalıdır!')
+            elif kullanici.lower() in sifre.lower():
+                messages.error(request, 'Kullanıcı adı ile şifre benzer olmamalıdır!')
+            else:
+                # kullanıcı kayıt işlemi
+                user = User.objects.create_user(
+                    username = kullanici,
+                    email = email,
+                    password = sifre
+                )
+                Hesap.objects.create(
+                    user = user,
+                    resim = resim
+                )
+                user.save()
+                messages.success(request, 'Kayıt tamamlandı. Giriş yapabilirsiniz')
+                return redirect('index')
+        else:
+            messages.error(request, 'Şifreler eşleşmedi!')
+    return render(request, 'register.html')
 
 def userLogin(request):
     if request.method == 'POST':
@@ -28,9 +50,10 @@ def userLogin(request):
 
         if user is not None:
             login(request, user)
-            return redirect('index')
+            messages.success(request, 'Giriş yapıldı.')
+            return redirect('profiles')
         else:
-            messages.error(request, 'Username or password is incorrect.')
+            messages.error(request, 'Kullanıcı adı veya şifre hatalı.')
             return redirect('login')
     return render(request, 'login.html')
 
