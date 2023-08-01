@@ -6,23 +6,23 @@
 
 .navbar {
   position: sticky;
-  top: 0;
+  top: 10px;
   z-index: 1000;
 }
 
 .navbar .navbtn button{
     border-radius: 20px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
 }
 
 .nav .navbtn a {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
 }
 
 .nav .align-items-center li a {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     position: relative;
 }
@@ -117,7 +117,7 @@
 }
 
 .grid-container {
-  height: 450px;
+  height: 560px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -143,7 +143,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: 1.5s;
+  transition: 2s;
 }
 
 .column:nth-child(1) {
@@ -153,32 +153,32 @@
 
 .column:nth-child(2) {
   margin-top: 100px;
-  transition-delay: 0.2s;
+  transition-delay: 0.3s;
 }
 
 .column:nth-child(3) {
   margin-top: 200px;
-  transition-delay: 0.4s;
+  transition-delay: 0.6s;
 }
 
 .column:nth-child(4) {
   margin-top: 300px;
-  transition-delay: 0.6s;
+  transition-delay: 0.9s;
 }
 
 .column:nth-child(5) {
   margin-top: 200px;
-  transition-delay: 0.8s;
+  transition-delay: 1.2s;
 }
 
 .column:nth-child(6) {
   margin-top: 100px;
-  transition-delay: 1s;
+  transition-delay: 1.5s;
 }
 
 .column:nth-child(7) {
   margin-top: 0;
-  transition-delay: 1.2s;
+  transition-delay: 1.8s;
 }
 
 .item {
@@ -216,18 +216,19 @@
 
 .scroll-btn {
   position: absolute;
-  bottom: 20px;
+  bottom: 80px;
   left: 50%;
   transform: translateX(-50%);
   cursor: pointer;
   z-index: 999;
   animation: scrollAnimation 2s infinite;
   border: none;
+  border-radius: 50%;
 }
 
 .circle {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   background-color: #e60023;
   border-radius: 100%;
   display: flex;
@@ -235,7 +236,11 @@
   align-items: center;
 }
 
-
+.content .btn-text {
+  font-size: 16px;
+  text-align: center;
+  margin-left: 60px;
+}
 .arrow-down {
   width: 0;
   height: 0;
@@ -264,7 +269,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  height: 575px;
+  height: 750px;
   background-color: #fffd92;
 }
 
@@ -296,169 +301,449 @@
 
 .content .col img {
   max-width: 100%;
-  height: auto;
   border-radius: 20px;
 }
 
-.center {
-  width: 250px;
-  height: 400px;
-  margin-bottom: 20px;
+#targetSection .origin {
+  width: 275px;
+  height: 420px;
   position: relative;
   z-index: 1;
+  margin-top: 50px;
 }
 
-#targetSection .left,
-#targetSection .right,
-#targetSection .bottom {
-  width: 130px;
-  height: 180px;
-  position: absolute;
-  top: 0;
-}
 
 #targetSection .left {
-  left: -20px;
+  left: 95px;
   z-index: 0;
-  top: 70px;
+  top: 120px;
+  width: 180px;
+  height: 250px;
+  position: absolute;
 }
 
 #targetSection .right {
-  right: 10px;
+  right: 150px;
   z-index: 0; 
+  width: 150px;
+  height: 200px;
+  position: absolute;
 }
 
 #targetSection .bottom {
-  left: 80%;
+  left: 70%;
   transform: translateX(-50%);
-  top: 250px;
+  top: 280px;
   z-index: 0; 
+  width: 150px;
+  height: 250px;
+  position: absolute;
 }
 
 /* content keşfet butonu ve text kısmı */
 .content .col button.bg-danger {
-  font-size: 12px;
+  font-size: 18px;
   font-weight: bold;
   color: #fffd92;
-  border-radius: 15px;
-  width: 60px;
-  height: 30px;
+  border-radius: 20px;
+  padding: 10px 20px;
 }
 
 .content .col h1 {
   font-weight: bold;
   color: #e60023; 
-  margin-left: 30px;
+  font-size: 60px;
+  margin-top: 80px;
+  text-align: center;
 }
 
 .content .col p {
-  color: #e60023; 
+  color: #e60023;
+  font-size: 25px;
+  text-align: center;
 }
 
 /* header üçüncü kısım */
 
 .header {
-  margin-top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  height: 575px;
+  height: 750px;
   background-color: #dafff6;
+  overflow: hidden;
 }
 
-.header .col {
-  margin-top: 50px;
-}
-
-.header .col a img {
-  width: 300px;
-}
 
 /* header keşfet butonu ve text kısmı */
 
-.header .col .btn {
-  font-size: 12px;
-  font-weight: bold;
+.header .col-6 .btn {
+  font-size: 18px;
   color: #dafff6;
-  border-radius: 15px;
-  width: 60px;
-  height: 30px;
+  border-radius: 20px;
+  padding: 10px 20px;
   background: #006b6c;
+  cursor: pointer;
+  border: none;
 }
 
-.header .col h1 {
+.header .col-6 h1 {
   font-weight: bold;
   color: #006b6c; 
-  margin-left: 30px;
+  font-size: 60px;
+  
 }
 
-.header .col p {
+.header .col-6 p {
   color: #006b6c; 
+  font-size: 25px;
 } 
 
 /* header karmaşık resim yapısı!!! */
 
 /* Future divini yatay düzende hizala ve içeriğin taşmasını engelle */
 
-.header .col .future {
+.header .col-3 .future {
+  margin-left: 100px;
+  margin-top: 60px;
+  align-items: center;
+  justify-content: center;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  overflow: hidden;
   position: relative;
 }
 
 
 
-.header .col .future img:first-child {
-  width: 300px;
+.header .col-3 .future img:first-child {
+  width: 380px;
   display: block;
-  margin-right: 10px;
+  height: 420px;
+  
 }
 
 
-.header .col .future .home1,
-.header .col .future .home2,
-.header .col .future .home3 {
-  width: 65px;
-  height: 90px;
+.header .col-3 .future .home1,
+.header .col-3 .future .home2,
+.header .col-3 .future .home3 {
+  width: 90px;
+  height: 140px;
   justify-content: flex-start;
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: -10px;
+  left: 10px;
+  
 }
 
 /* Diğer resimlerin yan yana gelmesini sağla */
 
-.header .col .future .home1 {
-  margin-left: 30px;
+.header .col-3 .future .home1 {
+  margin-left: -50px;
 }
 
-.header .col .future .home2 {
-  margin-left: 105px;
+.header .col-3 .future .home2 {
+  margin-left: 50px;
 } 
 
-.header .col .future .home3 {
-  margin-left: 180px;
+.header .col-3 .future .home3 {
+  margin-left: 150px;
 }
 
 
-.header .col .future p {
+.header .col-3 .future p {
   position: absolute;
-  top: 50px;
-  left: 20px;
+  top: 70px;
+  left: -30px;
   color: #fff;
-  font-size: 40px;
+  font-size: 45px;
+  width: 300px;
+  font-weight: bold;
+  text-align: start;
+  
+}
+
+.header .col-3 .drink {
+  left: 150px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  position: relative;
+}
+
+.header .col-3 .drink p {
+  position: absolute;
+  top: 70px;
+  left: 30px;
+  color: #fff;
+  font-size: 30px;
   width: 300px;
   font-weight: bold;
   text-align: start;
 }
 
+.header .col-3 .drink a img {
+  width: 230px;
+  height: 230px;
+}
+
+
+.header .col-3 .design {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.header .col-3 .scandinav{
+  margin-left: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  margin-top: 60px;
+  
+}
+
+.header .col-3 .scandinav p {
+  position: absolute;
+  top: 120px;
+  left: 20px;
+  color: #fff;
+  font-size: 30px;
+  width: 300px;
+  font-weight: bold;
+  text-align: start;
+}
+
+.header .col-3 .scandinav a img {
+  width: 240px;
+  height: 230px;
+  
+}
+
+.header .col-3 .deck {
+  margin-left: 75px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  position: relative;
+  margin-top: 50px;
+}
+
+.header .col-3 .deck p {
+  position: absolute;
+  top: 100px;
+  left: 25px;
+  color: #fff;
+  font-size: 20px;
+  width: 300px;
+  font-weight: bold;
+  text-align: start;
+}
+
+.header .col-3 .deck a img {
+  width: 180px;
+  height: 190px;
+
+}
+
+.header .col-3 .bathroom {
+  margin-left: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  position: relative;
+  margin-top: 50px;
+}
+
+.header .col-3 .bathroom p {
+  position: absolute;
+  top: 85px;
+  left: 25px;
+  color: #fff;
+  font-size: 25px;
+  width: 300px;
+  font-weight: bold;
+  text-align: start;
+}
+
+.header .col-3 .bathroom a img {
+  width: 220px;
+  height: 200px;
+}
+
+/* Dördüncü bölüm */
+
+.mantion {
+  display: flex;
+  height: 720px;
+  background-color: #ffe2eb;
+  overflow: hidden;
+}
+
+.mantion .pinone-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  
+}
+
+.mantion .pinone,
+.mantion .pintwo,
+.mantion .pinthree,
+.mantion .pinone-container p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.mantion .pinone {
+  z-index: 3;
+}
+
+.mantion .pintwo {
+  border-radius: 15px;
+  width: 210px;
+  height: 365px;
+  z-index: 4;
+  top: 60%; /* Değiştirilen satır - pintwo resminin yatay konumu */
+  left: 30%; /* Değiştirilen satır - pintwo resminin dikey konumu */
+  transform: translate(-50%, -50%); /* Değiştirilen satır - pintwo resminin ortalamak için */
+}
+
+.mantion .pinthree {
+  width: 100px;
+  height: 100px;
+  z-index: 5;
+  top: 85%; /* Değiştirilen satır - pinthree resminin dikey konumu */
+  left: 18%; /* Değiştirilen satır - pinthree resminin yatay konumu */
+  transform: translate(-50%, -50%); /* Değiştirilen satır - pinthree resminin ortalamak için */
+}
+
+
+.mantion .col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mantion h1 {
+  font-size: 60px;
+  color: #e60023;
+  font-weight: bold;
+}
+
+.mantion .pinone-container p {
+  top: 88%;
+  margin-left: 195px;
+  z-index: 6;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.mantion p {
+  font-size: 25px;
+  margin-top: 10px;
+  color: #e60023;
+  
+}
+
+.mantion button {
+  font-size: 20px;
+  margin-top: 20px;
+  background-color: #e60023;
+  color: #ffe2eb;
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 10px 20px;
+  border: none;
+}
+
+/* Beşinci Bölüm */
 
 
 
+.background {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #f0f0f0;
+}
 
+.gallery {
+  flex: 1 1 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
 
+.gallery img {
+  flex: 1 1 calc(33.33% - 10px);
+  height: 100px;
+  margin-bottom: 10px;
+  object-fit: cover;
+  filter: blur(5px);
+}
 
+.form-container {
+  flex: 1 1 400px;
+  padding: 20px;
+}
 
+/* .logo {
+  
+} */
+
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+form input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  padding: 10px;
+  background-color: #e60023;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.facebook-button, .google-button {
+  padding: 10px;
+  background-color: #1877f2; /* Facebook buton rengi */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.text {
+  font-size: 14px;
+  color: #666;
+}
