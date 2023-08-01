@@ -12,3 +12,7 @@ static/
 
 # Ignore the db.sqlite3 file, which is the database file for your Django project
 db.sqlite3
+
+# Ignore the pycache files
+__pycache__
+*.pyc
