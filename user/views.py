@@ -51,7 +51,7 @@ def userLogin(request):
         if user is not None:
             login(request, user)
             messages.success(request, 'Giriş yapıldı.')
-            return redirect('profiles')
+            return redirect('homepage')
         else:
             messages.error(request, 'Kullanıcı adı veya şifre hatalı.')
             return redirect('login')
