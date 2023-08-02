@@ -27,3 +27,10 @@ def create_pin(request):
     }
 
     return render(request, 'create_pin.html', context)
+
+def homepage(request):
+    pins = Pin.objects.all()
+    context = {
+        'pins':pins
+    }
+    return render(request, 'homepage.html', context)
