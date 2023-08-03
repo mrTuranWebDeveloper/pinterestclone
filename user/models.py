@@ -12,3 +12,12 @@ class Hesap(models.Model):
 
     def __str__(self):
         return self.user.username
+    
+class Profile(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Kullanıcı')
+    isim = models.CharField(max_length=100)
+    resim = models.ImageField(upload_to='profiller/')
+    olusturulma_tarihi = models.DateField(auto_now_add=True, null=True)
+
+    def __str__(self):
+        return self.isim
