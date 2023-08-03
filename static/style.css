@@ -879,5 +879,7 @@ text-align: center;
 
 .footer-menu li a:hover {
   border-bottom: 1px solid #000; 
-  cursor: pointer; 
+  cursor: pointer;
 }
+
+
