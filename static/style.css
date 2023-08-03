@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+
+::-webkit-scrollbar { 
+  display: none;  
+}
+
 .navbar {
   position: sticky;
   top: 10px;
@@ -56,8 +61,9 @@
 }
 
 .heading .title{
-  font-size: 40px;
-  font-weight: 400;  
+  font-size: 60px;
+  font-weight: 400; 
+  margin-top: 40px;
 }
 
 .heading .wrapper {
@@ -96,32 +102,41 @@
   white-space: nowrap;
   color: #e60023;
   transition-duration: 1.5s;
+  font-size: 60px;
+  font-weight: 400; 
 }
 
 .heading .wrapper .offsettwo .text{
   white-space: nowrap;
   color: blue;
   transition-duration: 1.5s;
+  font-size: 60px;
+  font-weight: 400; 
 }
 
 .heading .wrapper .offsetthree .text{
   white-space: nowrap;
   color: brown;
   transition-duration: 1.5s;
+  font-size: 60px;
+  font-weight: 400; 
 }
 
 .heading .wrapper .offsetfour .text{
   white-space: nowrap;
   color: green;
   transition-duration: 1.5s;
+  font-size: 60px;
+  font-weight: 400; 
 }
 
 .grid-container {
-  height: 560px;
+  height: 470px;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  
 }
 
 .grid {
@@ -402,7 +417,7 @@
 
 /* header karmaşık resim yapısı!!! */
 
-/* Future divini yatay düzende hizala ve içeriğin taşmasını engelle */
+
 
 .header .col-3 .future {
   margin-left: 100px;
@@ -614,18 +629,18 @@
   width: 210px;
   height: 365px;
   z-index: 4;
-  top: 60%; /* Değiştirilen satır - pintwo resminin yatay konumu */
-  left: 30%; /* Değiştirilen satır - pintwo resminin dikey konumu */
-  transform: translate(-50%, -50%); /* Değiştirilen satır - pintwo resminin ortalamak için */
+  top: 60%; 
+  left: 30%; 
+  transform: translate(-50%, -50%); 
 }
 
 .mantion .pinthree {
   width: 100px;
   height: 100px;
   z-index: 5;
-  top: 85%; /* Değiştirilen satır - pinthree resminin dikey konumu */
-  left: 18%; /* Değiştirilen satır - pinthree resminin yatay konumu */
-  transform: translate(-50%, -50%); /* Değiştirilen satır - pinthree resminin ortalamak için */
+  top: 85%; 
+  left: 18%; 
+  transform: translate(-50%, -50%); 
 }
 
 
@@ -676,74 +691,195 @@
 
 .background {
   display: flex;
-  flex-wrap: wrap;
-  background-color: #f0f0f0;
+  height: 710px;
+  overflow: hidden;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.image-div {
+  width: 250px;
+  height: 500px;
+  background-size: cover; 
+  background-position: center; 
+  border-radius: 20px;
+  margin: 10px;
 }
 
 .gallery {
-  flex: 1 1 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 20px;
+  align-items: center;
+  flex: 1;
+  
 }
 
-.gallery img {
-  flex: 1 1 calc(33.33% - 10px);
-  height: 100px;
-  margin-bottom: 10px;
-  object-fit: cover;
-  filter: blur(5px);
+.col-text {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  width: 50%; /* Sayfanın yarısını kaplayacak genişlik */
+  padding: 20px; 
+  border-radius: 20px;
+  
+}
+
+
+.col-text h1 {
+  font-size: 70px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+}
+
+
+.col-form {
+  flex: 0 0 25%; /* Sayfanın %25'ini kaplaması için */
+  padding: 20px;
+  background-color: #f9f9f9; 
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  right: 10%; 
+  transform: translateY(-50%);
+  height: 750px;
+  
 }
 
 .form-container {
-  flex: 1 1 400px;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
-/* .logo {
-  
-} */
 
-h1 {
+.col-form h1 {
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 10px;
+  text-align: center;
 }
 
-form {
+.col-form form {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
 }
 
-form input {
+.col-form form input {
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-form button {
+.col-form form button {
   padding: 10px;
   background-color: #e60023;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  border-radius: 20px;
+  
 }
 
-.facebook-button, .google-button {
+.col-form form button text {
+text-align: center;
+}
+
+
+.col-form .facebook-button {
+  display: flex;
+  align-items: center;
   padding: 10px;
-  background-color: #1877f2; /* Facebook buton rengi */
+  background-color: #1877f2; 
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin-bottom: 10px;
+  border-radius: 20px;
 }
 
-.text {
-  font-size: 14px;
+.col-form .facebook-button p {
+  
+  font-weight: bold;
+}
+
+.col-form .google-button {
+  display: flex;
+  align-items: center;
+  padding: 10px ;
+  background-color: #fff; 
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  border-radius: 20px;
+}
+
+.col-form .google-button p {
+  color: black;
+  font-weight: bold;
+}
+
+
+
+.col-form .facebook-button img, .col-form .google-button img {
+  margin-right: 10px; 
+}
+
+.col-form .text {
+  font-size: 15px;
   color: #666;
 }
+
+/* Footer Bölümü */
+
+.footer {
+  background-color: #f0f0f0; 
+  height: 40px; 
+  width: 100%; 
+  display: flex;
+  justify-content: center;
+}
+
+.footer-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-menu li {
+  margin-right: 20px; 
+  margin-top: 10px;
+}
+
+.footer-menu li:last-child {
+  margin-right: 0;
+
+}
+
+.footer-menu li a {
+  color: #000; 
+  text-decoration: none; 
+  border-bottom: 1px solid transparent; 
+  transition: border-bottom 0.2s; 
+  
+}
+
+.footer-menu li a:hover {
+  border-bottom: 1px solid #000; 
+  cursor: pointer;
+}
+
+

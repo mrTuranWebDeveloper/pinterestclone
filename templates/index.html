@@ -212,7 +212,7 @@
        
             <div class="row align-items-center">
               <div class="col">
-                <img class="img-fluid origin" src="/static/img/yemek1.jpg" alt="" >
+                <img class="img-fluid origin" src="/static/img/yemekcenter.png" alt="" >
                 <img class="img-fluid left" src="/static/img/yemek3.jpg" alt="" >
                 <img class="img-fluid right" src="/static/img/yemek2.jpg" alt="" >
                 <img class="img-fluid bottom" src="/static/img/yemek4.jpg" alt="">
@@ -309,18 +309,34 @@
         </div>
     </div>
     
-    <!-- Beşinci Bölüm Son Bölüm henüz bitmedi-->
+    <!-- Beşinci Bölüm -->
 
     <div class="background">
-        <!-- Resimlerin ve içeriklerin yer alacağı bölüm -->
+        
         <div class="gallery">
-          <!-- Resimler buraya gelecek -->
+            <div class="image-div" style="background-image: url('/static/img/drinks.png');"></div>
+            <div class="image-div" style="background-image: url('/static/img/ızgara2.jpg');"></div>
+            <div class="image-div" style="background-image: url('/static/img/ızgara3.jpg');"></div>
+            <div class="image-div" style="background-image: url('/static/img/ızgara4.jpg');"></div>
+            <div class="image-div" style="background-image: url('/static/img/ızgara5.jpg');"></div>
+            <div class="image-div" style="background-image: url('/static/img/ızgara6.jpg');"></div>
+            <div class="image-div" style="background-image: url('/static/img/ızgara7.jpg');"></div>
+            <div class="image-div" style="background-image: url('/static/img/ızgara8.jpg');"></div>
+            <div class="image-div" style="background-image: url('/static/img/yemek1.jpg');"></div>
+            <div class="image-div" style="background-image: url('/static/img/yemek2.jpg');"></div>
+            <div class="image-div" style="background-image: url('/static/img/yemek3.jpg');"></div>
+            <div class="image-div" style="background-image: url('/static/img/yemek4.jpg');"></div>
+                    
         </div>
-    
+            <div class="col-text">
+                <h1>Fikirlerinizi <br> bulmak için <br> kaydolun</h1>
+            </div>
+
         <!-- Kaydol ve form bölümü -->
+        <div class="col-form">
         <div class="form-container">
           <div class="logo">
-            <!-- Logo buraya gelecek -->
+            <a href="#"><img src="/static/img/Pinterest-Logo.png" alt="" width="100px"></a>
           </div>
           <h1>Pinterest'e Hoşgeldiniz</h1>
           <p>Bir sonraki tutkunuzu keşfedin.</p>
@@ -329,15 +345,40 @@
             <input type="email" placeholder="E-posta">
             <input type="password" placeholder="Parola">
             <input type="date" placeholder="Doğum Tarihi">
-            <button type="submit">DEVAM ET</button>
+            <button type="submit">Devam Et</button>
           </form>
     
           <p>VEYA</p>
-          <button class="facebook-button">Facebook ile Devam Et</button>
-          <button class="google-button">Google ile Devam Edin</button>
-          <p class="text">Kaydolarak, hizmet şartlarını ve gizlilik politikasını kabul etmiş olursunuz.</p>
+
+        <button class="facebook-button">
+            <img src="/static/img/facebook.png" alt="Facebook" width="30px">
+            <p>Facebook ile Devam Et</p>
+        </button>
+        <button class="google-button">
+            <img src="/static/img/google.png" alt="Google" width="20px">
+            <p>Google ile Devam Edin</p>
+        </button>
+            <p class="text">Kaydolarak, hizmet şartlarını ve gizlilik politikasını kabul etmiş olursunuz.</p>
+            </div>
         </div>
       </div>
+
+   <!-- Footer Bölümü -->
+   <footer class="footer">
+    <ul class="footer-menu">
+      <li><a href="#">Hizmet Şartları</a></li>
+      <li><a href="#">Gizlilik Politikası</a></li>
+      <li><a href="#">Yardım</a></li>
+      <li><a href="#">iPhone Uygulaması</a></li>
+      <li><a href="#">Android Uygulaması</a></li>
+      <li><a href="#">Kullanıcılar</a></li>
+      <li><a href="#">Koleksiyonlar</a></li>
+      <li><a href="#">Alışveriş</a></li>
+      <li><a href="#">Bugün</a></li>
+      <li><a href="#">Keşfet</a></li>
+    </ul>
+  </footer>
+  
 
 
 {% endblock content %}
