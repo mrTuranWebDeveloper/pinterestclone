@@ -56,3 +56,6 @@ def business_page(request):
 
 def blog_page(request):
     return render(request, 'blog.html')
+
+def login_page(request):
+    return render(request, 'login.html')
