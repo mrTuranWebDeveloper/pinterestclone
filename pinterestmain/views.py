@@ -28,6 +28,19 @@ def create_pin(request):
 
     return render(request, 'create_pin.html', context)
 
+def create_idea_pin(request):
+    if request.method == 'POST':
+        form = IdeaPinForm(request.Post, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = IdeaPinForm()
+    context = {
+        'form':form
+    }
+    return render(request, 'create_ideapin.html', context)
+
 def homepage(request):
     pins = Pin.objects.all()
     context = {
