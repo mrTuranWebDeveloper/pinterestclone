@@ -47,3 +47,12 @@ def homepage(request):
         'pins':pins
     }
     return render(request, 'homepage.html', context)
+
+def about_page(request):
+    return render(request, 'about.html')
+
+def business_page(request):
+    return render(request, 'business.html')
+
+def blog_page(request):
+    return render(request, 'blog.html')
