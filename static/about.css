@@ -1,0 +1,142 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav{
+    background-color: #d7edff;
+    height: 90px;
+}
+.navbar{
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+.nav{
+    position: sticky;
+    right: 0;
+    left: 0;
+    top: 90px;
+}
+nav a{
+    color: #004ba9;
+    font-family: sans-serif;
+    font-weight: 400;
+}
+.homedrop{
+    position: relative;
+}
+.dropdown{
+    background-color: #d7edff;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    display: none;
+}
+.dropdown a{
+    text-decoration: none;
+    margin: 5px 0;
+    color: #004ba9;
+}
+.homedrop:hover .dropdown{
+    display: block;   
+}
+nav .bttn, .blue button{
+    color: #004ba9;
+    background-color: transparent;
+    font-weight: bold;
+    padding: 5px 15px;
+    border: 2px solid #004ba9;
+    border-radius: 20px;
+}
+.mediaquerynav{
+    background-color: #faf7f7;
+    color: #004ba9;
+    top: 90px;
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 60px;
+}
+.text{
+    font-family: sans-serif;
+    font-weight: 400;
+    color: #004ba9;
+    padding: 15% 0 8% 0;
+}
+header{
+    background-color: #004ba9;    
+}
+header a, .H3, .abtPin p, .side2 p, footer a{
+    text-decoration: none;
+    color: #d6ecff;
+    font-family: sans-serif;
+    font-weight: 400;
+}
+.linkdisplay{
+    display: none;   
+}
+.abtPin{
+    width: 60%;
+}
+.icon{
+    display: none;
+}
+.container .H3, .abtPin p, .side2 p, .side2 a, .bluelight h3, footer a, footer p{
+    color: #004ba9; 
+}
+.abt{
+    display: flex;
+    padding-left: 15%;
+    overflow-x: hidden;
+}
+.side2 .d-flex{
+    border-bottom: 1px solid #004ba9;
+    width: 150%;
+}
+.blue{
+    background-color: #004ba9;
+}
+.blue button{
+    border: 2px solid #d6ecff;
+    color: #d6ecff;
+    padding: 12px 30px;
+    border-radius: 30px;
+}
+.bluelight{
+    background-color: #d7edff;
+}
+footer{
+    background-color: #e9d7be;
+}
+.footerlogo{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: oblique;
+    font-weight: bold;
+}
+footer .container .d-flex {
+   padding-top: 4%; 
+} 
+footer .container .input{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 30px;
+    background-color:white ;
+    border-radius: 20px;
+    border: 2px solid #d0d0d0;
+}
+footer .container input{
+    border: 0;
+    background-color: transparent;
+}
+.input ::placeholder{
+    color: #004ba9;
+    font-weight: bold;
+}
+#footernone{
+    display: none;
+}
+
+

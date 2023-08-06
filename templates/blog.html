@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+     <!-- Bootstrapt icons -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+     <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+     <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'blog.css' %}">
+
+    <link rel="stylesheet" href="{% static 'blog.media.css' %}">
+    
+</head>
+<body>
+    <nav>
+        <div class="navwrap container mx-auto p-2">
+            <div class="d-flex align-items-center gap-2">
+                <a href="./index.html"><i class="bi bi-pinterest fs-4 text-danger"></i></a>
+                <a class="text-decoration-none text-danger fw-normal" href="">Basın Odası</a>
+            </div>
+            <div class="d-flex gap-3 side2">
+                <a class="text-decoration-none" href="">Haberler</a>
+                <a class="text-decoration-none" href="">Şirket</a>
+                <a class="text-decoration-none" href="">Galeri</a>
+                <a class="text-decoration-none" href="">Görüşler</a>
+                <a class="text-decoration-none" href="">Kaynaklar</a>
+            </div>
+            <i style="color: #5c5c5c;" class="bi bi-list icon icoon"></i>
+        </div>
+    </nav>
+    <section id="section1">
+        <div class="container">
+            <h1>Basın Odası</h1>
+        </div>
+    </section>
+    <section id="section2">
+        <div class="sect2wrap container">
+            <div class="text">
+                <h2 class="">Pinterest, platforma üçüncü taraf reklam talebini getirmek için Amazon ile işbirliği yapacağını duyurdu</h2>
+                <p class="fw-bold fs-5 pt-4">27 Nisan 2023</p>
+                <a class="fs-4 fw-light" href="#">Şirket, Haberler</a>
+            </div>
+            <div class="image">
+                <img class="img-fluid" src="https://subsites-newsroom.imgix.net/sites/pinnews/files/post_glimpse/2023-04/Pinterest%20and%20Amazon_Primary_1440x840@2x.png?ixlib=php-3.3.1&s=29e6ff2d324caab695d63f1dcd99a637" alt="">
+                <p class=" fw-normal">Bugün, Pinterest'te üçüncü taraf reklam talebini açtığımızı duyuruyoruz. Pinterest'teki alışverişe yönelik içerikle kullanıcı etkileşimi arttıkça, üçüncü taraf reklamlar için ilk ortağımız olarak Amazon'u seçtiğimiz için mutluyuz. Amazon ile yapılan işbirliği, platforma daha fazla marka ve ilgili ürün getirecek ve tüketiciler için sorunsuz bir Amazon alışveriş deneyimi sunarak reklamverenlere güçlü bir performans sunacak.</p>
+                <button>Daha fazlasını oku</button>
+            </div>
+        </div>
+    </section>
+    <section id="section3">
+        <div class="container py-5">
+            <h2>
+                Pinterest, dünya genelinde insanların zevklerine özelleştirilmiş ürünler almak, çevrimdışı yapacak fikirler bulmak ve en ilham verici yaratıcıları keşfetmek için kullandığı görsel ilham platformudur. Misyonumuz, herkese kendilerini sevdikleri bir yaşam yaratma ilhamını vermektir.</h2>
+        </div>
+    </section>
+    <section id="section4">
+        <div class="container">
+            <h2>Son Haberler</h2>
+            <div class="pflex"> <p>Tümünü görüntüle</p></div>
+            <div class="dropdown pb-5">
+                <button class="btn btn-light dropdown-toggle fs-5 fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Haberler
+                </button>
+                <ul class="dropdown-menu dropdown-menu-light">
+                    <li><a class="dropdown-item active" href="#">Haberler</a></li>
+                    <li><a class="dropdown-item" href="#">Reklamlar</a></li>
+                    <li><a class="dropdown-item" href="#">Şirket</a></li>
+                    <li><a class="dropdown-item" href="#">Yaratıcı</a></li>
+                    <li><a class="dropdown-item" href="#">İşletmeler için Pinterest</a></li>
+                    <li><a class="dropdown-item" href="#">Ürünler</a></li>
+                    <li><a class="dropdown-item" href="#">Teknoloji</a></li>
+                </ul>
+                <button class="btn btn-light dropdown-toggle fw-bold fs-5" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Yıl
+                </button>
+                <ul class="dropdown-menu dropdown-menu-light">
+                    <li><a class="dropdown-item active" href="#">2023</a></li>
+                    <li><a class="dropdown-item" href="#">2022</a></li>
+                    <li><a class="dropdown-item" href="#">2021</a></li>
+                    <li><a class="dropdown-item" href="#">2020</a></li>
+                    <li><a class="dropdown-item" href="#">2019</a></li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                    <a href=""><img class="img-fluid" src="/static/blog_img/Pays to be Positive study _ Assets for press_thumbnail_2.jpg" alt=""></a>
+                    <p class="pt-2">1 Haziran 2023</p>
+                    <a class="fs-5 text-decoration-none" href="#">Pinterest araştırması, olumlu düşüncelerin alışveriş yolunun her aşamasında etkili olduğunu kanıtlıyor</a>
+                </div>
+                <!-- Diğer haber kartları buraya eklenmeli -->
+            </div>
+            <div class="row mt-5">
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                    <a href=""><img class="img-fluid" src="/static/blog_img/PinterestNewsroomHeader-en-US_0.png" alt=""></a>
+                    <p class="pt-2">10 Mayıs 2023</p>
+                    <a class="fs-5 text-decoration-none" href="#">Pinterest'te daha kolay bir şekilde yaratın ve ilham alın</a>
+                </div>
+                <!-- Diğer haber kartları buraya eklenmeli -->
+            </div>
+            <p class="pflex fs-4">1 - 8 / 359</p>
+            <p class="pflex2">
+                <i class="bi bi-chevron-left fw-bold me-3"></i>
+                <i class="bi bi-chevron-right"></i>
+            </p>
+        </div>
+    </section>
+    <section id="section5">
+        <div class="container">
+            <div class="sect5flex">
+                <h2>Bize Ulaşın</h2>
+                <div class="pt-4">
+                    <p class="fs-4 lh-1">Basın İstekleri</p>
+                    <p class="fw-normal fs-5">E-posta: press@pinterest.com</p>
+                    <p class="fw-normal fs-5" style="font-style: italic;">Sadece basın mensuplarına cevap verilecektir. Diğer sorularınız için Yardım Merkezimize(opens in a new window) göz atın.</p>
+                    <p class="fs-4">Konuşmacı Talebi</p>
+                    <p class="fw-normal fs-5">Konuşmacı talep formumuzu doldurun</p>
+                    <p class="fs-4">Abone Olun</p>
+                    <p class="fw-normal fs-5">RSS beslemesini alın</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <footer>
+            <div class="container py-3">
+                <div class="footerwrap pt-5 pb-1">
+                    <div>
+                        <p class="footerlogo display-6 pb-4">Pinterest</p>
+                        <div class="input">
+                            <input type="text" placeholder="Türkçe (TR)">
+                            <i class="bi bi-chevron-down icon"></i>
+                        </div>
+                    </div>
+                    <div class=" d-flex">
+                        <div>
+                            <p class="fw-bold fs-4">Hakkımızda</p>
+                            <p><a href="">Pinterest Nedir</a></p>
+                            <p><a href="">Pinterest Sayfamız</a></p>
+                            <p><a href="">Mühendislik Blogu</a></p>
+                            <p><a href="">Marka İlkeleri</a></p>
+                            <p><a href="">Kariyer Olanakları</a></p>
+                            <p><a href="">Yardım Merkezi</a></p>
+                            <p><a href="">Pinterest Laboratuvarları</a></p>
+                        </div>
+                        <div>
+                            <div>
+                                <p class="fw-bold fs-4">Politikalarımız</p>
+                                <p><a href="">Telif Hakkı</a></p>
+                                <p><a href="">Kişiselleştirilmiş Reklamlar</a></p>
+                                <p><a href="">Hizmet Şartları</a></p>
+                                <p><a href="">Gizlilik</a></p>
+                            </div>
+                            <div>
+                                <p class="fw-bold fs-4">Daha Fazla Bilgi</p>
+                                <p><a href="">İşletmeler İçin</a></p>
+                                <p><a href="">Geliştiriciler İçin</a></p>
+                                <p><a href="">Basın İçin</a></p>
+                                <p><a href="">Yatırımcılar İçin</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="py-3">©2023 Pinterest</p>
+            </div>
+        </footer>
+    </footer>
+    
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
