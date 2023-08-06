@@ -1,0 +1,228 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkında</title>
+     <!-- Bootstrapt icons -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+     <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+     <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'about.css' %}">
+    <link rel="stylesheet" href="{% static 'aboutmedia.css' %}">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container mx-auto nav justify-content-between align-items-center p-3">
+            <div class="d-flex align-items-center gap-2">
+                <a href="#"><i class="bi bi-pinterest fs-4"></i></a>
+                <a class="text-decoration-none" href="">Yardım Merkezi</a>
+            </div>
+            <div class="d-flex gap-3">
+                <a href="">
+                    <li class="homedrop">Genel
+                        <div class="dropdown">
+                            <a href="#">Başlarken</a>
+                            <a href="">Hesabını yönet</a>
+                            <a href="">Bul ve kaydet</a>
+                            <a href="">Oluştur ve düzenle</a>
+                            <a href="">Bağlan, işbirliği yap ve paylaş</a>
+                            <a href="">Gizlilik, güvenlik ve yasal</a>
+                        </div>
+                    </li>
+                </a>
+                <a class="text-decoration-none" href="">
+                    <li class="homedrop">İş
+                        <div class="dropdown">
+                            <a href="#">Başlarken</a>
+                            <a href="">İçerik oluştur</a>
+                            <a href="">Dükkan aç</a>
+                            <a href="">Reklam yap</a>
+                            <a href="">İzle</a>
+                            <a href="">Rapor al</a>
+                        </div>
+                    </li>
+                </a>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <i style="color: #004ba9;" class="bi bi-search fs-4 me-4"></i>
+                <button class="bttn">Giriş yap veya üye ol</button>
+                <a class="text-decoration-none pinteresthome" href="./index.html">Pinterest ana sayfa</a>
+                <i class="bi bi-list icon"></i>
+            </div>
+        </div>
+    </nav>
+    <div class="mediaquerynav navbar align-items-center p-3">
+        <div class="container mx-auto">
+            <p>Pinterest'e Giriş</p>
+            <i class="bi bi-plus fs-3"></i>
+        </div>
+    </div>
+
+    <div class="text">
+        <h1 class="d-flex justify-content-center align-items-center display-2">Pinterest Hakkında Her Şey</h1>
+    </div>
+
+    <header class="nav">
+        <div class="container mx-auto d-flex align-items-center p-3 gap-4">
+            <a href="">Pinterest Nedir</a>
+            <a href="">Ana akışınızı göz atın</a>
+            <a href="">Fikirler keşfedin</a>
+            <a href="">Pinleri kaydedin, paylaşın ve alışveriş yapın</a>
+            <a href="">Pin oluşturun</a>
+            <a href="">Pano oluşturun</a>
+            <a href="">Profilinizi görüntüleyin</a>
+            <div class="linkdisplay">
+                <p>Pinterest Nedir</p>
+                <p>Ana akışınızı göz atın</p>
+                <p>Fikirler keşfedin</p>
+                <p>Pinleri kaydedin, paylaşın ve alışveriş yapın</p>
+            </div>
+            <i class="bi bi-chevron-right  chevronR"></i>
+        </div>
+    </header>
+    <div class="container  abt ">
+        <div class="abtPin">
+            <h3 class="my-5 H3 display-6">Pinterest Nedir?</h3>
+            <p>Pinterest, tarifler, ev dekorasyonu, stil ilhamı ve daha fazlası gibi fikirleri bulmanız için görsel bir keşif motorudur.</p>
+            <p>Pinterest'te milyarlarca Pin bulunur ve her zaman ilham alacak fikirler keşfedersiniz. Beğendiğiniz Pinleri bulduğunuzda, fikirlerinizi düzenli ve kolay bulunabilir şekilde tutmak için panolarınıza kaydedebilirsiniz. Ayrıca Pinterest'teki diğer insanlarla fikirlerinizi paylaşmak için Pinler oluşturabilirsiniz.</p>
+            <p>Kaydolmak için <a href="">minimum yaş gereksinimlerini</a> karşılamanız gerekmekte ve gençler için belirli korumalarımız bulunmaktadır. Pinterest'te <a href="">gençler için güvenlik</a> hakkında daha fazla bilgi edinin.</p>
+            <h3 class="my-5 H3 display-6">Ana akışınızı göz atın</h3>
+            <p>Ana akışınız, son etkinliğinize göre size uygun gördüğümüz Pinleri, insanları ve işletmeleri içerir. Aynı zamanda takip etmeyi seçtiğiniz insanlardan ve panolardan gelen Pinleri de göstereceğiz.</p>
+            <p>Ayrıca arama çubuğuna anahtar kelimeleri yazarak Pinleri arayabilirsiniz. Arama çubuğuna "doğum günü partisi" yazmayı deneyerek doğum günü parti dekorasyon fikirleri, parti yiyecek tarifleri ve doğum günü hediye fikirleri görmek için fikirler arayabilirsiniz.</p>
+            <h3 class="my-5 H3 display-6">Fikirler Keşfedin</h3>
+            <p>Fikirler, insanlar ve trendleri keşfetmek için <a href="#">arama çubuğunu kullanabilirsiniz</a>. Önerilen konuları keşfedin veya kendi konularınızı arayın. Arama sayfasında Profilleri tıklayarak arama sonuçlarınıza uygun şekilde yaratıcıları, insanları ve markaları keşfedebilirsiniz. Kameranızı kullanarak fotoğraflarınıza uygun fikirler bulabilir ve cilt tonu aralığına veya saç desenine göre güzellik sonuçlarını daraltabilirsiniz.</p>
+            <h3 class="my-5 H3 display-6">Pinleri Kaydedin, Paylaşın ve Alışveriş Yapın</h3>
+            <p>Pinler, insanların Pinterest'te beğendikleri içerikleri kaydetmek için kullandığı işaretçilerdir. Pinler resimler, videolar veya ürünler olabilir.</p>
+            <img class="img-fluid" src="/static/about_img/pic.png" alt="">
+            <p class="pt-3">Pinin üzerine tıklarsanız, nasıl yapılacağını veya nereden satın alabileceğinizi öğrenmek için web sitesini ziyaret edebilirsiniz. Beğendiğiniz Pinleri keşfettikçe, onları panolarınıza kaydetmek için kırmızı "Kaydet" düğmesine tıklayın. Mükemmel bir doğum günü pastası tarifini denediniz mi? Nasıl gittiğini veya yardımcı ipuçlarını eklemek için yorum ekleyin.</p>
+            <p class="pt-3">Bazen arkadaşınızın da seveceğini bildiğiniz bir Pin bulabilirsiniz. Paylaş simgesine tıklayarak Pinleri doğrudan bir arkadaşa veya gruba mesaj olarak göndererek ilhamı paylaşabilirsiniz. Arkadaşlarınızla sohbet etmek için mesajları kullanabilirsiniz. Bilgisayarınızda konuşma üç nokta simgesine tıklayarak veya mobil cihazınızda diyalog üç nokta simgesine ve ardından Mesajlar'a tıklayarak iletilerinizi görebilirsiniz.</p>
+            <p>Ürün satın almak için Pinterest'te ürünleri arayabilirsiniz. Bir ürün Pin'i bulun ve mağazanın web sitesini ziyaret etmek için ona tıklayın.</p>
+            <h3 class="my-5 H3 display-6">Pin Oluşturun</h3>
+            <p>Bilgisayarınızdan veya mobil cihazınızdan bir görüntü yükleyerek <a href="">Pinterest'te Pin oluşturabilirsiniz</a>.</p>
+            <p>Aynı zamanda bulduğunuz çevrimiçi görüntülerden Pinler oluşturup kaydedebilirsiniz; bunun için tarayıcınıza bir <a href="#">Pinterest Kaydet Eklentisi</a> kurmanız gerekir. Oluşturduğunuz her Pin'e başlık ve açıklama ekleyin ve bir web sitesi bağlantısı ekleyin, eğer varsa.</p>
+            <p><a href="#">Bir Pin'in bilgilerini düzenleyebilirsiniz</a> ve istediğiniz zaman onu başka bir panoya taşıyabilirsiniz.</p>
+            <h3 class="my-5 H3 display-6">Panolar Oluşturun</h3>
+            <p>Kaydettiğiniz Pinler panolarınızda yer alır. Panolarınıza isim verin ve <a href="#">profilinizde</a> istediğiniz gibi düzenleyin. Pinterest'te diğer insanları davet ederek <a href="#">Grup panoları</a> üzerinde işbirliği yaparak daha fazla fikir bulabilirsiniz.</p>
+            <p>Pinlerinizi panolar içinde düzenlemek için <a href="#">pano bölümleri oluşturabilirsiniz</a>. Doğum günü partisi pano içinde "Dekorasyonlar" veya "Parti oyunları" bölümleri ekleyerek benzer fikirleri aynı yerde tutabilirsiniz. Pinlerinizi, sizin için mantıklı olan herhangi bir şekilde düzenleyin. Ayrıca hatırlatmalar veya kontrol listeleri oluşturmak için <a href="#">notlar ekleyebilirsiniz</a>.</p>
+            <p>Eğer Pinlerinizi gizlemeyi tercih ederseniz veya sürpriz bir doğum günü partisi düzenliyorsanız, panonuzu <a href="#">gizli</a> yapabilirsiniz. Gizli panolarınızı yalnızca siz ve davet ettiğiniz kişiler görebilir.</p>
+            <h3 class="my-5 H3 display-6">Profilinizi Görüntüleyin</h3>
+            <p>Kaydettiğiniz tüm Pinleri, oluşturduğunuz panoları ve denediğiniz Pinleri <a href="#">profilinizde</a> bulabilirsiniz. Aynı zamanda <a href="#">sizi takip eden kişileri</a> ve takip ettiğiniz panoları ve kişileri görebilirsiniz. Kendi profilinizi görüntülerken yalnızca siz gizli panolarınızı görebilirsiniz.</p>
+        </div>
+    </div>
+    <div class="side2">
+        <p class="mt-5 fs-5">Diğer makaleler</p>
+        <div class="ps-4">
+            <div class="d-flex justify-content-between">
+                <p class="pt-4">Pinterest'e Giriş</p>
+                <i class="bi bi-plus fs-3"></i>
+            </div>
+            <div class="d-flex justify-content-between">
+                <p class="pt-4">Fikirler Keşfedin</p>
+                <i class="bi bi-plus fs-3"></i>
+            </div>
+            <div class="d-flex justify-content-between">
+                <p class="pt-4">Bir Pin ile Etkileşim</p>
+                <i class="bi bi-plus fs-3"></i>
+            </div>
+            <div class="d-flex justify-content-between">
+                <p class="pt-4">Profilinizi Ayarlayın</p>
+                <i class="bi bi-plus fs-3"></i>
+            </div>
+            <div class="d-flex justify-content-between">
+                <p class="pt-4">Pinterest ve Cihazınız</p>
+                <i class="bi bi-plus fs-3"></i>
+            </div>
+            <div class="d-flex justify-content-between">
+                <p class="pt-4">Özellikler ve Araçlar</p>
+                <i class="bi bi-plus fs-3"></i>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="blue d-flex justify-content-center align-items-center gap-3 p-4">
+        <h3 class="H3 display-6">Hala yardıma mı ihtiyacınız var?</h3>
+        <button>Bize Ulaşın</button>
+    </div>
+    <div class="bluelight d-flex justify-content-center align-items-center gap-3 p-4">
+        <h3 class="H3 display-6">Bu makale yardımcı oldu mu?</h3>
+        <i class="bi bi-emoji-smile"></i>
+        <i class="bi bi-emoji-frown"></i>
+    </div>
+    <footer class="">
+        <div class="container mx-auto">
+            <div class="footerwrap d-flex justify-content-between">
+                <div>
+                    <p class="footerlogo H3 display-6">Pinterest</p>
+                    <p>Diller</p>
+                    <div class="input">
+                        <input type="text" placeholder="Türkçe (TR)">
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="pt-4 listnone">
+                    <p class="fw-bold">Hakkımızda</p>
+                    <p><a href="">Pinterest Nedir</a></p>
+                    <p><a href="">Pinterest Sayfamız</a></p>
+                    <p><a href="">Mühendislik Blogu</a></p>
+                    <p><a href="">Marka İlkeleri</a></p>
+                    <p><a href="">Kariyer Olanakları</a></p>
+                    <p><a href="">Yardım Merkezi</a></p>
+                    <p><a href="">Pinterest Laboratuvarları</a></p>
+                </div>
+                <div class="pt-4 listnone">
+                    <p class="fw-bold">Politikalarımız</p>
+                    <p><a href="">Telif Hakkı</a></p>
+                    <p><a href="">Kişiselleştirilmiş Reklamlar</a></p>
+                    <p><a href="">Hizmet Şartları</a></p>
+                    <p><a href="">Gizlilik</a></p>
+                </div>
+                <div class="pt-4 listnone">
+                    <p class="fw-bold">Daha Fazla Bilgi</p>
+                    <p><a href="">İşletmeler İçin</a></p>
+                    <p><a href="">Geliştiriciler İçin</a></p>
+                    <p><a href="">Basın İçin</a></p>
+                    <p><a href="">Yatırımcılar İçin</a></p>
+                </div>
+            </div>
+            <div class="container" id="footernone">
+                <div class="footernone d-flex justify-content-between">
+                    <div class="pt-4">
+                        <p class="fw-bold">Hakkımızda</p>
+                        <p><a href="">Pinterest Nedir</a></p>
+                        <p><a href="">Pinterest Sayfamız</a></p>
+                        <p><a href="">Mühendislik Blogu</a></p>
+                        <p><a href="">Marka İlkeleri</a></p>
+                        <p><a href="">Kariyer Olanakları</a></p>
+                        <p><a href="">Yardım Merkezi</a></p>
+                        <p><a href="">Pinterest Laboratuvarları</a></p>
+                    </div>
+                    <div class="pt-4">
+                        <p class="fw-bold">Politikalarımız</p>
+                        <p><a href="">Telif Hakkı</a></p>
+                        <p><a href="">Kişiselleştirilmiş Reklamlar</a></p>
+                        <p><a href="">Hizmet Şartları</a></p>
+                        <p><a href="">Gizlilik</a></p>
+                    </div>
+                    <div class="pt-4">
+                        <p class="fw-bold">Daha Fazla Bilgi</p>
+                        <p><a href="">İşletmeler İçin</a></p>
+                        <p><a href="">Geliştiriciler İçin</a></p>
+                        <p><a href="">Basın İçin</a></p>
+                        <p><a href="">Yatırımcılar İçin</a></p>
+                    </div>
+                </div>
+            </div>
+            <p class="py-4">© Pinterest 2023</p>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

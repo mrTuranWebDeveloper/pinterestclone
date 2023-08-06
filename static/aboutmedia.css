@@ -1,0 +1,86 @@
+@media (max-width:771px) {
+    nav .bttn{
+        display: none;
+    }
+    .pinteresthome{
+        display: none;
+    }
+    .icon{
+        display: block;
+        font-size: 20px;
+        color: #004ba9;
+    }    
+}
+@media (max-width:613px) {
+    .mediaquerynav{
+        display: block;
+    }
+    .text{
+        padding: 40% 0 15% 0;
+    }
+    .nav{
+        top: 150px;
+        flex-wrap: wrap;
+    }
+}
+@media (max-width:991px) {
+    header{
+        height: 60px;  
+    }
+    header a{
+        width: 100%;
+        display: none;
+    }
+    .linkdisplay{
+        display: inline-flex;
+        justify-content: space-between;
+    }
+    .linkdisplay p{
+        color: #d6ecff;
+        width: 100%;
+    }
+}
+@media (max-width:677px) {
+    .side2{
+        display: none;
+    }
+    .abtPin{
+        width: 100%;
+    }
+    .chevronR{
+        display: none;
+    }
+    .abt{
+        display: block;
+       justify-content: center;
+        padding-left: 5%;
+    }
+}
+@media (max-width:763px){
+    .footerwrap{
+        display: flex;
+        flex-direction: column;
+    }
+    .listnone{
+    display: none;
+}
+#footernone{
+    display: block;
+    flex-wrap: wrap;
+}
+}
+@media (max-width:429px){
+    header{
+        overflow: hidden;
+    }
+}
+@media (max-width:280px){
+    footer{
+       overflow-x: hidden;
+    }
+}
+@media (max-width:398px){
+    .blue button{
+        padding: 5px 10px;
+    }
+}

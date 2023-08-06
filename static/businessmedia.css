@@ -1,0 +1,146 @@
+@media (max-width:992px){
+    .bttn1, .bttn2, .displaynone{
+        display: none;
+        
+    }
+    nav .icoon{
+        display: block;
+        font-size: 30px;
+    }
+}
+body{
+    /* overflow: hidden; */
+}
+@media (max-width:995px){
+    #section1 p, #section3 p{
+        width: 100%;
+        font-size: 1.2rem;
+    }
+    #section1 h1{
+        font-size: 4rem;
+        text-align: center;
+        /* width: 100%; */
+        padding-top: 20%
+    }
+    #section3 h1{
+        font-size: 4rem;
+    }
+    #section3 h1,  #section5 h1, #section7 h1{
+        font-size: 2.5rem ;
+        text-align: center;
+    }
+    .carousel1 h2, .carousel2 h2, .carousel3 h2, .carousel4 h2{
+        font-size: 2rem;
+    }
+    #section1 button, #section3 button, .carousel1 button, .carousel2 button, .carousel3 button, .carousel4 button{
+        padding: 10px 15px;
+
+    }
+}
+@media (max-width:239px){
+    #section1 p, #section3 p{
+        width: 100%;
+        font-size: 0.7rem;
+    }
+    #section1 h1, #section3 h1{
+        font-size: 1.5rem;
+        /* width: 100%; */
+        padding-top: 20%
+    }
+    #section1 button, #section3 button{
+        padding: 5px 10px;
+    }
+    .carousel3 button{
+        display: none;
+    }
+    nav{
+        /* height: 60px; */
+    }
+    
+
+}
+@media (max-width:491px){
+    .carousel2 button, .carousel3 button, .carousel4 button{
+        padding: 5px 10px;
+
+    }
+    
+}
+@media (max-width:233px){
+   nav .icoon{
+        font-size: 12px;
+    }
+    
+
+}
+@media (max-width:357px){
+    footer{
+        /* overflow-x: hidden; */
+    }
+    footer .d-flex{
+        flex-wrap: wrap;
+        /* text-align: center; */
+        /* flex-shrink: 0; */
+
+    }
+
+}
+@media (max-width:777px){
+    #section6 .imageflex, #section7 .imageflex {
+        flex-direction: column;
+    }
+    .footerwrap{
+        display: flex;
+        flex-direction: column;
+    }
+    footer .d-flex{
+        padding-top: 10%;
+        /* text-align: center; */
+        /* gap: 2%; */
+        
+    }
+    #insight{
+        font-size: 2rem;
+        text-align: center;
+    }
+
+}
+@media (max-width:775px){
+    #section7 h2{
+        width: 100%;
+        text-align: center;
+        font-size: 2rem;
+    }
+    #section7 .imageflex .insightp{
+        width: 100%;
+        text-align: center;
+    }
+    #section6 img{
+        margin-top: 10%;
+    }
+    #section7 button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* background-color: aqua; */
+        width: 100%;
+        /* text-align: center; */
+    }
+
+
+}
+ @media (max-width:258px){
+    /* .footerwrap{
+        display: flex;
+        flex-direction: column;
+    } */
+    .input .icon{
+        display: none;
+    }
+}
+
+
+
+
+
+
