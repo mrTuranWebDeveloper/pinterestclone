@@ -12,7 +12,14 @@ def pinsDetail(request,pinId):
     context = {
         'pins':pins
     }
-    return render(request, 'detail.html', context)
+    return render(request, 'pins.html', context)
+
+def idea_pins_Detail(request,ideapinId):
+    ideapins = IdeaPin.objects.get(id=ideapinId)
+    context = {
+        'ideapins':ideapins
+    }
+    return render(request, 'ideapins.html', context)
 
 def create_pin(request):
     if request.method == 'POST':
@@ -43,8 +50,10 @@ def create_idea_pin(request):
 
 def homepage(request):
     pins = Pin.objects.all()
+    ideapins = IdeaPin.objects.all()
     context = {
-        'pins':pins
+        'pins':pins,
+        'ideapins':ideapins
     }
     return render(request, 'homepage.html', context)
 
