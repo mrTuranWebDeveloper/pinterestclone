@@ -8,7 +8,7 @@ class Pin(models.Model):
     description = models.TextField(max_length=500)
     image = models.ImageField(upload_to='pins/')
     url = models.URLField()
-    board = models.ForeignKey('Board', on_delete=models.CASCADE,  related_name='pins', null=True)
+    board = models.ForeignKey('Board', on_delete=models.CASCADE,  related_name='pins', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -24,8 +24,8 @@ class IdeaPin(models.Model):
     description = models.TextField(max_length=500)
     image = models.ImageField(upload_to='ideapins/')
     url = models.URLField()
-    board = models.ForeignKey('Board', on_delete=models.CASCADE, related_name='ideapins', null=True)
-    group = models.ForeignKey('Group', on_delete=models.CASCADE, related_name='ideapins', null=True)
+    board = models.ForeignKey('Board', on_delete=models.CASCADE, related_name='ideapins', null=True, blank=True)
+    group = models.ForeignKey('Group', on_delete=models.CASCADE, related_name='ideapins', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -46,6 +46,9 @@ class Board(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         verbose_name = 'Board'
         verbose_name_plural = 'Boards'
@@ -56,9 +59,12 @@ class Group(models.Model):
     image = models.ImageField(upload_to='groups/')
     creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='created_groups')
     group_members = models.ManyToManyField(User,  related_name='groups_joined')
-    group_boards = models.ManyToManyField(Board)
+    group_boards = models.ManyToManyField(Board, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         verbose_name = 'Group'
