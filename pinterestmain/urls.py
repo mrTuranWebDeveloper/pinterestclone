@@ -11,4 +11,5 @@ urlpatterns = [
     path('business/', business_page, name='business'),
     path('blog/', blog_page, name='blog'),
     path('login/', login_page, name='login'),
+    path('register/', register_page, name='register'),
 ]
