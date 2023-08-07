@@ -20,17 +20,17 @@
     <nav class="navbar">
         <div class="container-fluid mx-4 nav justify-content-between align-items-center">
           <div>
-            <a href="../"><img src="/static/img/Pinterest-Logo.png" alt="" width="100px"></a>
+            <a href="/"><img src="/static/img/Pinterest-Logo.png" alt="" width="100px"></a>
           </div>
           <div class="nav gap-3" id="">
             <ul class="nav gap-3 align-items-center">
-              <li><a class="text-black text-decoration-none" href="about/" target="_blank">Hakkında</a></li>
-              <li><a class="text-black text-decoration-none" href="business/" target="_blank">İş Dünyası</a></li>
-              <li><a class="text-black text-decoration-none" href="blog/" target="_blank">Blog</a></li>
+              <li><a class="text-black text-decoration-none" href="{% url 'about' %}" target="_blank">Hakkında</a></li>
+              <li><a class="text-black text-decoration-none" href="{% url 'business' %}" target="_blank">İş Dünyası</a></li>
+              <li><a class="text-black text-decoration-none" href="{% url 'blog' %}" target="_blank">Blog</a></li>
             </ul>
             <div class="nav gap-2 navbtn">
-              <button type="button" class="btn btn-danger text-white" target="_blank"><a href="login/">Oturum Aç</a></button>
-              <button type="button" class="btn btn-light" target="_blank"><a href="register/">Kaydol</a></button>
+              <button type="button" class="btn btn-danger text-white" target="_blank" ><a href="{% url 'login' %}" style="text-decoration:none; color:inherit">Oturum Aç</a></button>
+              <button type="button" class="btn btn-light" target="_blank" ><a href="{% url 'register' %}" style="text-decoration:none; color:inherit">Kaydol</a></button>
             </div>
        
         </div>

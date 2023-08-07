@@ -9,7 +9,5 @@ urlpatterns = [
     path('homepage/', homepage, name='homepage'),
     path('about/', about_page, name='about'),
     path('business/', business_page, name='business'),
-    path('blog/', blog_page, name='blog'),
-    path('login/', login_page, name='login'),
-    path('register/', register_page, name='register'),
+    path('blog/', blog_page, name='blog')
 ]
