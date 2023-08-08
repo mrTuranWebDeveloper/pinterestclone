@@ -10,7 +10,17 @@
             <div class="col-8">
                 <h3>{{pins.title}}</h3>
                 <span>{{pins.description}}</span>
-                <p>{{pins.user}}</p>              
+                <p>{{pins.user}}</p> 
+                <h2>Comments</h2>
+                {% for comment in comments %}
+                    <p>{{ comment.content }}</p>
+                {% endfor %}
+
+                <form method="post" action="{% url 'create_comment' content_type.id pins.id %}">
+                    {% csrf_token %}
+                    <textarea name="content"></textarea>
+                    <input type="submit" value="Submit">
+                </form>           
             </div>
         </div>           
     </div>
