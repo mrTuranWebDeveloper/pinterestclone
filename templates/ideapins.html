@@ -11,21 +11,34 @@
                 <h3>{{ideapins.title}}</h3>
                 <span>{{ideapins.description}}</span>
                 <p>{{ideapins.user}}</p>  
-                <h2>Comments</h2>
-                {% for comment in comments %}
+                <h3>Yorumlar</h3>
+                {% if comments %}
+                    {% for comment in comments %}
                     <div class="d-flex">
                     <strong class="me-2">{{comment.commenter.username}}</strong><strong class="me-2">|</strong><p>{{ comment.content }}</p>
                     </div>
-                {% endfor %}
-                <div class="d-flex justify-content-center me-2 p-2">
-                {% for profil in profiller %}
-                    <img src="{{profil.resim.url}}" width="50" height="50" class="rounded-5" style="margin-top: 10px;" alt="">
-                {% endfor %}
-                <form method="post" class="d-flex p-2" action="{% url 'create_comment' content_type.id ideapins.id %}">
-                    {% csrf_token %}
-                    <textarea name="content" class="form-control me-2"></textarea>
-                    <input type="submit" value="Submit">
-                </form>               
+                    {% endfor %}
+                    <div class="d-flex justify-content-center me-2 p-2">
+                    {% for profil in profiller %}
+                        <img src="{{profil.resim.url}}" width="50" height="50" class="rounded-5" style="margin-top: 10px;" alt="">
+                    {% endfor %}
+                    <form method="post" class="d-flex p-2" action="{% url 'create_comment' content_type.id ideapins.id %}">
+                        {% csrf_token %}
+                        <textarea name="content" class="form-control me-2"></textarea>
+                        <input type="submit" value="Submit">
+                    </form> 
+                    {% else %}
+                    <p style="color:gray;">Henüz yorum yok! Sohbeti başlatmak için bir tane ekleyin.</p>
+                    <div class="d-flex justify-content-center me-2 p-2">
+                    {% for profil in profiller %}
+                        <img src="{{profil.resim.url}}" width="50" height="50" class="rounded-5" style="margin-top: 10px;" alt="">
+                    {% endfor %}
+                    <form method="post" class="d-flex p-2" action="{% url 'create_comment' content_type.id ideapins.id %}">
+                        {% csrf_token %}
+                        <textarea name="content" class="form-control me-2"></textarea>
+                        <input type="submit" value="Submit">
+                    </form> 
+                    {% endif %}
             </div>
         </div>           
     </div>
