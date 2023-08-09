@@ -13,14 +13,20 @@
                 <p>{{pins.user}}</p> 
                 <h2>Comments</h2>
                 {% for comment in comments %}
-                    <p>{{ comment.content }}</p>
+                    <div class="d-flex">
+                    <strong class="me-2">{{comment.commenter.username}}</strong><strong class="me-2">|</strong><p>{{ comment.content }}</p>
+                    </div>
                 {% endfor %}
-
-                <form method="post" action="{% url 'create_comment' content_type.id pins.id %}">
+                <div class="d-flex justify-content-center me-2 p-2">
+                {% for profil in profiller %}
+                    <img src="{{profil.resim.url}}" width="50" height="50" class="rounded-5" style="margin-top: 10px;" alt="">
+                {% endfor %}
+                <form method="post" class="d-flex p-2" action="{% url 'create_comment' content_type.id pins.id %}">
                     {% csrf_token %}
-                    <textarea name="content"></textarea>
+                    <textarea name="content" class="form-control me-2"></textarea>
                     <input type="submit" value="Submit">
-                </form>           
+                </form> 
+                </div>
             </div>
         </div>           
     </div>
