@@ -46,7 +46,7 @@ def create_pin(request):
 
 def create_idea_pin(request):
     if request.method == 'POST':
-        form = IdeaPinForm(request.Post, request.FILES)
+        form = IdeaPinForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('index')
