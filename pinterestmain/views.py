@@ -34,6 +34,8 @@ def create_pin(request):
     if request.method == 'POST':
         form = PinForm(request.POST, request.FILES)
         if form.is_valid():
+            pin = form.save(commit=False)
+            pin.user = request.user
             form.save()
             return redirect('index')  # Daha sonra homepage olarak değiştirilecek
     else:
@@ -48,6 +50,8 @@ def create_idea_pin(request):
     if request.method == 'POST':
         form = IdeaPinForm(request.POST, request.FILES)
         if form.is_valid():
+            ideapin = form.save(commit=False)
+            ideapin.user = request.user
             form.save()
             return redirect('index')
     else:
