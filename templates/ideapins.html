@@ -15,16 +15,19 @@
 
     <div class="container mt-5 d-flex align-items-center justify-content-center">
         <div class="row border rounded-2 p-4">
-            <div class="col-4">
+            <div class="col-5">
                 <img src="{{ideapins.image.url}}" width="100%" style="border-radius: 10px;" alt="">
             </div>
 
-            <div class="col-8">
+            <div class="col-7">
                 <h3>{{ideapins.title}}</h3>
                 <span>{{ideapins.description}}</span>
-                <p>{{ideapins.user}}</p>  
-                <h3>Yorumlar</h3>
-                {% if comments %}
+                <p>{{ideapins.user}}</p> 
+                <div class="d-flex">
+                    <h3 class="me-2">Yorumlar</h3> <button id="toggle-comments" class="comment-button"><img src="/static/img/8666558_chevron_down_icon.svg" alt=""></button>
+                </div>
+                <div id="comments-section">
+                    {% if comments %}
                     {% for comment in comments %}
                     <div class="d-flex align-items-center">
                     {% for profil in profiller %}
@@ -34,11 +37,12 @@
                     </div>
                     {% endfor %}
 
-                {% else %}
+                    {% else %}
 
-                    <p style="color:gray;">Henüz yorum yok! Sohbeti başlatmak için bir tane ekleyin.</p>
+                        <p style="color:gray;">Henüz yorum yok! Sohbeti başlatmak için bir tane ekleyin.</p>
 
-                {% endif %}
+                    {% endif %}
+                </div>
                     <hr>
                     <h3>Ne düşünüyorsunuz?</h3>
                     <div class="d-flex flex-fill align-items-stretch me-2 p-2">
@@ -54,4 +58,27 @@
             </div>
         </div>           
     </div>
+
+    <script>
+        
+        // button ve comment kısmını atama yapıyoruz
+        var toggleButton = document.getElementById('toggle-comments');
+        var commentSection = document.getElementById('comments-section');
+        // button img degisimi icin atama yapıyoruz
+        var buttonImage = toggleButton.querySelector('img');
+    
+        // buttona event listener ekliyoruz
+        toggleButton.addEventListener('click', function() {
+            // yorumları göster veya gizle için if statement
+            if (commentSection.style.display === 'none') {
+                commentSection.style.display = 'block';
+                // button acıkken asagıyı gösteren img
+                buttonImage.src = '/static/img/8666558_chevron_down_icon.svg'
+            } else {
+                commentSection.style.display = 'none';
+                // button kapalıyken sag tarafı gösteren img
+                buttonImage.src = '/static/img/8666777_chevron_right_arrow_icon.svg'
+            }
+        });
+    </script>
 {% endblock content %}
