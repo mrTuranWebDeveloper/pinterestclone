@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.contenttypes.models import ContentType
 from .models import *
 from .forms import *
+from django.contrib import messages
 
 # Create your views here.
 
@@ -34,6 +35,8 @@ def create_pin(request):
     if request.method == 'POST':
         form = PinForm(request.POST, request.FILES)
         if form.is_valid():
+            pin = form.save(commit=False)
+            pin.user = request.user
             form.save()
             return redirect('index')  # Daha sonra homepage olarak değiştirilecek
     else:
@@ -46,8 +49,10 @@ def create_pin(request):
 
 def create_idea_pin(request):
     if request.method == 'POST':
-        form = IdeaPinForm(request.Post, request.FILES)
+        form = IdeaPinForm(request.POST, request.FILES)
         if form.is_valid():
+            ideapin = form.save(commit=False)
+            ideapin.user = request.user
             form.save()
             return redirect('index')
     else:
@@ -82,6 +87,12 @@ def create_comment(request, content_type_id, object_id):
 
     if request.method == 'POST':
         content = request.POST['content']
+        if len(content) > 500:
+            messages.error(request, 'Comment cannot be longer than 500 characters.')
+            if content_type.model == 'pin':
+                return redirect('pins', pinId=object_id)
+            elif content_type.model == 'ideapin':
+                return redirect('ideapins', ideapinId=object_id)
         commenter = request.user
 
         comment = Comment(content=content, commenter=commenter, content_object=obj)
