@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.contenttypes.models import ContentType
 from .models import *
 from .forms import *
+from django.contrib import messages
 
 # Create your views here.
 
@@ -86,6 +87,12 @@ def create_comment(request, content_type_id, object_id):
 
     if request.method == 'POST':
         content = request.POST['content']
+        if len(content) > 500:
+            messages.error(request, 'Comment cannot be longer than 500 characters.')
+            if content_type.model == 'pin':
+                return redirect('pins', pinId=object_id)
+            elif content_type.model == 'ideapin':
+                return redirect('ideapins', ideapinId=object_id)
         commenter = request.user
 
         comment = Comment(content=content, commenter=commenter, content_object=obj)
