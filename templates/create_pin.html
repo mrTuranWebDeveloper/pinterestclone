@@ -1,0 +1,13 @@
+{% extends "index.html" %} <!--daha sonra homepage.html olarak değiştirilecek-->
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <form action="" method="POST" enctype="multipart/form-data" class="w-75 mt-5 m-auto border rounded-2 p-5">
+        {% csrf_token %}
+        {{form.as_p}}
+        {{ form.media }}
+        <input type="submit" value="Kaydet" class="btn btn-danger mt-3">
+    </form>
+</div>
+{% endblock content %}

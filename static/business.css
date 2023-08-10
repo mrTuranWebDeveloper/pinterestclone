@@ -1,0 +1,243 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+}
+nav{
+    background-color: #00261a;
+    border-bottom: 1px solid #153b2c;
+}
+nav:hover{
+    background-color: #cdf9cd;
+}
+#navbar{
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+nav a{
+    text-decoration: none;
+    color:#cdf9cd ;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+    font-weight: 700;
+}
+nav:hover a{
+    color: #00261a;
+}
+nav .bttn1, .bttn2, #section1 button{
+    color: #cdf9cd;
+    background-color: transparent;
+    font-weight: bold;
+    padding: 5px 15px;
+    border: 2px solid #cdf9cd;
+    border-radius: 20px;
+}
+nav .bttn2{
+    color: #00261a;
+    border: 1px solid #00261a;
+    background-color: #cdf9cd;
+}
+nav:hover .bttn2{
+    background-color: #00261a;
+    color: #cdf9cd;
+}
+nav:hover .bttn1, #section7:hover button{
+    background-color: #cdf9cd;
+    color: #00261a;
+    border: 2px solid #00261a;
+}
+nav .icoon{
+    display: none;
+}
+#section1{
+    background-color: #00261a;
+    color: #cdf9cd;
+    padding-bottom: 8%;   
+}
+#section1 h1, #section3 h1,  #section5 h1 {
+    padding-top: 10%;
+    font-style: oblique;
+    font-weight: 600;
+    font-size: 6rem;
+}
+#section3 h1, #section5 h1, #section7 h1{
+    font-size: 4rem;
+    font-style: normal;
+    color: #00422c;
+}
+#insight, #section6 p, #section7 h2{
+    font-size: 2.7rem;
+    color: #00422c;
+}
+#insightP{
+    color: #00422c;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+#section1 p, #section3 p{
+    width: 43%;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+#section3 p{
+    width: 60%;
+    color: #153b2c;
+}
+#section1 button, #section3 button, #section7 button{
+    padding: 15px 20px; 
+    border-radius: 30px;
+}
+#section2{
+    background-image: url(https://images.ctfassets.net/h67z7i6sbjau/3chyNvP0vDdeBOrgVVFkYs/9caeeb499cf87fb6da93d69816099a70/homepage_headerimage_1440x1169_2x.jpg?fm=webp&q=85&w=1680&h=1680);
+    background-position: fixed;
+    background-size: cover;
+    height: 100vh;
+} 
+.carousel1{
+    background-color: #ffdfe9;
+    color: #a30c4a;
+}
+.carousel2{
+    background-color: #f0ff97;
+    color: #09125f;
+}
+#carousel3{
+    background-color:#004ba9 ;
+    color: white;
+}
+.carousel4{
+    background-color: #1dad65;
+    color: white;
+}
+.carousel1 button, .carousel2 button, .carousel3 button, .carousel4 button{
+    background-color: #a30c4a;
+    padding: 20px 20px;
+    border: 0;
+    border-radius: 30px;
+    color: #ffdfe9;
+    font-weight: bold;
+    margin-top:5% ;
+}
+.carousel1 .container, .carousel2 .container, .carousel3 .container, .carousel4 .container, #insight{
+    padding-top: 30%;
+}
+.carousel1 h2, .carousel2 h2, .carousel3 h2, .carousel4 h2 {
+    font-size:4rem ;
+}
+.carousel2 button{
+    background-color:#09125f;
+    color: #f0ff97;
+}
+.carousel3 button{
+    background-color: white;
+    color: #004ba9;
+}
+.carousel4 button{
+    border: 2px solid #ffff;
+    background-color: transparent;
+    color: white;
+}
+#section3{
+    background-color: #fffedb;
+    color: #00261a;
+    padding-bottom: 10%;
+}
+#section5, #section6{
+    background-color: #fffedb;
+    color: #00261a;
+}
+#section3 button, #section7 button{
+    background-color: transparent;
+    border: 2px solid #153b2c;
+    color: #00422c;
+    font-weight: bold;
+}
+#section3:hover{
+    background-color: #00261a;
+}
+#section3:hover h1, #section3:hover p, #section7:hover h1, #section7:hover h2, #section7:hover .imageflex .insightp{
+    color: white;
+}
+#section4 .imagewrap{
+    display: flex;
+}
+.goalsflex{
+    color: #00422c;
+    padding-top: 8%;
+}
+.goalsflex a, #section6 a{
+    text-decoration: none;
+    color: #00422c;
+    font-weight: bold;
+}
+#section6 .imageflex, #section7 .imageflex {
+    display: flex;
+    justify-content: center;
+    gap: 4%;
+    padding-bottom: 10%;  
+} 
+#section5:hover {
+    background-color: #ffe376; 
+}
+#section7{
+    background-color: #cdf9cd;
+    padding-bottom: 8%;
+}
+#section7 h2{
+    width: 65%;
+}
+#section7 .imageflex .insightp{
+    width: 65%;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #00422c;
+}
+#section7:hover{
+    background-color: #00261a;
+}
+footer{
+    background-color: #cdf9cd;
+}
+footer .linethrough{
+    border-bottom: 1px solid #5e8877; 
+}
+.linethrough p{
+    color: #00422c;
+    font-weight: 600;
+}
+.footerlogo{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: oblique;
+    font-weight: bold;
+    color: #00422c;
+}
+footer .container .input{
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 30px;
+    background-color:transparent ;
+    border-radius: 10px;
+    border: 1px solid #00422c;
+}
+footer .container input{
+    border: 0;
+    background-color: transparent;
+}
+.input ::placeholder{
+    color: #00422c;
+    font-weight: bold;
+}
+footer a, footer .fw-bold{
+    text-decoration: none;
+    font-weight: 500;
+    color: #00422c;
+}
+footer .footerwrap{
+    display: flex;
+    justify-content: space-between;
+}
+.input .icon{
+    font-size: 20px;
+    color: #00261a;
+}
+

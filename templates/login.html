@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+    <div class="row">
+    <div class="col-md-6 offset-md-3">
+    <h1 class="text-center">Pinterest'e Giriş Yapın</h1>
+    <form action="" method="POST" class="m-auto border p-4">
+    {% csrf_token %}
+    <div class="form-group">
+    <label for="kullanici">Kullanıcı Adı</label>
+    <input type="text" class="form-control" name="kullanici" placeholder="Kullanıcı adınız giriniz">
+    </div>
+    <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="sifre" placeholder="Şifrenizi giriniz">
+    </div>
+    <div class="form-group">
+    <button type="submit" class="btn btn-danger mt-3">Oturum Aç</button>
+    </div>
+    <br>
+    <p class="text-center">Şifrenizi mi Unuttunuz? <a href="/forgot-password">Parolayı Sıfırla</a></p>
+    <p class="text-center">Hesabınız yok mu? <a href="{% url 'register' %}">Kaydol</a></p>
+    </form>
+    </div>
+    </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+    <div class="container register-container">
+    <div class="row">
+    <div class="col-md-6 offset-md-3">
+    <h1 class="text-center">Pinterest'e Hoşgeldiniz</h1>
+    <p class="text-center">Denemek için yeni fikirler bulun.</p>
+    <form action="" method="POST" enctype="multipart/form-data" class="m-auto border p-4">
+    {% csrf_token %}
+    <label for="">Kullanıcı Adı</label>
+            <input type="text" name="kullanici" id="" class="form-control">
+            <label for="">Email</label>
+            <input type="email" name="email" id="" class="form-control">
+            <label for="">Profil Resmi</label>
+            <input type="file"  name="resim" id="" class="form-control">
+            <label for="">Şifre</label>
+            <input type="password" name="sifre" id="" class="form-control">
+            <label for="">Şifre Onay</label>
+            <input type="password" name="sifre2" id="" class="form-control">
+    <button type="submit" class="btn btn-danger mt-3">Devam Et</button>
+    </div>
+    </form>
+    <p class="text-center mt-2">Üye misiniz? <a href="{% url 'login' %}">Oturum Aç</a></p>
+    <p class="text-center">Ücretsiz iş hesabı oluşturun. <a href="{% url 'business' %}">Buradan</a></p>
+    </div>
+    </div>
+    </div>
+{% endblock content %}

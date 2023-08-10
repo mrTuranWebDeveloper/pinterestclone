@@ -1,0 +1,27 @@
+{% extends "index.html" %}  <!-- bu extends sonra homepage.html ile değiştirilecek-->
+{% load static %}
+{% block content %}
+    <div class="container mt-5 d-flex align-items-center justify-content-center">
+        <div class="row border rounded-2 p-4">
+            <div class="col-4">
+                <img src="{{pins.image.url}}" width="100%" style="border-radius: 10px;" alt="">
+            </div>
+
+            <div class="col-8">
+                <h3>{{pins.title}}</h3>
+                <span>{{pins.description}}</span>
+                <p>{{pins.user}}</p> 
+                <h2>Comments</h2>
+                {% for comment in comments %}
+                    <p>{{ comment.content }}</p>
+                {% endfor %}
+
+                <form method="post" action="{% url 'create_comment' content_type.id pins.id %}">
+                    {% csrf_token %}
+                    <textarea name="content"></textarea>
+                    <input type="submit" value="Submit">
+                </form>           
+            </div>
+        </div>           
+    </div>
+{% endblock content %}

@@ -1,0 +1,149 @@
+@media (max-width:1312px) {
+    #section1, footer{
+        overflow-x: hidden;
+
+    }
+    
+    
+    
+}
+@media (max-width:700px) {
+    #section1 .container h1{
+        font-size: 4rem;
+    }
+    #section3 h2{
+        width: 50%;
+        /* font-size: 1rem; */
+        /* justify-content: center; */
+        font-weight: 700;
+
+    }
+    #section3 .container{
+        display: flex;
+        justify-content: center ;
+        flex-wrap: wrap;
+        
+    }
+    #section4 .row{
+        margin-top: 10%;
+    }
+    #section4 .mt-5{
+        margin-top: 25%;
+
+    }
+    #section4 .row div{
+        margin: 8% 0;
+    }
+
+    
+    
+    
+}
+@media (max-width:782px) {
+    #section2 .sect2wrap{
+        flex-direction: row-reverse;
+    }
+    #section2 h2{
+        font-weight: 700;
+        font-size: 2.5rem;
+    }
+    #section2 .fw-normal{
+        font-size: 1rem;
+        width: 100%;
+
+    }
+    
+}
+@media (max-width:742px) {
+     #section2 .sect2wrap{
+        flex-direction: column;
+    }
+    #section2 .sect2wrap img{
+        width: 100%;
+        
+    }
+    #section2 h2{
+        text-align: center;
+        font-size: 2rem;
+    }
+    #section2 a{
+        display: none;
+    }
+    #section2 .fw-normal{
+        font-size: 0.8rem;
+    }
+
+}
+@media (max-width:1226px) {
+    #section3 h2{
+        width: 100%;
+        font-size: 2rem;
+
+    }
+    
+}
+@media (max-width:990px) {
+    #section3 h2{
+        /* width: 70%; */
+        font-size: 2rem;
+
+    }
+    #section5 .sect5flex{
+        flex-direction: column;
+    }
+    .footerwrap{
+        display: flex;
+        flex-direction: column;
+    }
+    footer .d-flex{
+        margin-top: 8%;
+    }
+
+
+    
+}
+@media (max-width:954px) {
+    #section4 .row div{
+        margin: 5% 0;
+    }
+
+    
+}
+@media (max-width:1312px) {
+    
+}
+@media (max-width:1312px) {
+    
+}
+@media (max-width:600px) {
+    nav .side2 a{
+        display: none;
+
+    }
+    nav .icoon{
+        display: block;
+        font-size: 20px;
+        
+    
+    }
+    nav .navwrap{
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+@media (max-width:356px) {
+    #section1 .container h1{
+        font-size: 1rem;
+        text-align: center;
+        padding-top: 10%;
+        color: #5c5c5c;
+    }
+    #section1 {
+        background-color: transparent;
+    }
+    #section3 h2{
+        font-size: 1rem;
+    }
+
+    
+}
