@@ -1,25 +1,29 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Business</title>
-        <!-- Bootstrapt icons -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-        <!-- Main CSS -->
-        <link rel="stylesheet" href="{% static 'business.css' %}">
-        <link rel="stylesheet" href="{% static 'businessmedia.css' %}">
-    
-    </head>
+    <!-- Bootstrapt icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+        integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'business.css' %}">
+    <link rel="stylesheet" href="{% static 'businessmedia.css' %}">
+
+</head>
+
 <body>
     <nav class="navbar" id="navbar">
         <div class="container mx-auto nav justify-content-between align-items-center p-2">
             <div class="d-flex align-items-center gap-2">
-                <a href="./index.html"><i class="bi bi-pinterest fs-4"></i></a>
+                <a href="../index.html"><i class="bi bi-pinterest fs-4"></i></a>
                 <a class="text-decoration-none" href="">İşletme</a>
             </div>
             <div class="d-flex align-items-center gap-5 side2">
@@ -30,21 +34,24 @@
                     <a class="displaynone" href="">Görüşler</a>
                     <a class="displaynone" href="">Kaynaklar</a>
                 </div>
-               
+
                 <div class="bttn d-flex gap-2">
-                    <button class="bttn1">Giriş Yap</button>
-                    <button class="bttn2">Kaydol</button>
+                    <a class="bttn1" href="../login.html">Giriş Yap</a>
+                    <a class="bttn2" href="../register.html">Kaydol</a>
                 </div>
                 <i style="color:#cdf9cd" class="bi bi-list icon icoon"></i>
             </div>
         </div>
     </nav>
-    
-    <section class="container-fluid" id="section1" >
+
+    <section class="container-fluid" id="section1">
         <div class="container">
             <h1 class="d-flex justify-content-center align-items-center">Burada Fark Var</h1>
-            <div class="d-flex justify-content-center align-items-center pt-5 pb-4" >
-                <p class="text-center ">Pinterest'te, insanlar yeni fikirleri keşfetmek ve denemek konusunda güvende hissederler. İlham arıyorlar - ve sizi arıyorlar. Başlamak için, bir Pinterest işletme hesabına ihtiyacınız olacak. Ücretsiz kaydolabilirsiniz ve özel içerik formatlarına, özel analizlere ve daha fazlasına erişim elde edeceksiniz.</p>
+            <div class="d-flex justify-content-center align-items-center pt-5 pb-4">
+                <p class="text-center ">Pinterest'te, insanlar yeni fikirleri keşfetmek ve denemek konusunda güvende
+                    hissederler. İlham arıyorlar - ve sizi arıyorlar. Başlamak için, bir Pinterest işletme hesabına
+                    ihtiyacınız olacak. Ücretsiz kaydolabilirsiniz ve özel içerik formatlarına, özel analizlere ve daha
+                    fazlasına erişim elde edeceksiniz.</p>
             </div>
             <div class="d-flex justify-content-center align-items-center">
                 <button>Hesap Oluştur</button>
@@ -52,9 +59,9 @@
         </div>
     </section>
     <section id="section2">
-    
+
     </section>
-    
+
     <section id="carouselslide">
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -67,10 +74,12 @@
                                 <button>Daha Fazlasını Öğren</button>
                             </div>
                         </div>
-                        <img class="img-fluid w-50" src="https://images.ctfassets.net/h67z7i6sbjau/2IwLuBJyxtIcmHGD5WfNMU/6c04c83baeb0f6a6cc677ccdc68888ff/pinterestacademy_720x720_2x.jpg?fm=webp&q=85&w=1680&h=1680" class="d-block w-100" alt="...">
+                        <img class="img-fluid w-50"
+                            src="https://images.ctfassets.net/h67z7i6sbjau/2IwLuBJyxtIcmHGD5WfNMU/6c04c83baeb0f6a6cc677ccdc68888ff/pinterestacademy_720x720_2x.jpg?fm=webp&q=85&w=1680&h=1680"
+                            class="d-block w-100" alt="...">
                     </div>
                 </div>
-    
+
                 <div class="carousel-item" data-bs-interval="2000">
                     <div class="d-flex justify-content-between">
                         <div class="carousel2 container-fluid">
@@ -81,12 +90,14 @@
                                 <button>2023 raporunu keşfedin</button>
                             </div>
                         </div>
-                        <img class="img-fluid w-50" src="https://images.ctfassets.net/h67z7i6sbjau/2NYo8AEhv0tPPA8jqTUYXh/1fb6bc674281e834268f0d6c139c0e81/Homepagecallout.jpg?fm=webp&q=85&w=1680&h=1680" class="d-block w-100" alt="...">
+                        <img class="img-fluid w-50"
+                            src="https://images.ctfassets.net/h67z7i6sbjau/2NYo8AEhv0tPPA8jqTUYXh/1fb6bc674281e834268f0d6c139c0e81/Homepagecallout.jpg?fm=webp&q=85&w=1680&h=1680"
+                            class="d-block w-100" alt="...">
                     </div>
                 </div>
-    
+
                 <div class="carousel-item" data-bs-interval="2000">
-                    <div class="d-flex justify-content-between" id="carousel3" >
+                    <div class="d-flex justify-content-between" id="carousel3">
                         <div class="carousel3 container-fluid">
                             <div class="container text-center">
                                 <h2>Ürünlerinizi yükleyin.</h2>
@@ -94,10 +105,12 @@
                                 <button>Kataloglarla Başlayın</button>
                             </div>
                         </div>
-                        <img class="img-fluid w-50" src="https://images.ctfassets.net/h67z7i6sbjau/5DAqYfN6KXNF4kiqkhe0FF/c8b48d92cc86f01e9163bb59f2dc267a/PinterestShopping_2x.png?fm=webp&q=85&w=1680&h=1680" class="d-block w-100" alt="...">  
+                        <img class="img-fluid w-50"
+                            src="https://images.ctfassets.net/h67z7i6sbjau/5DAqYfN6KXNF4kiqkhe0FF/c8b48d92cc86f01e9163bb59f2dc267a/PinterestShopping_2x.png?fm=webp&q=85&w=1680&h=1680"
+                            class="d-block w-100" alt="...">
                     </div>
                 </div>
-    
+
                 <div class="carousel-item">
                     <div class="d-flex justify-content-between">
                         <div class="carousel4 container-fluid">
@@ -108,99 +121,127 @@
                                 <button>Başlamak için</button>
                             </div>
                         </div>
-                        <img class="img-fluid w-50" src="https://images.ctfassets.net/h67z7i6sbjau/7cicfv0la7RYB0sNuZxeHq/0dee5c8a42bb563f81b387cbdd48bacf/PinterestCreators.jpg?fm=webp&q=85&w=1680&h=1680" class="d-block w-100" alt="...">
-                    </div> 
+                        <img class="img-fluid w-50"
+                            src="https://images.ctfassets.net/h67z7i6sbjau/7cicfv0la7RYB0sNuZxeHq/0dee5c8a42bb563f81b387cbdd48bacf/PinterestCreators.jpg?fm=webp&q=85&w=1680&h=1680"
+                            class="d-block w-100" alt="...">
+                    </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Önceki</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Sonraki</span>
             </button>
         </div>
     </section>
-    
-    <section class="container-fluid" id="section3" >
+
+    <section class="container-fluid" id="section3">
         <div class="container pt-5">
-            <h1 class="d-flex justify-content-center align-items-center">Eylemler Sadece Beğenilerden Daha Anlamlıdır</h1>
-            <div class="d-flex justify-content-center align-items-center pt-5 pb-4" >
-                <p class="text-center ">Boş, anlamsız metrikleri unutun. Pinterest'teki insanlar fikirlerinizi denemek veya mağazanızdan alışveriş yapmak istiyorlar. Bu, diğer platformlarda bulamayacağınız daha derin ve anlamlı bir etkileşim türüdür. Ayda 463 milyon kişinin kullandığı Pinterest'teki 463 milyon kişiye ulaşın ve en iyi hedef kitlenizi bulun.
+            <h1 class="d-flex justify-content-center align-items-center">Eylemler Sadece Beğenilerden Daha Anlamlıdır
+            </h1>
+            <div class="d-flex justify-content-center align-items-center pt-5 pb-4">
+                <p class="text-center ">Boş, anlamsız metrikleri unutun. Pinterest'teki insanlar fikirlerinizi denemek
+                    veya mağazanızdan alışveriş yapmak istiyorlar. Bu, diğer platformlarda bulamayacağınız daha derin ve
+                    anlamlı bir etkileşim türüdür. Ayda 463 milyon kişinin kullandığı Pinterest'teki 463 milyon kişiye
+                    ulaşın ve en iyi hedef kitlenizi bulun.
                 </p>
             </div>
             <div class="d-flex justify-content-center align-items-center">
-                <button Temel Bilgileri Öğren</button>
+                <button> Temel Bilgileri Öğren </button>
             </div>
         </div>
     </section>
     <section id="section4">
         <div class="imagewrap">
-            <img class="img-fluid w-50" src="https://images.ctfassets.net/h67z7i6sbjau/5L3NKLLuY2LDnIxBIY5ve8/01d56ff8d0b06ebe2e9f89c4a3ed75a3/homepage_action_promotedpin_720x720.jpg.jpg?fm=webp&q=85&w=1680&h=1680" alt="">
-            <img class="img-fluid w-50" src="https://images.ctfassets.net/h67z7i6sbjau/38kSKHGDbcr5sRDRAZ25qe/9355e0ad3b7e8c0f9e0bff27b5c25838/homepage_action_section_720x720.jpg.jpg?fm=webp&q=85&w=1680&h=1680" alt="">
+            <img class="img-fluid w-50"
+                src="https://images.ctfassets.net/h67z7i6sbjau/5L3NKLLuY2LDnIxBIY5ve8/01d56ff8d0b06ebe2e9f89c4a3ed75a3/homepage_action_promotedpin_720x720.jpg.jpg?fm=webp&q=85&w=1680&h=1680"
+                alt="">
+            <img class="img-fluid w-50"
+                src="https://images.ctfassets.net/h67z7i6sbjau/38kSKHGDbcr5sRDRAZ25qe/9355e0ad3b7e8c0f9e0bff27b5c25838/homepage_action_section_720x720.jpg.jpg?fm=webp&q=85&w=1680&h=1680"
+                alt="">
         </div>
     </section>
     <div id="section5">
         <div class="container">
             <h1 class="d-flex justify-content-center align-items-center">Hedefleriniz, Sizin Yolunuz</h1>
-    
+
             <div class="row goalsflex">
                 <div class="col-sm-12 col-md-6 col-lg-4">
                     <p class="fs-3">Yaratıcılar</p>
-                    <p class="fw-bold">Lezzetlerinizi paylaşan bir topluluk oluşturun ve sevdiğiniz şeyleri yaparak para kazanın. Pinterest'teki içerik hiçbir zaman tükenmez, bu nedenle zaman içinde sürekli olarak yeni insanlara ulaşmaya devam edersiniz.</p>
+                    <p class="fw-bold">Lezzetlerinizi paylaşan bir topluluk oluşturun ve sevdiğiniz şeyleri yaparak para
+                        kazanın. Pinterest'teki içerik hiçbir zaman tükenmez, bu nedenle zaman içinde sürekli olarak
+                        yeni insanlara ulaşmaya devam edersiniz.</p>
                     <a href="">Yaratıcı Kaynaklarına Göz Atın</a>
                     <i class="bi bi-arrow-up-right"></i>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-4">
                     <p class="fs-3">Tüccarlar</p>
-                    <p class="fw-bold">Pinterest'teki alışverişçiler diğer platformlardaki insanlara göre ayda 2 kat daha fazla harcama yapar. Katalogları ve Alışveriş Reklamlarını kullanarak satın almaya hazır insanlara ulaşın.</p>
+                    <p class="fw-bold">Pinterest'teki alışverişçiler diğer platformlardaki insanlara göre ayda 2 kat
+                        daha fazla harcama yapar. Katalogları ve Alışveriş Reklamlarını kullanarak satın almaya hazır
+                        insanlara ulaşın.</p>
                     <a href="">Alışveriş Çözümlerine Göz Atın</a>
                     <i class="bi bi-arrow-right"></i>
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-4">
                     <p class="fs-3">Pazarlamacılar</p>
-                    <p class="fw-bold">Farkındalık, düşünce ve dönüşüm gibi pazarlama hedefleri için Pinterest Reklamlarını kullanın. Esnek formatları, özelleştirilmiş hedefleme ile başarılı kampanyaları başlatın.</p>
+                    <p class="fw-bold">Farkındalık, düşünce ve dönüşüm gibi pazarlama hedefleri için Pinterest
+                        Reklamlarını kullanın. Esnek formatları, özelleştirilmiş hedefleme ile başarılı kampanyaları
+                        başlatın.</p>
                     <a href="">Reklamlar Hakkında Bilgi Edinin</a>
                     <i class="bi bi-arrow-up-right"></i>
                 </div>
             </div>
-            <h2 class="d-flex justify-content-center align-items-center " id="insight">Pinterest İncelemeleri ile Öne Çıkın</h2>
-            <div class="d-flex justify-content-center align-items-center pt-4 " >
-                <p class="text-center fs-" id="insightP">Başarı için kendinizi hazırlamak için en son araştırmalarımızı, haberlerimizi ve en iyi uygulamalarımızı okuyun.</p>
+            <h2 class="d-flex justify-content-center align-items-center " id="insight">Pinterest İncelemeleri ile Öne
+                Çıkın</h2>
+            <div class="d-flex justify-content-center align-items-center pt-4 ">
+                <p class="text-center fs-" id="insightP">Başarı için kendinizi hazırlamak için en son araştırmalarımızı,
+                    haberlerimizi ve en iyi uygulamalarımızı okuyun.</p>
             </div>
         </div>
     </div>
-    
+
     <section class="container-fluid" id="section6">
         <div class="container pt-5">
             <div class="imageflex">
                 <div class="">
-                    <img class="img-fluid"  src="https://images.ctfassets.net/h67z7i6sbjau/4GD7R6JTvVO4NS2iDidS91/41fff382a51b0ee6ea60475a8acf3250/Blog-Multi-Objective-Pinterest-Header-skateboarder-433x244.png?fm=webp&q=85&w=1680&h=1680" alt="">
+                    <img class="img-fluid"
+                        src="https://images.ctfassets.net/h67z7i6sbjau/4GD7R6JTvVO4NS2iDidS91/41fff382a51b0ee6ea60475a8acf3250/Blog-Multi-Objective-Pinterest-Header-skateboarder-433x244.png?fm=webp&q=85&w=1680&h=1680"
+                        alt="">
                     <p class="fs-4 pt-4 pb-4 p1">Sonuç Elde Etmek İçin Çok Amaçlı Medya Stratejisi Benimseyin</p>
                     <a class="fw-normal fs-5" href="#">Daha Fazla Oku</a>
                     <i class="bi bi-arrow-right"></i>
                 </div>
                 <div class="">
-                    <img class="img-fluid" src="https://images.ctfassets.net/h67z7i6sbjau/7BA5VQ6aOkJXD5yuWqSWGp/3fd69e0110840e93786e6a8c10d9a645/Blog_WinningIdeaAds_433x244.jpg?fm=webp&q=85&w=1680&h=1680" alt="">
+                    <img class="img-fluid"
+                        src="https://images.ctfassets.net/h67z7i6sbjau/7BA5VQ6aOkJXD5yuWqSWGp/3fd69e0110840e93786e6a8c10d9a645/Blog_WinningIdeaAds_433x244.jpg?fm=webp&q=85&w=1680&h=1680"
+                        alt="">
                     <p class="fs-4 pt-4 pb-4">Kazanan Fikir Reklamları İçin Yaratıcı Stratejiler</p>
                     <a class="fw-normal fs-5" href="#">Daha Fazla Oku</a>
                     <i class="bi bi-arrow-right"></i>
                 </div>
             </div>
         </div>
-    </section> 
-    
+    </section>
+
     <section id="section7">
         <div class="container ">
             <div class="imageflex" style="padding: 15% 0;">
                 <div class="mt-5">
                     <h2>İşletmenizi Ücretsiz Reklam Danışmanlığıyla Büyütün</h2>
-                    <p class="insightp my-5">Pinterest Reklamları konusunda yeniyseniz, özelleştirilmiş kampanya desteği için ücretsiz olarak başvurabilirsiniz. Özel yaratıcı stratejiler, kampanya önerileri ve daha fazlasıyla işletmenizi büyütmek için en iyi ipuçlarımızı alın.</p>
+                    <p class="insightp my-5">Pinterest Reklamları konusunda yeniyseniz, özelleştirilmiş kampanya desteği
+                        için ücretsiz olarak başvurabilirsiniz. Özel yaratıcı stratejiler, kampanya önerileri ve daha
+                        fazlasıyla işletmenizi büyütmek için en iyi ipuçlarımızı alın.</p>
                     <button>Şimdi Başvurun</button>
                 </div>
                 <div class="">
-                    <img class="img-fluid" src="https://images.ctfassets.net/h67z7i6sbjau/6O6pTePoDLcnyYKEwkkpGK/a343741adcdb0e25de928e51dd925ebd/Homepage_Grow_your_business_illo_438x438.png?fm=webp&q=85&w=1680&h=1680" alt="">
+                    <img class="img-fluid"
+                        src="https://images.ctfassets.net/h67z7i6sbjau/6O6pTePoDLcnyYKEwkkpGK/a343741adcdb0e25de928e51dd925ebd/Homepage_Grow_your_business_illo_438x438.png?fm=webp&q=85&w=1680&h=1680"
+                        alt="">
                 </div>
             </div>
             <h1 class="d-flex justify-content-center align-items-center pb-5">Bugün Başlayın</h1>
@@ -211,13 +252,18 @@
     </section>
     <footer>
         <div class="container py-3">
-            <div class="linethrough"><p class="pt-4">Dipnotlar</p></div>
+            <div class="linethrough">
+                <p class="pt-4">Dipnotlar</p>
+            </div>
             <div class="footerwrap py-5">
                 <div>
                     <p class="footerlogo display-6 pb-4">Pinterest</p>
                     <div class="input">
-                        <input type="text" placeholder="Türkçe (TR)">
-                        <i class="bi bi-chevron-down icon"></i>
+                        <select>
+                            <option value="tr">Türkçe (TR)</option>
+                            <option value="en">English (EN) </option>
+                            <option value="fr">Français (FR) </option>
+                        </select>
                     </div>
                 </div>
                 <div class="d-flex gap-5">
@@ -247,9 +293,12 @@
             <p class="py-5">©2023 Pinterest</p>
         </div>
     </footer>
-    
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
