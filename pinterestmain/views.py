@@ -3,6 +3,7 @@ from django.contrib.contenttypes.models import ContentType
 from .models import *
 from .forms import *
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -30,37 +31,6 @@ def idea_pins_Detail(request,ideapinId):
         'comments':comments
     }
     return render(request, 'ideapins.html', context)
-
-def create_pin(request):
-    if request.method == 'POST':
-        form = PinForm(request.POST, request.FILES)
-        if form.is_valid():
-            pin = form.save(commit=False)
-            pin.user = request.user
-            form.save()
-            return redirect('index')  # Daha sonra homepage olarak değiştirilecek
-    else:
-        form = PinForm()
-    context = {
-        'form':form
-    }
-
-    return render(request, 'create_pin.html', context)
-
-def create_idea_pin(request):
-    if request.method == 'POST':
-        form = IdeaPinForm(request.POST, request.FILES)
-        if form.is_valid():
-            ideapin = form.save(commit=False)
-            ideapin.user = request.user
-            form.save()
-            return redirect('index')
-    else:
-        form = IdeaPinForm()
-    context = {
-        'form':form
-    }
-    return render(request, 'create_ideapin.html', context)
 
 def homepage(request):
     pins = Pin.objects.all()
@@ -108,3 +78,36 @@ def create_comment(request, content_type_id, object_id):
             'obj': obj
         }
         return render(request, context)
+    
+@login_required
+
+def create_pin(request):
+    if request.method == 'POST':
+        form = PinForm(request.POST, request.FILES)
+        if form.is_valid():
+            pin = form.save(commit=False)
+            pin.user = request.user
+            form.save()
+            return redirect('homepage') 
+    else:
+        form = PinForm()
+    context = {
+        'form':form
+    }
+
+    return render(request, 'create_pin.html', context)
+
+def create_idea_pin(request):
+    if request.method == 'POST':
+        form = IdeaPinForm(request.POST, request.FILES)
+        if form.is_valid():
+            ideapin = form.save(commit=False)
+            ideapin.user = request.user
+            form.save()
+            return redirect('homepage')
+    else:
+        form = IdeaPinForm()
+    context = {
+        'form':form
+    }
+    return render(request, 'create_ideapin.html', context)
