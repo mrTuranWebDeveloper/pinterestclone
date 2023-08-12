@@ -14,24 +14,26 @@
     {% endif %}
 
     <div class="container mt-5 d-flex align-items-center justify-content-center">
-        <div class="row border rounded-2 p-4">
-            <div class="col-5">
-                <img src="{{ideapins.image.url}}" width="100%" style="border-radius: 10px;" alt="">
+        <div class="row border" style="border-radius: 25px;  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);">
+            <div class="col-6 p-0">
+                <img src="{{ideapins.image.url}}" width="100%" height="100%" style="border-radius: 25px 0px 0px 25px; object-fit: cover;" alt="">
             </div>
 
-            <div class="col-7">
-                <h3>{{ideapins.title}}</h3>
-                <span>{{ideapins.description}}</span>
-                <p>{{ideapins.user}}</p> 
-                <div class="d-flex">
-                    <h3 class="me-2">Yorumlar</h3> <button id="toggle-comments" class="comment-button"><img src="/static/img/8666558_chevron_down_icon.svg" alt=""></button>
+            <div class="col-6 p-0">
+                <div class="ms-4 mt-5">
+                    <h3>{{ideapins.title}}</h3>
+                    <span>{{ideapins.description}}</span>
+                    <p>{{ideapins.user}}</p> 
+                </div>
+                <div class="d-flex ms-4">
+                    <h3 class="me-2">Yorumlar</h3> <button id="toggle-comments" style="background-color:transparent;border:none;"  class="comment-button"><img src="/static/img/8666558_chevron_down_icon.svg" alt=""></button>
                 </div>
                 <div id="comments-section">
                     {% if comments %}
                     {% for comment in comments %}
                     <div class="d-flex align-items-center">
                     {% for profil in profiller %}
-                    <img src="{{profil.resim.url}}" width="32" height="32" class="rounded-5 me-2" style="margin-top: 10px;" alt="">
+                    <img src="{{profil.resim.url}}" width="32" height="32" class="rounded-5 me-2  ms-4" style="margin-top: 10px;" alt="">
                     {% endfor %}
                     <strong class="me-2 mt-1">{{comment.commenter.username}}</strong><p class="mb-0 mt-1" style="overflow-wrap: break-word; word-break: break-all;">{{ comment.content }}</p>
                     </div>
@@ -39,22 +41,23 @@
 
                     {% else %}
 
-                        <p style="color:gray;">Henüz yorum yok! Sohbeti başlatmak için bir tane ekleyin.</p>
+                        <p style="color:gray;" class="ms-4">Henüz yorum yok! Sohbeti başlatmak için bir tane ekleyin.</p>
 
                     {% endif %}
                 </div>
                     <hr>
-                    <h3>Ne düşünüyorsunuz?</h3>
-                    <div class="d-flex flex-fill align-items-stretch me-2 p-2">
-                    {% for profil in profiller %}
-                        <img src="{{profil.resim.url}}" width="48" height="48" class="rounded-5" style="margin-top: 10px;" alt="">
-                    {% endfor %}
-                    <form method="post" class="d-flex flex-grow-1 p-2" action="{% url 'create_comment' content_type.id ideapins.id %}">
-                        {% csrf_token %}
-                        <textarea name="content" class="form-control me-2"></textarea>
-                        <input type="submit" value="Submit">
-                    </form> 
-                    
+                    <div class="add-comment-section ms-4">
+                        <h3>Ne düşünüyorsunuz?</h3>
+                        <div class="d-flex flex-fill align-items-stretch me-2 p-2">
+                        {% for profil in profiller %}
+                            <img src="{{profil.resim.url}}" width="48" height="48" class="rounded-5" style="margin-top: 10px;" alt="">
+                        {% endfor %}
+                        <form method="post" class="d-flex flex-grow-1" style="padding: 10px;" action="{% url 'create_comment' content_type.id ideapins.id %}">
+                            {% csrf_token %}
+                            <textarea name="content" placeholder="Yorum ekle" style="background-color: #F0F2F5; border: none; border-radius: 25px; padding: 10px 15px; font-size: 15px; resize: none; height: 50px; line-height: 28px;"class="form-control me-2"></textarea>
+                            <input type="submit" value="Submit">
+                        </form> 
+                    </div>
             </div>
         </div>           
     </div>
