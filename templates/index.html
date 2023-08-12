@@ -14,8 +14,7 @@
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <!-- Main CSS -->
     <link rel="stylesheet" href="{% static 'style.css' %}">
-    <!-- fontawesome -->
-    <script src="https://kit.fontawesome.com/ec4bff98c2.js" crossorigin="anonymous"></script>
+    
 </head>
 
 <body>
@@ -341,6 +340,7 @@
 
     <div class="background">
 
+       
         <div class="gallery">
             <div class="image-div" style="background-image: url('/static/img/drinks.png');"></div>
             <div class="image-div" style="background-image: url('/static/img/ızgara2.jpg');"></div>
@@ -370,8 +370,11 @@
                 <p>Bir sonraki tutkunuzu keşfedin.</p>
 
                 <form>
+                    <label for="">E-posta</label>
                     <input type="email" placeholder="E-posta">
+                    <label for="">Parola</label>
                     <input type="password" placeholder="Parola">
+                    <label for="">Doğum tarihi</label>
                     <input type="date" placeholder="Doğum Tarihi">
                     <button type="submit">Devam Et</button>
                 </form>
@@ -380,14 +383,19 @@
 
                 <button class="facebook-button">
                     <i class="fa-brands fa-facebook"></i>
-                    <p>Facebook ile Devam Et</p>
+                    Facebook ile Devam Et
                 </button>
                 <button class="google-button">
-                    <i class="fa-brands fa-google"></i>
-                    <p>Google ile Devam Edin</p>
+                    <i class="fa-brands fa-google"></i> 
+                    Google ile Devam Edin
                 </button>
-                <p class="text">Kaydolarak, hizmet şartlarını ve gizlilik politikasını kabul etmiş olursunuz.</p>
+                <p class="text">Kaydolarak, hizmet şartlarını ve gizlilik politikasını <br> kabul etmiş olursunuz.</p>
             </div>
+        </div>
+        <div class="center-button">
+            <a href="#" class="round-button">
+                <span class="arrow-up"></span>
+            </a>
         </div>
     </div>
 
@@ -417,7 +425,8 @@
         crossorigin="anonymous"></script>
     <!-- Main JS -->
     <script src="{% static 'main.js' %}"></script>
-
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/ec4bff98c2.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
