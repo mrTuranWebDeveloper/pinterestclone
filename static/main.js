@@ -67,3 +67,36 @@ function scrollToTargetSection() {
     });
   }
   
+  // <!-- sayfanın başına gitmek için gerekli js scripti -->
+  
+  document.querySelector(".scroll-btn-up").addEventListener("click", function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  //scroll tuşu ile fonksiyon atama(bu kısım çalışıyor ancak bazı hatalar var)
+
+  
+    let currentSectionIndex = 0;
+    const sections = document.querySelectorAll('.content, .header, .mantion, .background');
+
+
+    window.addEventListener('wheel', handleScroll);
+    window.addEventListener('mousewheel', handleScroll);
+    window.addEventListener('DOMMouseScroll', handleScroll);
+
+    function handleScroll(event) {
+        const delta = Math.sign(event.deltaY);
+
+        if (delta > 0) {
+            currentSectionIndex = Math.min(currentSectionIndex + 1, sections.length - 1);
+        } else if (delta < 0) {
+            currentSectionIndex = Math.max(currentSectionIndex - 1, 0);
+        }
+
+        sections[currentSectionIndex].scrollIntoView({
+            behavior: 'smooth'
+        });
+
+        event.preventDefault();
+    }
+
