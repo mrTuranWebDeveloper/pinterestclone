@@ -4,6 +4,7 @@ from .models import *
 from .forms import *
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -14,10 +15,15 @@ def pinsDetail(request,pinId):
     pins = Pin.objects.get(id=pinId)
     content_type = ContentType.objects.get_for_model(Pin)
     comments = Comment.objects.filter(content_type=content_type, object_id=pins.id)
+    user = request.user
+    count = Comment.objects.filter(commenter=user, object_id=pins.id, is_deleted=False).count()
+    boards = Board.objects.all()
     context = {
         'pins':pins,
         'content_type':content_type,
-        'comments':comments
+        'comments':comments,
+        'count':count,
+        'boards':boards
     }
     return render(request, 'pins.html', context)
 
@@ -25,10 +31,15 @@ def idea_pins_Detail(request,ideapinId):
     ideapins = IdeaPin.objects.get(id=ideapinId)
     content_type = ContentType.objects.get_for_model(IdeaPin)
     comments = Comment.objects.filter(content_type=content_type, object_id=ideapins.id)
+    user = request.user
+    count = Comment.objects.filter(commenter=user,object_id=ideapins.id, is_deleted=False).count()
+    boards = Board.objects.all()
     context = {
         'ideapins':ideapins,
         'content_type':content_type,
-        'comments':comments
+        'comments':comments,
+        'count': count,
+        'boards': boards
     }
     return render(request, 'ideapins.html', context)
 
@@ -111,3 +122,8 @@ def create_idea_pin(request):
         'form':form
     }
     return render(request, 'create_ideapin.html', context)
+
+def comment_count(request):
+    user = request.user
+    count = Comment.objects.filter(user=user).count()
+    return JsonResponse({'count':count})

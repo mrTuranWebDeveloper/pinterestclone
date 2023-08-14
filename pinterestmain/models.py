@@ -78,6 +78,7 @@ class Comment(models.Model):
     content_object = GenericForeignKey('content_type', 'object_id')
     commenter = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField(max_length=500)
+    is_deleted = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=True)
 
