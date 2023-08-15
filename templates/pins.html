@@ -1,17 +1,6 @@
-{% extends "homepage.html" %}  <!-- bu extends sonra homepage.html ile değiştirilecek-->
+{% extends "homepage.html" %}
 {% load static %}
 {% block content %}
-    {% if messages %}
-
-    {% for mesaj in messages %}
-    <div class="alert alert-{{mesaj.tags}} text-center">
-    {{mesaj}}
-    </div>
-    {% endfor %}
-
-    {% else %}
-    {% endif %}
-
     <div class="container mt-5 d-flex align-items-center justify-content-center">
         <div class="row border" style="border-radius: 25px;  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);">
             <div class="col-6 p-0">
@@ -23,11 +12,18 @@
                     <button class="icon-button"><img class="icon-img" src="/static/img/8666602_more_horizontal_icon.svg" alt=""></button>
                     <button class="icon-button"><img class="icon-img" src="/static/img/8666724_upload_icon.svg" alt=""></button>
                     <button class="icon-button"><img class="icon-img" src="/static/img/8666769_link_connection_icon.svg" alt=""></button>
-                    <button class="icon-button">
-                    {% for board in boards %}
-                        <strong>{{board.name}} <img src="/static/img/8666558_chevron_down_icon.svg" alt=""></strong>
-                    {% endfor %}
-                    </button>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle no-style" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            
+                            <strong>{{recent_board.name}} <img src="/static/img/8666558_chevron_down_icon.svg" alt=""></strong>
+                            
+                        </button>
+                        <ul class="dropdown-menu">
+                            {% for board in boards %}
+                            <li><a class="dropdown-item" href="#">{{board.name}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                     <button class="detay-kaydet-button">Kaydet</button>
                 </div>
                 <div class="ms-4 mt-3 mb-3">
