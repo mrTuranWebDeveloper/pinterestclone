@@ -44,7 +44,8 @@ class Board(models.Model):
     image = models.ImageField(upload_to='boards/', null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     board_group = models.ForeignKey('Group', on_delete=models.CASCADE, blank=True, null=True)
-    board_pins = models.ManyToManyField(Pin, related_name='boards')
+    board_pins = models.ManyToManyField(Pin, related_name='pin_boards')
+    board_idea_pins = models.ManyToManyField(IdeaPin, related_name='ideapin_boards')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
