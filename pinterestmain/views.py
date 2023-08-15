@@ -17,7 +17,7 @@ def pinsDetail(request,pinId):
     comments = Comment.objects.filter(content_type=content_type, object_id=pins.id)
     user = request.user
     count = Comment.objects.filter(commenter=user, object_id=pins.id, is_deleted=False).count()
-    boards = Board.objects.all()
+    boards = Board.objects.filter(board_pins__id=pinId)
     context = {
         'pins':pins,
         'content_type':content_type,
@@ -33,7 +33,7 @@ def idea_pins_Detail(request,ideapinId):
     comments = Comment.objects.filter(content_type=content_type, object_id=ideapins.id)
     user = request.user
     count = Comment.objects.filter(commenter=user,object_id=ideapins.id, is_deleted=False).count()
-    boards = Board.objects.all()
+    boards = Board.objects.filter(board_idea_pins__id=ideapinId)
     context = {
         'ideapins':ideapins,
         'content_type':content_type,
@@ -98,7 +98,10 @@ def create_pin(request):
         if form.is_valid():
             pin = form.save(commit=False)
             pin.user = request.user
-            form.save()
+            pin.save()
+            board = form.cleaned_data['board']
+            board.board_pins.add(pin)
+            board.save()
             return redirect('homepage') 
     else:
         form = PinForm()
@@ -114,7 +117,10 @@ def create_idea_pin(request):
         if form.is_valid():
             ideapin = form.save(commit=False)
             ideapin.user = request.user
-            form.save()
+            ideapin.save()
+            board = form.cleaned_data['board']
+            board.board_idea_pins.add(ideapin)
+            board.save()
             return redirect('homepage')
     else:
         form = IdeaPinForm()
