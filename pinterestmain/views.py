@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib.contenttypes.models import ContentType
 from .models import *
 from .forms import *
@@ -17,13 +17,18 @@ def pinsDetail(request,pinId):
     comments = Comment.objects.filter(content_type=content_type, object_id=pins.id)
     user = request.user
     count = Comment.objects.filter(commenter=user, object_id=pins.id, is_deleted=False).count()
-    boards = Board.objects.filter(board_pins__id=pinId)
+    # boards = Board.objects.filter(board_pins__id=pinId)
+    recent_board_pin = Board.objects.filter(board_pins__id=pinId).order_by('-id').first()
+    boards = Board.objects.all()
     context = {
         'pins':pins,
         'content_type':content_type,
         'comments':comments,
         'count':count,
-        'boards':boards
+        'boards':boards,
+        'pin_type': 'pin',
+        'pin_id': pinId,
+        'recent_board_pin': recent_board_pin
     }
     return render(request, 'pins.html', context)
 
@@ -33,13 +38,18 @@ def idea_pins_Detail(request,ideapinId):
     comments = Comment.objects.filter(content_type=content_type, object_id=ideapins.id)
     user = request.user
     count = Comment.objects.filter(commenter=user,object_id=ideapins.id, is_deleted=False).count()
-    boards = Board.objects.filter(board_idea_pins__id=ideapinId)
+    # boards = Board.objects.filter(board_idea_pins__id=ideapinId)
+    recent_board_ideapin = Board.objects.filter(board_idea_pins__id=ideapinId).order_by('-id').first()
+    boards = Board.objects.all()
     context = {
         'ideapins':ideapins,
         'content_type':content_type,
         'comments':comments,
         'count': count,
-        'boards': boards
+        'boards': boards,
+        'pin_type': 'ideapin',
+        'ideapin_id': ideapinId,
+        'recent_board_ideapin':recent_board_ideapin
     }
     return render(request, 'ideapins.html', context)
 
@@ -133,3 +143,15 @@ def comment_count(request):
     user = request.user
     count = Comment.objects.filter(user=user).count()
     return JsonResponse({'count':count})
+
+def assign_pin_to_board(request, pin_type, pinId, ideapinId, board_id):
+    if pin_type == 'pin':
+        pin = get_object_or_404(Pin, pk=pinId)
+        board = get_object_or_404(Board, pk=board_id)
+        board.board_pins.add(pin)
+        return redirect('pins', pinId=pinId)
+    elif pin_type == 'ideapin':
+        ideapin = get_object_or_404(IdeaPin, pk=ideapinId)
+        board = get_object_or_404(Board, pk=board_id)
+        board.board_idea_pins.add(ideapin)
+        return redirect('ideapins', ideapinId=ideapinId)
