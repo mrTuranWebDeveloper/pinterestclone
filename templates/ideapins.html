@@ -12,7 +12,7 @@
                     <button class="icon-button"><img class="icon-img" src="/static/img/8666602_more_horizontal_icon.svg" alt=""></button>
                     <button class="icon-button"><img class="icon-img" src="/static/img/8666724_upload_icon.svg" alt=""></button>
                     <button class="icon-button"><img class="icon-img" src="/static/img/8666769_link_connection_icon.svg" alt=""></button>
-                    <div class="dropdown">
+                    {% comment %} <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle no-style" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             
                             <strong>{{recent_board.name}} <img src="/static/img/8666558_chevron_down_icon.svg" alt=""></strong>
@@ -21,6 +21,23 @@
                         <ul class="dropdown-menu">
                             {% for board in boards %}
                             <li><a class="dropdown-item" href="#">{{board.name}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div> {% endcomment %}
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle no-style" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <strong>{{recent_board_ideapin.name}} <img src="/static/img/8666558_chevron_down_icon.svg" alt=""></strong>
+                        </button>
+                        <ul class="dropdown-menu">
+                            {% for board in boards %}
+                            <li>
+                                <form action="{% url 'assign_pin_to_board' pin_type 0 ideapin_id board.id %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="board_id" value="{{ board.id }}">
+                                    <input type="hidden" name="pin_type" value="{{ pin_type }}">
+                                    <button type="submit" class="dropdown-item">{{ board.name }}</button>
+                                </form>
+                            </li>
                             {% endfor %}
                         </ul>
                     </div>
