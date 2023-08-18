@@ -4,6 +4,7 @@
 
 body {
   font-family: "Lato", sans-serif;
+  font-style: initial;
 }
 
 .tab {
@@ -40,9 +41,10 @@ body {
 .tabcontent {
   float: left;
   padding: 0px 12px;
-  width: 70%;
+  width: 40%;
   border-left: none;
   height: 300px;
+  margin: 0 auto;
 }
 
 /* Profıli duzenle Css  */
@@ -116,4 +118,81 @@ body {
   border: 1px solid #ccc;
   border-radius: 5px;
   width: 350px;
+}
+.hesapyntm input {
+  border: #dbd9d9 1px solid;
+  border-radius: 10px;
+  height: 35px;
+  width: 350px;
+  margin: 3px;
+  font-size: x-small;
+}
+.hsp1 button {
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(227, 236, 236);
+  margin: 10px;
+  padding: 14px;
+  width: 180px;
+}
+.hsp1 button:hover {
+  background-color: #cac3c3;
+}
+.hsp1 {
+  display: flex;
+}
+.hsp2 button {
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(227, 236, 236);
+  margin: 10px;
+  padding: 14px;
+  width: 180px;
+}
+.hsp2 button:hover {
+  background-color: #cac3c3;
+}
+.hsp2 {
+  display: flex;
+}
+.hsp2 p {
+  margin-right: auto;
+}
+.hsp3 button {
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(227, 236, 236);
+  margin: 10px;
+  padding: 14px;
+  width: 100px;
+}
+.hsp3 button:hover {
+  background-color: #cac3c3;
+}
+.hsp3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hsp3 p {
+  margin-right: auto;
+}
+.websiteicon {
+  display: flex;
+  align-items: center;
+}
+.material-icons {
+  margin-right: 10px;
+}
+.websiteicon button {
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(227, 236, 236);
+  margin: 10px;
+  padding: 14px;
+  width: 100px;
+  margin-left: auto;
+}
+.websiteicon button:hover {
+  background-color: #cac3c3;
 }
