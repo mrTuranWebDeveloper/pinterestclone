@@ -41,7 +41,7 @@
   grid-auto-rows: 1rem;
   gap: 1rem;
   justify-content: flex-start;
-  padding-top: 6rem;
+  padding-top: 3rem;
   margin: 0 1.5rem;
   width: 550px;
   height: 500px;
@@ -182,4 +182,14 @@
 
 .dropdown {
   margin: 0;
+}
+
+.user-menu {
+  left: -220px !important;
+}
+
+@media only screen and (max-width: 992px) {
+  .gridd {
+    padding-top: 1rem;
+  }
 }
