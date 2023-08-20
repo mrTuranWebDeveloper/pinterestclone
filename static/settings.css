@@ -19,13 +19,14 @@ body {
   background-color: inherit;
   color: black;
   padding: 22px 16px;
-  width: 100%;
+  width: 50%;
   border: none;
   outline: none;
   text-align: left;
   cursor: pointer;
   transition: 0.3s;
   font-size: 17px;
+  font-weight: bold;
 }
 
 .tab button:hover {
@@ -34,8 +35,8 @@ body {
 }
 
 .tab button.active {
-  background-color: #ffffff;
-  text-decoration: underline;
+  background-color: transparent;
+  border-bottom: 3px solid #000;
 }
 
 .tabcontent {
@@ -195,4 +196,46 @@ body {
 }
 .websiteicon button:hover {
   background-color: #cac3c3;
+}
+.inpt {
+  display: flex;
+}
+/* .inpt label {
+  margin-right: 10px;
+  flex-direction: row;
+} */
+.msj1 {
+  display: flex;
+}
+.msj1 p {
+  margin-right: auto;
+}
+.msj1 button {
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(227, 236, 236);
+  margin: 10px;
+  padding: 14px;
+  width: 100px;
+}
+.msj1 button:hover {
+  background-color: #cac3c3;
+}
+
+.reklamlabel input {
+  transform: scale(1.8);
+}
+.labelcontainer {
+  display: flex;
+  align-items: center;
+}
+
+.label-1 {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+}
+.label-2 {
+  margin-right: 10px;
 }
