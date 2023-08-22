@@ -106,12 +106,30 @@
                     {% for profil in profiller %}
                         <img src="{{profil.resim.url}}" width="48" height="48" class="rounded-5" style="margin-top: 10px;" alt="">
                     {% endfor %}
-                    <form method="post" class="d-flex flex-grow-1" style="padding: 10px;" action="{% url 'create_comment' content_type.id pins.id %}">
+                    <form method="post" id="comment-form" class="d-flex flex-grow-1" style="padding: 10px;" action="{% url 'create_comment' content_type.id pins.id %}">
                         {% csrf_token %}
-                        <textarea name="content" placeholder="Yorum ekle" style="background-color: #F0F2F5; border: none; border-radius: 25px; padding: 10px 15px; font-size: 15px; resize: none; height: 50px;  line-height: 28px;" class="form-control me-2"></textarea>
-                        <input type="submit" value="Submit">
+                        <textarea name="content" id="comment-textarea" placeholder="Yorum ekle" style="background-color: #F0F2F5; border: none; border-radius: 25px; padding: 10px 15px; font-size: 15px; resize: none; height: 50px;  line-height: 28px;" class="form-control me-2"></textarea>
+                        <input type="submit" value="Submit" style="display:none;">
                     </form> 
+
+                    <div class="chat-utilities">
+                        <div class="utility-container">
+                            <ul class="utility-group">
+
+                                <li class="emoji-selector" id="emojiSelector">
+                                    <div class="input-container">
+                                        <input id="emojiSearch" type="text" name="" id="" placeholder="Search...">
+                                    </div>
+                                    <ul id="emojiList" class="emoji-list">
+
+                                    </ul>
+                                </li>
+                                <li id="emojiSelectorIcon"><img src="/static/img/2993617_emoji_emote_emoticon_emoticons_smile_icon.svg" alt=""></li>
+                            </ul>
+                        </div>
                     </div>
+                
+                </div>
             </div>
         </div>           
     </div>
@@ -120,6 +138,16 @@
 
     <script>
         
+        //Comment ekleme için enter tuşu kullanma
+        const commentForm = document.querySelector('#comment-form');
+        const commentTextarea = document.querySelector('#comment-textarea');
+        commentTextarea.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                commentForm.submit();
+            }
+        });
+
         //Commentleri göster veya gizle butonu
     // button ve comment kısmını atama yapıyoruz
     var toggleButton = document.getElementById('toggle-comments');
@@ -158,4 +186,7 @@
         }, 3000);
 });
     </script>
+    <!-- Emoji Api JS -->
+    <script src="{% static 'emoji.js' %}"></script>
 {% endblock content %}
+
