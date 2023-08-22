@@ -14,6 +14,9 @@ class Pin(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def get_recent_board(self):
+        return Board.objects.filter(board_pins__id=self.id).order_by('-id').first()
+
     def __str__(self):
         return self.title
 
@@ -30,6 +33,9 @@ class IdeaPin(models.Model):
     group = models.ForeignKey('Group', on_delete=models.CASCADE, related_name='ideapins', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def get_recent_board(self):
+        return Board.objects.filter(board_idea_pins__id=self.id).order_by('-id').first()
 
     def __str__(self):
         return self.title

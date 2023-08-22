@@ -16,8 +16,7 @@ def pinsDetail(request,pinId):
     content_type = ContentType.objects.get_for_model(Pin)
     comments = Comment.objects.filter(content_type=content_type, object_id=pins.id)
     user = request.user
-    count = Comment.objects.filter(commenter=user, object_id=pins.id, is_deleted=False).count()
-    # boards = Board.objects.filter(board_pins__id=pinId)
+    count = Comment.objects.filter(object_id=pins.id, is_deleted=False).count()
     recent_board_pin = Board.objects.filter(board_pins__id=pinId).order_by('-id').first()
     boards = Board.objects.all()
     context = {
@@ -37,8 +36,7 @@ def idea_pins_Detail(request,ideapinId):
     content_type = ContentType.objects.get_for_model(IdeaPin)
     comments = Comment.objects.filter(content_type=content_type, object_id=ideapins.id)
     user = request.user
-    count = Comment.objects.filter(commenter=user,object_id=ideapins.id, is_deleted=False).count()
-    # boards = Board.objects.filter(board_idea_pins__id=ideapinId)
+    count = Comment.objects.filter(object_id=ideapins.id, is_deleted=False).count()
     recent_board_ideapin = Board.objects.filter(board_idea_pins__id=ideapinId).order_by('-id').first()
     boards = Board.objects.all()
     context = {
@@ -56,9 +54,11 @@ def idea_pins_Detail(request,ideapinId):
 def homepage(request):
     pins = Pin.objects.all()
     ideapins = IdeaPin.objects.all()
+    boards = Board.objects.all()
     context = {
         'pins':pins,
-        'ideapins':ideapins
+        'ideapins':ideapins,
+        'boards':boards
     }
     return render(request, 'homepage.html', context)
 
@@ -138,11 +138,6 @@ def create_idea_pin(request):
         'form':form
     }
     return render(request, 'create_ideapin.html', context)
-
-def comment_count(request):
-    user = request.user
-    count = Comment.objects.filter(user=user).count()
-    return JsonResponse({'count':count})
 
 def assign_pin_to_board(request, pin_type, pinId, ideapinId, board_id):
     if pin_type == 'pin':

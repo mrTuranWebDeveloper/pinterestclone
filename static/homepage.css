@@ -132,7 +132,7 @@
   opacity: 0.8;
 }
 
-.item:hover > button {
+.item:hover > form .kaydet-button {
   visibility: visible;
 }
 
