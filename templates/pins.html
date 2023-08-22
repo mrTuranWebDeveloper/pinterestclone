@@ -1,17 +1,6 @@
-{% extends "homepage.html" %}  <!-- bu extends sonra homepage.html ile değiştirilecek-->
+{% extends "homepage.html" %}
 {% load static %}
 {% block content %}
-    {% if messages %}
-
-    {% for mesaj in messages %}
-    <div class="alert alert-{{mesaj.tags}} text-center">
-    {{mesaj}}
-    </div>
-    {% endfor %}
-
-    {% else %}
-    {% endif %}
-
     <div class="container mt-5 d-flex align-items-center justify-content-center">
         <div class="row border" style="border-radius: 25px;  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);">
             <div class="col-6 p-0">
@@ -20,14 +9,60 @@
 
             <div class="col-6 p-0">
                 <div class="d-flex align-items-center justify-content-evenly mt-3">
-                    <button class="icon-button"><img class="icon-img" src="/static/img/8666602_more_horizontal_icon.svg" alt=""></button>
-                    <button class="icon-button"><img class="icon-img" src="/static/img/8666724_upload_icon.svg" alt=""></button>
-                    <button class="icon-button"><img class="icon-img" src="/static/img/8666769_link_connection_icon.svg" alt=""></button>
-                    <button class="icon-button">
-                    {% for board in boards %}
-                        <strong>{{board.name}} <img src="/static/img/8666558_chevron_down_icon.svg" alt=""></strong>
-                    {% endfor %}
-                    </button>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle no-style" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class="icon-img" src="/static/img/8666602_more_horizontal_icon.svg" alt="">
+                        </button>
+                        <ul class="dropdown-menu">
+                            
+                            <li>Görüntüyü indir</li>
+                            <li>Pini gizle</li>
+                            <li>Pini şikayet et</li>
+                            <li>Pin yerleştirme kodunu al</li>
+                            
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle no-style" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class="icon-img" src="/static/img/8666724_upload_icon.svg" alt="">
+                        </button>
+                        <ul class="dropdown-menu">
+                            
+                            <li>Ara</li>
+                            <li>İçe aktar</li>
+                            <hr>
+                            <li>WhatsApp</li>
+                            <li>Messenger</li>
+                            <li>Facebook</li>
+                            <li>Twitter</li>
+                            <li>Bağlantıyı kopyala</li>
+                            <li>E-posta</li>
+                            
+                        </ul>
+                    </div>
+
+                    {% comment %} <button class="icon-button"><img class="icon-img" src="/static/img/8666602_more_horizontal_icon.svg" alt=""></button> {% endcomment %}
+                    {% comment %} <button class="icon-button"><img class="icon-img" src="/static/img/8666724_upload_icon.svg" alt=""></button> {% endcomment %}
+                    <button class="icon-button copy-link"><img class="icon-img" src="/static/img/8666769_link_connection_icon.svg" alt=""></button>
+                
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle no-style" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <strong>{{recent_board_pin.name}} <img src="/static/img/8666558_chevron_down_icon.svg" alt=""></strong>
+                        </button>
+                        <ul class="dropdown-menu">
+                            {% for board in boards %}
+                            <li>
+                                <form action="{% url 'assign_pin_to_board' pin_type pin_id 0 board.id %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="board_id" value="{{ board.id }}">
+                                    <input type="hidden" name="pin_type" value="{{ pin_type }}">
+                                    <button type="submit" class="dropdown-item">{{ board.name }}</button>
+                                </form>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
                     <button class="detay-kaydet-button">Kaydet</button>
                 </div>
                 <div class="ms-4 mt-3 mb-3">
@@ -80,9 +115,12 @@
             </div>
         </div>           
     </div>
+    </div>
+    <div id="message-container" style="display: none; background-color: black; color: white; position: fixed; bottom: 25%; left: 50%; transform: translate(-50%, -50%); padding: 10px; border-radius: 5px;"></div>
 
     <script>
         
+        //Commentleri göster veya gizle butonu
     // button ve comment kısmını atama yapıyoruz
     var toggleButton = document.getElementById('toggle-comments');
     var commentSection = document.getElementById('comments-section');
@@ -102,5 +140,22 @@
             buttonImage.src = '/static/img/8666777_chevron_right_arrow_icon.svg'
         }
     });
+
+        //Bağlantıyı kopyala butonu
+        //butona verdiğimiz class ismine click event listener ekliyoruz
+    document.querySelector('.copy-link').addEventListener('click', function() {
+        //message-container olarak belirlediğimiz boş div'i bir değişkene atıyoruz
+    var messageContainer = document.querySelector('#message-container');
+        //degiskene textContent ile yazı ekliyoruz
+    messageContainer.textContent = 'Bağlantı paylaşılmak için panonuza kopyalandı'
+        //bağlantıyı kopyalama islemini yapıyoruz
+    navigator.clipboard.writeText(window.location.href);
+        //hidden olan mesaj container divini display block ile görünür hale getiriyoruz
+    messageContainer.style.display = 'block';
+        //setTimeout ile çıkan mesaj bir süre sonra kayboluyor
+    setTimeout(function() {
+            messageContainer.style.display = 'none';
+        }, 3000);
+});
     </script>
 {% endblock content %}

@@ -14,6 +14,9 @@ class Pin(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def get_recent_board(self):
+        return Board.objects.filter(board_pins__id=self.id).order_by('-id').first()
+
     def __str__(self):
         return self.title
 
@@ -31,6 +34,9 @@ class IdeaPin(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def get_recent_board(self):
+        return Board.objects.filter(board_idea_pins__id=self.id).order_by('-id').first()
+
     def __str__(self):
         return self.title
 
@@ -44,7 +50,8 @@ class Board(models.Model):
     image = models.ImageField(upload_to='boards/', null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     board_group = models.ForeignKey('Group', on_delete=models.CASCADE, blank=True, null=True)
-    board_pins = models.ManyToManyField(Pin, related_name='boards')
+    board_pins = models.ManyToManyField(Pin, related_name='pin_boards')
+    board_idea_pins = models.ManyToManyField(IdeaPin, related_name='ideapin_boards')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
