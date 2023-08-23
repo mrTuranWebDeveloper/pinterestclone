@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-</head>
-<link rel="stylesheet" href="../static/settings.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-<body>
-
-
+{% extends "homepage.html" %}
+{% load static %}
+{% block content %}
 
     <div class="tab">
         <button class="tablinks" onclick="openCity(event, '1')" id="defaultOpen">Profili Düzenle</button>
@@ -584,7 +574,5 @@
 
         document.getElementById("defaultOpen").click();
     </script>
-
-</body>
-
-</html>
+    
+{% endblock content %}
