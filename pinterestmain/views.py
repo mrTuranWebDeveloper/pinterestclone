@@ -71,6 +71,8 @@ def business_page(request):
 def blog_page(request):
     return render(request, 'blog.html')
 
+def settings_page(request):
+    return render(request, 'settings.html')
 
 def create_comment(request, content_type_id, object_id):
     content_type = ContentType.objects.get_for_id(content_type_id)

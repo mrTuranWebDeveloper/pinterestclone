@@ -12,5 +12,6 @@ urlpatterns = [
     path('homepage/', homepage, name='homepage'),
     path('about/', about_page, name='about'),
     path('business/', business_page, name='business'),
-    path('blog/', blog_page, name='blog')
+    path('blog/', blog_page, name='blog'),
+    path('settings/', settings_page, name='settings')
 ]
