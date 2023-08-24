@@ -97,3 +97,19 @@ class Comment(models.Model):
         indexes = [
             models.Index(fields=['content_type', 'object_id']),
         ]
+
+class Upvote(models.Model):
+    UPVOTE_TYPES = (
+        ('thanks', 'Thanks'),
+        ('great', 'Great'),
+        ('wow', 'Wow'),
+        ('funny', 'Funny'),
+        ('good', 'Good'),
+    )
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey('content_type', 'object_id')
+    type = models.CharField(max_length=10, choices=UPVOTE_TYPES)
+
+    def __str__(self):
+        return self.get_type_display()
