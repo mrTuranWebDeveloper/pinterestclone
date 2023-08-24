@@ -128,6 +128,24 @@
                     {% else %}
                     <h3>Ne düşünüyorsunuz?</h3>
                     {% endif %}
+
+                    {% csrf_token %}
+                    <button class="upvote-button" data-object-id="{{ object_id }}" data-content-type="{{ content_type }}">Upvote</button>
+                        <div class="upvote-options">
+                            <button class="upvote-option" data-object-id="{{ object_id }}" data-content-type="pin" data-upvote-type="thanks">Thanks</button>
+                            <button class="upvote-option" data-object-id="{{ object_id }}" data-content-type="pin" data-upvote-type="great">Great</button>
+                            <button class="upvote-option" data-object-id="{{ object_id }}" data-content-type="pin" data-upvote-type="wow">Wow</button>
+                            <button class="upvote-option" data-object-id="{{ object_id }}" data-content-type="pin" data-upvote-type="funny">Funny</button>
+                            <button class="upvote-option" data-object-id="{{ object_id }}" data-content-type="pin" data-upvote-type="good">Good</button>
+                        </div>
+                    <div class="upvote-summary">
+                        <h3>Upvotes:</h3>
+                        <ul>
+                            {% for upvote_type in upvote_types %}
+                                <li>{{ upvote_type.type }}: {{ upvote_type.count }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                     <div class="d-flex flex-fill align-items-stretch me-2 p-2">
                     {% for profil in profiller %}
                         <img src="{{profil.resim.url}}" width="48" height="48" class="rounded-5" style="margin-top: 10px;" alt="">
@@ -164,15 +182,15 @@
 
     <script>
         
-        //Comment ekleme için enter tuşu kullanma
-        const commentForm = document.querySelector('#comment-form');
-        const commentTextarea = document.querySelector('#comment-textarea');
-        commentTextarea.addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                commentForm.submit();
-            }
-        });
+    //Comment ekleme için enter tuşu kullanma
+    const commentForm = document.querySelector('#comment-form');
+    const commentTextarea = document.querySelector('#comment-textarea');
+    commentTextarea.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            commentForm.submit();
+        }
+    });
 
         //Commentleri göster veya gizle butonu
     // button ve comment kısmını atama yapıyoruz
@@ -210,7 +228,32 @@
     setTimeout(function() {
             messageContainer.style.display = 'none';
         }, 3000);
-});
+    });
+
+    $(document).ready(function () {
+        $('.upvote-button').on('click', function() {
+        var objectId = $(this).data('object-id');
+        var contentType = $(this).data('content-type');
+        var upvoteType = $(this).data('upvote-type');
+    });
+
+    $('.upvote-option').on('click', function() {
+        var objectId = $(this).data('object-id');
+        var contentType = $(this).data('content-type');
+        var upvoteType = $(this).data('upvote-type');
+        var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+        $.ajax({
+            type: 'POST',
+            url: '/upvotes/',
+            data: {object_id: objectId, content_type: contentType, type: upvoteType},
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader('X-CSRFToken', csrftoken);
+            }
+        });
+    });
+    })
+
+    
     </script>
     <!-- Emoji Api JS -->
     <script src="{% static 'emoji.js' %}"></script>
