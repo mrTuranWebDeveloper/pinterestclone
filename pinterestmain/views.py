@@ -49,6 +49,10 @@ def idea_pins_Detail(request,ideapinId):
     count = Comment.objects.filter(object_id=ideapins.id, is_deleted=False).count()
     recent_board_ideapin = Board.objects.filter(board_idea_pins__id=ideapinId).order_by('-id').first()
     boards = Board.objects.all()
+    object_id = ideapins.id
+    upvotes = Upvote.objects.filter(content_type=content_type, object_id=ideapins.id)
+    upvote_count = upvotes.count()
+    upvote_types = upvotes.values('type').annotate(count=Count('type'))
     context = {
         'ideapins':ideapins,
         'content_type':content_type,
@@ -57,7 +61,12 @@ def idea_pins_Detail(request,ideapinId):
         'boards': boards,
         'pin_type': 'ideapin',
         'ideapin_id': ideapinId,
-        'recent_board_ideapin':recent_board_ideapin
+        'recent_board_ideapin':recent_board_ideapin,
+        'object_id': object_id,
+        'upvotes':upvotes,
+        'upvote_count': upvote_count,
+        'upvote_types': upvote_types
+
     }
     return render(request, 'ideapins.html', context)
 
@@ -173,4 +182,7 @@ def create_upvote(request):
     upvote_type = request.POST['type']
     content_type = ContentType.objects.get(model=content_type_name)
     Upvote.objects.create(object_id=object_id, content_type=content_type, type=upvote_type)
-    return JsonResponse({'status': 'success'})
+    upvotes = Upvote.objects.filter(content_type=content_type, object_id=object_id)
+    upvote_count = upvotes.count()
+    upvote_types = list(upvotes.values('type').annotate(count=Count('type')))
+    return JsonResponse({'status': 'success', 'upvote_count': upvote_count, 'upvote_types': upvote_types})
