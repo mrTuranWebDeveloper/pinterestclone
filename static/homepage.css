@@ -188,17 +188,35 @@
   left: -220px !important;
 }
 
+.upvote-button {
+  position: relative;
+}
+
+.upvote-button:hover {
+  background-color: rgb(190, 242, 255);
+  border-radius: 25px;
+}
+
 .upvote-options {
   display: none;
   position: absolute;
+  top: 60%;
+  right: 5%;
+  transform: translate(-60%, -5%);
+  z-index: 1;
+  border-radius: 25px;
+}
+
+.upvote-option:hover {
+  transform: scale(1.2);
+  background-color: rgb(255, 255, 255);
+  border-radius: 25px;
 }
 
 .upvote-button:focus + .upvote-options,
 .upvote-options:hover {
   display: block;
 }
-
-
 
 
 @media only screen and (max-width: 992px) {
