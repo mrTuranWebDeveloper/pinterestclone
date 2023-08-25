@@ -5,6 +5,8 @@ from .forms import *
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+from django.views.decorators.http import require_POST
+from django.db.models import Count
 
 # Create your views here.
 
@@ -19,6 +21,10 @@ def pinsDetail(request,pinId):
     count = Comment.objects.filter(object_id=pins.id, is_deleted=False).count()
     recent_board_pin = Board.objects.filter(board_pins__id=pinId).order_by('-id').first()
     boards = Board.objects.all()
+    object_id = pins.id
+    upvotes = Upvote.objects.filter(content_type=content_type, object_id=pins.id)
+    upvote_count = upvotes.count()
+    upvote_types = upvotes.values('type').annotate(count=Count('type'))
     context = {
         'pins':pins,
         'content_type':content_type,
@@ -27,7 +33,11 @@ def pinsDetail(request,pinId):
         'boards':boards,
         'pin_type': 'pin',
         'pin_id': pinId,
-        'recent_board_pin': recent_board_pin
+        'recent_board_pin': recent_board_pin,
+        'object_id': object_id,
+        'upvotes':upvotes,
+        'upvote_count': upvote_count,
+        'upvote_types': upvote_types
     }
     return render(request, 'pins.html', context)
 
@@ -71,6 +81,8 @@ def business_page(request):
 def blog_page(request):
     return render(request, 'blog.html')
 
+def settings_page(request):
+    return render(request, 'settings.html')
 
 def create_comment(request, content_type_id, object_id):
     content_type = ContentType.objects.get_for_id(content_type_id)
@@ -150,3 +162,15 @@ def assign_pin_to_board(request, pin_type, pinId, ideapinId, board_id):
         board = get_object_or_404(Board, pk=board_id)
         board.board_idea_pins.add(ideapin)
         return redirect('ideapins', ideapinId=ideapinId)
+    
+@require_POST
+def create_upvote(request):
+    object_id = request.POST['object_id']
+    content_type_name = request.POST['content_type']
+    print(f'content_type_name: {content_type_name}')
+    print(f'Available content types: {[ct.model for ct in ContentType.objects.all()]}')
+    print(f'object_id: {object_id}')
+    upvote_type = request.POST['type']
+    content_type = ContentType.objects.get(model=content_type_name)
+    Upvote.objects.create(object_id=object_id, content_type=content_type, type=upvote_type)
+    return JsonResponse({'status': 'success'})
