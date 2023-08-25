@@ -121,11 +121,35 @@
                 </div>
                     <hr>
                     <div class="add-comment-section ms-4">
+                        <div class="d-flex justify-content-between me-2">
                         {% if comments %}
                         <h3>{{count}} Yorum</h3>
                         {% else %}
                         <h3>Ne düşünüyorsunuz?</h3>
                         {% endif %}
+                    <div class="d-flex align-items-center me-2">
+                            <div class="upvote-summary me-2">
+                                <ul class="d-flex m-0 p-0">
+                                    {% for upvote_type in upvote_types %}
+                                        <img src="{% static '/img/'|add:upvote_type.type|add:'.svg' %}" class="me-1" style="width: 25px;" alt="{{ upvote_type.type }}">
+                                        <li class="me-1"  id="upvote-type-{{ upvote_type.type }}">{{ upvote_type.count }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div>
+                                {% csrf_token %}
+                            <button class="upvote-button no-style" data-object-id="{{ object_id }}" data-content-type="{{ content_type }}"><img src="/static/img/8666647_heart_icon.svg" alt=""></button>
+                            <div class="upvote-options bg-info-subtle p-2">
+                                <button class="upvote-option no-style" data-object-id="{{ object_id }}" data-content-type="ideapin" data-upvote-type="thanks"><img src="/static/img/thanks.svg" style="width: 50px;" alt=""></button>
+                                <button class="upvote-option no-style" data-object-id="{{ object_id }}" data-content-type="ideapin" data-upvote-type="great"><img src="/static/img/great.svg" style="width: 50px;" alt=""></button>
+                                <button class="upvote-option no-style" data-object-id="{{ object_id }}" data-content-type="ideapin" data-upvote-type="wow"><img src="/static/img/wow.svg" style="width: 50px;" alt=""></button>
+                                <button class="upvote-option no-style" data-object-id="{{ object_id }}" data-content-type="ideapin" data-upvote-type="funny"><img src="/static/img/funny.svg" style="width: 50px;" alt=""></button>
+                                <button class="upvote-option no-style" data-object-id="{{ object_id }}" data-content-type="ideapin" data-upvote-type="good"><img src="/static/img/good.svg" style="width: 50px;" alt=""></button>
+                            </div>
+                            </div>
+                    </div>
+                </div>
+
                         <div class="d-flex flex-fill align-items-stretch me-2 p-2">
                         {% for profil in profiller %}
                             <img src="{{profil.resim.url}}" width="48" height="48" class="rounded-5" style="margin-top: 10px;" alt="">
@@ -208,6 +232,39 @@
                 messageContainer.style.display = 'none';
             }, 3000);
     });
+
+        //Upvote fonksiyonu event listener
+    $(document).ready(function () {
+        $('.upvote-button').on('click', function() {
+        var objectId = $(this).data('object-id');
+        var contentType = $(this).data('content-type');
+        var upvoteType = $(this).data('upvote-type');
+    });
+
+    $('.upvote-option').on('click', function() {
+        var objectId = $(this).data('object-id');
+        var contentType = $(this).data('content-type');
+        var upvoteType = $(this).data('upvote-type');
+        var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+        $.ajax({
+            type: 'POST',
+            url: '/upvotes/',
+            data: {object_id: objectId, content_type: contentType, type: upvoteType},
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader('X-CSRFToken', csrftoken);
+            },
+            success: function(data) {
+            if (data.status === 'success') {
+                $('#upvote-count').text(data.upvote_count);
+                data.upvote_types.forEach(function(upvote_type) {
+                $('#upvote-type-' + upvote_type.type).text(upvote_type.count);
+            });
+            }
+            }
+        });
+    });
+    })
+
     </script>
     <!-- Emoji Api JS -->
     <script src="{% static 'emoji.js' %}"></script>

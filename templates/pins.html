@@ -122,30 +122,36 @@
                     {% endif %}
                 </div>
                     <hr>
-                    <div class="add-comment-section ms-4">
-                    {% if comments %}
-                    <h3>{{count}} Yorum</h3>
-                    {% else %}
-                    <h3>Ne düşünüyorsunuz?</h3>
-                    {% endif %}
-
-                    {% csrf_token %}
-                    <button class="upvote-button" data-object-id="{{ object_id }}" data-content-type="{{ content_type }}">Upvote</button>
-                        <div class="upvote-options">
-                            <button class="upvote-option" data-object-id="{{ object_id }}" data-content-type="pin" data-upvote-type="thanks">Thanks</button>
-                            <button class="upvote-option" data-object-id="{{ object_id }}" data-content-type="pin" data-upvote-type="great">Great</button>
-                            <button class="upvote-option" data-object-id="{{ object_id }}" data-content-type="pin" data-upvote-type="wow">Wow</button>
-                            <button class="upvote-option" data-object-id="{{ object_id }}" data-content-type="pin" data-upvote-type="funny">Funny</button>
-                            <button class="upvote-option" data-object-id="{{ object_id }}" data-content-type="pin" data-upvote-type="good">Good</button>
-                        </div>
-                    <div class="upvote-summary">
-                        <h3>Upvotes:</h3>
-                        <ul>
-                            {% for upvote_type in upvote_types %}
-                                <li>{{ upvote_type.type }}: {{ upvote_type.count }}</li>
-                            {% endfor %}
-                        </ul>
+            <div class="add-comment-section ms-4">
+                <div class="d-flex justify-content-between me-2">
+                        {% if comments %}
+                        <h3>{{count}} Yorum</h3>
+                        {% else %}
+                        <h3>Ne düşünüyorsunuz?</h3>
+                        {% endif %}
+                    <div class="d-flex align-items-center me-2">
+                            <div class="upvote-summary me-2">
+                                <ul class="d-flex m-0 p-0">
+                                    {% for upvote_type in upvote_types %}
+                                        <img src="{% static '/img/'|add:upvote_type.type|add:'.svg' %}" class="me-1" style="width: 25px;" alt="{{ upvote_type.type }}">
+                                        <li class="me-1"  id="upvote-type-{{ upvote_type.type }}">{{ upvote_type.count }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div>
+                                {% csrf_token %}
+                            <button class="upvote-button no-style" data-object-id="{{ object_id }}" data-content-type="{{ content_type }}"><img src="/static/img/8666647_heart_icon.svg" alt=""></button>
+                            <div class="upvote-options bg-info-subtle p-2">
+                                <button class="upvote-option no-style" data-object-id="{{ object_id }}" data-content-type="pin" data-upvote-type="thanks"><img src="/static/img/thanks.svg" style="width: 50px;" alt=""></button>
+                                <button class="upvote-option no-style" data-object-id="{{ object_id }}" data-content-type="pin" data-upvote-type="great"><img src="/static/img/great.svg" style="width: 50px;" alt=""></button>
+                                <button class="upvote-option no-style" data-object-id="{{ object_id }}" data-content-type="pin" data-upvote-type="wow"><img src="/static/img/wow.svg" style="width: 50px;" alt=""></button>
+                                <button class="upvote-option no-style" data-object-id="{{ object_id }}" data-content-type="pin" data-upvote-type="funny"><img src="/static/img/funny.svg" style="width: 50px;" alt=""></button>
+                                <button class="upvote-option no-style" data-object-id="{{ object_id }}" data-content-type="pin" data-upvote-type="good"><img src="/static/img/good.svg" style="width: 50px;" alt=""></button>
+                            </div>
+                            </div>
                     </div>
+                </div>
+                    
                     <div class="d-flex flex-fill align-items-stretch me-2 p-2">
                     {% for profil in profiller %}
                         <img src="{{profil.resim.url}}" width="48" height="48" class="rounded-5" style="margin-top: 10px;" alt="">
@@ -230,6 +236,7 @@
         }, 3000);
     });
 
+        //Upvote fonksiyonu event listener
     $(document).ready(function () {
         $('.upvote-button').on('click', function() {
         var objectId = $(this).data('object-id');
@@ -248,6 +255,14 @@
             data: {object_id: objectId, content_type: contentType, type: upvoteType},
             beforeSend: function(xhr) {
                 xhr.setRequestHeader('X-CSRFToken', csrftoken);
+            },
+            success: function(data) {
+            if (data.status === 'success') {
+                $('#upvote-count').text(data.upvote_count);
+                data.upvote_types.forEach(function(upvote_type) {
+                $('#upvote-type-' + upvote_type.type).text(upvote_type.count);
+            });
+            }
             }
         });
     });
