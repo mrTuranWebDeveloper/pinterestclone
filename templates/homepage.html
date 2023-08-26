@@ -25,10 +25,12 @@
 
   {% block content %}
 
-    {% for pin in pins %}
-      <div class="gridd">
+ 
+   
+      <div class="gridd cols-1 cols-md-2 cols-lg-3 g-4">
+        {% for pin in pins %}
         <!-- İmage Card -->
-        <div class="item">
+        <div class="item col-md-4">
         <a href="{% url 'pins' pin.id %}">
           <img class="img_item" src="{{pin.image.url}}" alt="" />
         </a>
@@ -69,13 +71,15 @@
           <i class="button_arrow bi bi-box-arrow-up"></i>
           <i class="button_points bi bi-three-dots"></i>
         </div>
+        {% endfor %}
       </div>
-
-    {% endfor %}
-    {% for ideapin in ideapins %}
-      <div class="gridd">
+     
+    
+    
+      <div class="gridd cols-1 cols-md-2 cols-lg-3 g-4">
+        {% for ideapin in ideapins %}
         <!-- İmage Card -->
-        <div class="item">
+        <div class="item col-md-4">
         <a href="{% url 'ideapins' ideapin.id %}">
           <img class="img_item" src="{{ideapin.image.url}}" alt="" />
         </a>
@@ -116,24 +120,14 @@
           <i class="button_arrow bi bi-box-arrow-up"></i>
           <i class="button_points bi bi-three-dots"></i>
         </div>
+        {% endfor %}
       </div>
-    {% endfor %}
+    
   
-  <script>
-    // Resimlerin boyutlarını ayarlayan Javascript kodu
-    let secondClassNames = ["small", "medium", "large", "xlarge"];
-
-    let itemElements = document.querySelectorAll(".item");
-
-    itemElements.forEach(function (item) {
-      let randomIndex = Math.floor(Math.random() * secondClassNames.length);
-      let randomSecondClass = secondClassNames[randomIndex];
-      item.classList.add(randomSecondClass);
-    });
-  </script>
 
   {% endblock content %}
 
+  
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   
