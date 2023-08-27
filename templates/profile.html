@@ -1,14 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+        integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../static/profile.css">
+    <title>Pinterest Profil</title>
 </head>
 
 <body>
+    {% include "includes/_navbar.html" %}
 
+    {% block content %}
+
+    <header class="profile-header">
+        <img class="profile-image" src="../media/profiller/haxx.png" alt="Profil Resmi">
+        <h1 class="profile-name"><b>İsmail Genç</b></h1>
+        <p class="profile-bio">@spartansline</p>
+        <p>13 Takip</p>
+        <button><b>Paylaş</b> </button>
+        <button><b>Profili Düzenle</b></button>
+    </header>
+    <div class="container">
+        <div class="tab">
+            <button>Oluşturuldu</button>
+            <button>Kaydedildi</button>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <main class="profile-pins">
+        <div class="pin">
+            <img src="../media/pins/dekorasyon1.jpg" alt="Pin 1">
+        </div>
+        <div class="pin">
+            <img src="../media/pins/yemek3.jpg" alt="Pin 2">
+        </div>
+
+    </main>
 </body>
 
 </html>

@@ -14,123 +14,130 @@
   <link rel="stylesheet" href="../static/settings.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-   <!-- JQuery -->
-   <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>    
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
-  
+
   {% include "includes/_navbar.html" %}
 
   {% block content %}
 
- 
-   
-      <div class="gridd cols-1 cols-md-2 cols-lg-3 g-4">
-        {% for pin in pins %}
-        <!-- İmage Card -->
-        <div class="item col-md-4">
-        <a href="{% url 'pins' pin.id %}">
-          <img class="img_item" src="{{pin.image.url}}" alt="" />
-        </a>
-          
-          <div class="dropdown board-button">
-            <button class="btn btn-secondary dropdown-toggle no-style" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {% if pin.get_recent_board %}
-              <strong>{{ pin.get_recent_board.name }} <img src="/static/img/211687_down_arrow_icon_white.svg" alt=""></strong>
-            {% else %}
-              <strong> Pano Seçiniz <img src="/static/img/211687_down_arrow_icon_white.svg" alt=""></strong>
-            {% endif %}
-                
-            </button>
-            <ul class="dropdown-menu">
-                {% for board in boards %}
-                <li>
-                    <form action="{% url 'assign_pin_to_board' 'pin' pin.id 0 board.id %}" method="post">
-                        {% csrf_token %}
-                        <input type="hidden" name="board_id" value="{{ board.id }}">
-                        <input type="hidden" name="pin_type" value="{{ pin_type }}">
-                        <button type="submit" class="dropdown-item">{{ board.name }}</button>
-                    </form>
-                </li>
-                {% endfor %}
-            </ul>
-          </div>
+
+
+  <div class="gridd cols-1 cols-md-2 cols-lg-3 g-4">
+    {% for pin in pins %}
+    <!-- İmage Card -->
+    <div class="item col-md-4">
+      <a href="{% url 'pins' pin.id %}">
+        <img class="img_item" src="{{pin.image.url}}" alt="" />
+      </a>
+
+      <div class="dropdown board-button">
+        <button class="btn btn-secondary dropdown-toggle no-style" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
           {% if pin.get_recent_board %}
-          <form action="{% url 'assign_pin_to_board' 'pin' pin.id 0 pin.get_recent_board.id %}" method="post">
-            {% csrf_token %}
-            <input type="hidden" name="board_id" value="{{ pin.get_recent_board.id }}">
-            <input type="hidden" name="pin_type" value="pin">
-            <button type="submit" class="kaydet-button">Kaydet</button>
-          </form>
+          <strong>{{ pin.get_recent_board.name }} <img src="/static/img/211687_down_arrow_icon_white.svg"
+              alt=""></strong>
           {% else %}
-            <button class="kaydet-button" disabled>Kaydet</button>
+          <strong> Pano Seçiniz <img src="/static/img/211687_down_arrow_icon_white.svg" alt=""></strong>
           {% endif %}
 
-          <i class="button_arrow bi bi-box-arrow-up"></i>
-          <i class="button_points bi bi-three-dots"></i>
-        </div>
-        {% endfor %}
+        </button>
+        <ul class="dropdown-menu">
+          {% for board in boards %}
+          <li>
+            <form action="{% url 'assign_pin_to_board' 'pin' pin.id 0 board.id %}" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="board_id" value="{{ board.id }}">
+              <input type="hidden" name="pin_type" value="{{ pin_type }}">
+              <button type="submit" class="dropdown-item">{{ board.name }}</button>
+            </form>
+          </li>
+          {% endfor %}
+        </ul>
       </div>
-     
-    
-    
-      <div class="gridd cols-1 cols-md-2 cols-lg-3 g-4">
-        {% for ideapin in ideapins %}
-        <!-- İmage Card -->
-        <div class="item col-md-4">
-        <a href="{% url 'ideapins' ideapin.id %}">
-          <img class="img_item" src="{{ideapin.image.url}}" alt="" />
-        </a>
+      {% if pin.get_recent_board %}
+      <form action="{% url 'assign_pin_to_board' 'pin' pin.id 0 pin.get_recent_board.id %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="board_id" value="{{ pin.get_recent_board.id }}">
+        <input type="hidden" name="pin_type" value="pin">
+        <button type="submit" class="kaydet-button">Kaydet</button>
+      </form>
+      {% else %}
+      <button class="kaydet-button" disabled>Kaydet</button>
+      {% endif %}
 
-          <div class="dropdown board-button">
-            <button class="btn btn-secondary dropdown-toggle no-style" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {% if ideapin.get_recent_board %}
-              <strong>{{ ideapin.get_recent_board.name }} <img src="/static/img/211687_down_arrow_icon_white.svg" alt=""></strong>
-            {% else %}
-              <strong>Pano Seçiniz <img src="/static/img/211687_down_arrow_icon_white.svg" alt=""></strong>
-            {% endif %}
-                
-            </button>
-            <ul class="dropdown-menu">
-                {% for board in boards %}
-                <li>
-                    <form action="{% url 'assign_pin_to_board' 'ideapin' 0 ideapin.id board.id %}" method="post">
-                        {% csrf_token %}
-                        <input type="hidden" name="board_id" value="{{ board.id }}">
-                        <input type="hidden" name="pin_type" value="{{ pin_type }}">
-                        <button type="submit" class="dropdown-item">{{ board.name }}</button>
-                    </form>
-                </li>
-                {% endfor %}
-            </ul>
-          </div>
+      <i class="button_arrow bi bi-box-arrow-up"></i>
+      <i class="button_points bi bi-three-dots"></i>
+    </div>
+    {% endfor %}
+  </div>
+
+
+
+  <div class="gridd cols-1 cols-md-2 cols-lg-3 g-4">
+    {% for ideapin in ideapins %}
+    <!-- İmage Card -->
+    <div class="item col-md-4">
+      <a href="{% url 'ideapins' ideapin.id %}">
+        <img class="img_item" src="{{ideapin.image.url}}" alt="" />
+      </a>
+
+      <div class="dropdown board-button">
+        <button class="btn btn-secondary dropdown-toggle no-style" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
           {% if ideapin.get_recent_board %}
-          <form action="{% url 'assign_pin_to_board' 'ideapin' 0 ideapin.id ideapin.get_recent_board.id %}" method="post">
-            {% csrf_token %}
-            <input type="hidden" name="board_id" value="{{ ideapin.get_recent_board.id }}">
-            <input type="hidden" name="pin_type" value="ideapin">
-            <button type="submit" class="kaydet-button">Kaydet</button>
-          </form>
+          <strong>{{ ideapin.get_recent_board.name }} <img src="/static/img/211687_down_arrow_icon_white.svg"
+              alt=""></strong>
           {% else %}
-          <button class="kaydet-button" disabled>Kaydet</button>
+          <strong>Pano Seçiniz <img src="/static/img/211687_down_arrow_icon_white.svg" alt=""></strong>
           {% endif %}
 
-          <i class="button_arrow bi bi-box-arrow-up"></i>
-          <i class="button_points bi bi-three-dots"></i>
-        </div>
-        {% endfor %}
+        </button>
+        <ul class="dropdown-menu">
+          {% for board in boards %}
+          <li>
+            <form action="{% url 'assign_pin_to_board' 'ideapin' 0 ideapin.id board.id %}" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="board_id" value="{{ board.id }}">
+              <input type="hidden" name="pin_type" value="{{ pin_type }}">
+              <button type="submit" class="dropdown-item">{{ board.name }}</button>
+            </form>
+          </li>
+          {% endfor %}
+        </ul>
       </div>
-    
-  
+      {% if ideapin.get_recent_board %}
+      <form action="{% url 'assign_pin_to_board' 'ideapin' 0 ideapin.id ideapin.get_recent_board.id %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="board_id" value="{{ ideapin.get_recent_board.id }}">
+        <input type="hidden" name="pin_type" value="ideapin">
+        <button type="submit" class="kaydet-button">Kaydet</button>
+      </form>
+      {% else %}
+      <button class="kaydet-button" disabled>Kaydet</button>
+      {% endif %}
+
+      <i class="button_arrow bi bi-box-arrow-up"></i>
+      <i class="button_points bi bi-three-dots"></i>
+    </div>
+    {% endfor %}
+  </div>
+
+
 
   {% endblock content %}
 
-  
+
   <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
 </body>
 
 </html>
