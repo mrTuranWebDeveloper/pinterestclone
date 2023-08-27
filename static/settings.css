@@ -200,10 +200,7 @@ body {
 .inpt {
   display: flex;
 }
-/* .inpt label {
-  margin-right: 10px;
-  flex-direction: row;
-} */
+
 .msj1 {
   display: flex;
 }
