@@ -255,10 +255,16 @@
             },
             success: function(data) {
             if (data.status === 'success') {
-                $('#upvote-count').text(data.upvote_count);
                 data.upvote_types.forEach(function(upvote_type) {
-                $('#upvote-type-' + upvote_type.type).text(upvote_type.count);
-            });
+                    var $upvoteTypeElement = $('#upvote-type-' + upvote_type.type);
+                    if ($upvoteTypeElement.length) {
+                        $upvoteTypeElement.text(upvote_type.count);
+                    } else {
+                        var $newImgElement = $('<img src="/static/img/' + upvote_type.type + '.svg" class="me-1" style="width: 25px;" alt="' + upvote_type.type + '">');
+                        var $newUpvoteTypeElement = $('<li class="me-1" id="upvote-type-' + upvote_type.type + '"><strong>' + upvote_type.count + '</strong></li>');
+                        $('.upvote-summary ul').append($newImgElement).append($newUpvoteTypeElement);
+                    }
+                });
             }
             }
         });
