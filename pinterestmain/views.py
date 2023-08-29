@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib.contenttypes.models import ContentType
 from .models import *
+from user.models import *
 from .forms import *
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -92,6 +93,9 @@ def blog_page(request):
 
 def settings_page(request):
     return render(request, 'settings.html')
+
+def profile_page(request):
+    return render(request, 'profile.html')
 
 def create_comment(request, content_type_id, object_id):
     content_type = ContentType.objects.get_for_id(content_type_id)
