@@ -58,7 +58,7 @@ body {
 .profile-header button:hover {
   background-color: #cac3c3;
 }
-.tab button {
+.tabi button {
   display: block;
   background-color: inherit;
   color: black;
@@ -70,15 +70,15 @@ body {
   font-size: 17px;
   font-weight: bold;
 }
-.tab button:hover {
+.tabi button:hover {
   background-color: #ddd;
   border-radius: 8px;
 }
 
-.tab-button:active {
+.tabi-button:active {
   border-bottom: 2px solid #000;
 }
-.tab {
+.tabi {
   display: flex;
   background-color: #ffffff;
   width: 25%;
