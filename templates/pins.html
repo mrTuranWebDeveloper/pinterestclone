@@ -82,12 +82,11 @@
                 <div id="comments-section">
                     {% if comments %}
                     {% for comment in comments %}
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center comment" data-comment-id="{{ comment.id }}">
                         {% for profil in profiller %}
                         <img src="{{profil.resim.url}}" width="32" height="32" class="rounded-5 me-2 ms-4" style="margin-top: 10px;" alt="">
                         {% endfor %}
                         <div class="d-flex">
-
                             <div class="d-flex flex-column">
                                 <strong class="me-2 mt-1">{{comment.commenter.username}}</strong>
                                 <small class="mb-0 mt-0">{{ comment.created_at|compact_naturaltime }}</small>
@@ -96,7 +95,8 @@
                                 <p class="mb-0 mt-1" style="overflow-wrap: break-word; word-break: break-all;">{{ comment.content }}</p>
                                 <div class="d-flex">
                                     <button class="no-style" style="color:gray; transform: scale(0.9); font-weight:600;">Yanıtla</button>
-                                    <button class="no-style ms-2" style="transform: scale(0.7);"><img src="/static/img/8666647_heart_icon.svg" alt=""></button>
+                                    <button class="comment-upvote-button no-style ms-2" data-object-id="{{ comment.id }}" data-content-type="comment" style="transform: scale(0.7);"><img src="/static/img/8666647_heart_icon.svg" alt=""></button>
+                                    <span class="upvote-count">{{ comment.get_upvote_count.thanks|default:0 }} </span>
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle no-style ms-2" type="button" style="transform: scale(0.7);" data-bs-toggle="dropdown" aria-expanded="false">
                                             <img src="/static/img/8666602_more_horizontal_icon.svg" alt="">
@@ -269,6 +269,50 @@
                     }
                 });
             }
+            }
+        });
+    });
+
+    function updateUpvoteCount($upvoteCountElement, commentId) {
+    $.ajax({
+        type: 'GET',
+        url: `/get-comment-upvote-count/${commentId}/`, 
+        success: function(data) {
+            var upvoteCount = data.upvote_count;
+            $upvoteCountElement.text(upvoteCount);
+        }
+    });
+}
+
+    $('.comment').each(function() {
+        var commentId = $(this).data('comment-id');
+        var $upvoteCountElement = $(this).find('.upvote-count');
+        updateUpvoteCount($upvoteCountElement, commentId);
+    });
+
+    $('.comment-upvote-button').on('click', function() {
+        var objectId = $(this).data('object-id');
+        var contentType = $(this).data('content-type');
+        var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+        var $upvoteCountElement = $(this).closest('.comment').find('.upvote-count');
+        console.log($upvoteCountElement);
+
+        var currentUpvoteCount = parseInt($upvoteCountElement.text());
+        if (isNaN(currentUpvoteCount)) {
+            currentUpvoteCount = 0;
+        }
+        $.ajax({
+            type: 'POST',
+            url: '/comment-upvotes/',
+            data: {object_id: objectId, content_type: contentType, upvote_type: 'comment'},
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader('X-CSRFToken', csrftoken);
+            },
+            success: function(data) {
+                console.log('Updating upvote count');
+                console.log($upvoteCountElement.text());
+                var newUpvoteCount = currentUpvoteCount + 1;
+                $upvoteCountElement.text(newUpvoteCount);
             }
         });
     });

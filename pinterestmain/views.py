@@ -22,8 +22,16 @@ def pinsDetail(request,pinId):
     count = Comment.objects.filter(object_id=pins.id, is_deleted=False).count()
     recent_board_pin = Board.objects.filter(board_pins__id=pinId).order_by('-id').first()
     boards = Board.objects.all()
-    object_id = pins.id
-    upvotes = Upvote.objects.filter(content_type=content_type, object_id=pins.id)
+
+    upvote_type = request.POST.get('upvote_type')
+    if upvote_type == 'comment':
+        comment = Comment.objects.get(id=request.POST.get('object_id'))
+        upvotes = Upvote.objects.filter(content_type=content_type, object_id=comment.id)
+        object_id = comment.id
+    else:
+        upvotes = Upvote.objects.filter(content_type=content_type, object_id=pins.id)
+        object_id = pins.id
+    
     upvote_count = upvotes.count()
     upvote_types = upvotes.values('type').annotate(count=Count('type'))
     context = {
@@ -125,6 +133,12 @@ def create_comment(request, content_type_id, object_id):
         }
         return render(request, context)
     
+def get_comment_upvote_count(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    upvote_type = 'comment'
+    upvote_count = comment.get_upvote_count(upvote_type)
+    return JsonResponse({'upvote_count': upvote_count})
+
 @login_required
 
 def create_pin(request):
@@ -190,3 +204,9 @@ def create_upvote(request):
     upvote_count = upvotes.count()
     upvote_types = list(upvotes.values('type').annotate(count=Count('type')))
     return JsonResponse({'status': 'success', 'upvote_count': upvote_count, 'upvote_types': upvote_types})
+
+def create_comment_upvote(request):
+    object_id = request.POST['object_id']
+    content_type = ContentType.objects.get_for_model(Comment)
+    Upvote.objects.create(object_id=object_id, content_type=content_type, type='thanks')
+    return JsonResponse({'status': 'success'})

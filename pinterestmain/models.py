@@ -91,6 +91,9 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.content
+    
+    def get_upvote_count(self, upvote_type):
+        return self.upvote_set.filter(type=upvote_type).count()
 
     class Meta:
         ordering = ['-created_at']
@@ -112,4 +115,9 @@ class Upvote(models.Model):
     type = models.CharField(max_length=10, choices=UPVOTE_TYPES)
 
     def __str__(self):
-        return self.get_type_display()
+        if self.content_object is None:
+            return f"Upvoted {self.get_type_display()} (content object deleted)"
+        elif isinstance(self.content_object, Comment):
+            return f"{self.content_object} upvoted {self.get_type_display()} by {self.content_object.commenter}"
+        else:
+            return f"{self.content_object} upvoted {self.get_type_display()} by {self.content_object.user}"
