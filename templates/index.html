@@ -34,8 +34,15 @@
                     <li><a class="text-black text-decoration-none" href="{% url 'blog' %}" target="_blank">Blog</a></li>
                 </ul>
                 <div class="nav gap-2 navbtn">
-                    <button type="button" class="btn btn-danger text-white" target="_blank"><a href="{% url 'login' %}"
-                            style="text-decoration:none; color:inherit">Oturum Aç</a></button>
+                    <!-- <button type="button" class="btn btn-danger text-white" target="_blank"><a href="{% url 'login' %}"
+                            style="text-decoration:none; color:inherit">Oturum Aç</a></button> -->
+                        
+                            <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Oturum Aç
+                    </button>
+                   
+                  
                     <button type="button" class="btn btn-light" target="_blank"><a href="{% url 'register' %}"
                             style="text-decoration:none; color:inherit">Kaydol</a></button>
                 </div>
@@ -429,6 +436,50 @@
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/ec4bff98c2.js" crossorigin="anonymous"></script>
     
+     <!-- Modal -->
+     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="popup">
+            <div class="col-form row d-flex justify-content-center">
+                <div class="form-container">
+                    <div class="logo">
+                        <a href="#"><img src="/static/img/pinterest_logo.png" alt="" width="34px" height="34px"></a>
+                    </div>
+                    <h1>Pinterest'e Hoşgeldiniz</h1>
+                    <p>Bir sonraki tutkunuzu keşfedin.</p>
+
+                 
+
+                    <form action="/user/login/" method="POST">
+                        {% csrf_token %}
+                        <label for="kullanici">Kullanıcı Adı</label>
+                        <input type="text" class="form-control" name="kullanici" placeholder="Kullanıcı adınız giriniz">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="sifre" placeholder="Şifrenizi giriniz">
+                       
+                        <button type="submit">Oturum Aç</button>
+                    </form>
+    
+                    <p>VEYA</p>
+    
+                    <button class="facebook-button">
+                        <i class="fa-brands fa-facebook"></i>
+                        <span class="button-text">Facebook ile Devam Et</span>
+                    </button>
+                    <button class="google-button">
+                        <i class="fa-brands fa-google"></i> 
+                        <span class="button-text">Google ile Devam Edin</span>
+                    </button>
+                    <p class="text-center">Şifrenizi mi Unuttunuz? <a href="#">Parolayı Sıfırla</a></p>
+                    <p class="text-center">Hesabınız yok mu? <a href="{% url 'register' %}">Kaydol</a></p>
+                    <p class="text">Kaydolarak, hizmet şartlarını ve gizlilik politikasını kabul etmiş olursunuz.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </div>
 </body>
 
 </html>
