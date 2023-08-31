@@ -32,6 +32,11 @@
   border: 0;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
   border-radius: 16px;
+  min-width: 50px;
+}
+
+.pano-dropdown {
+  height: 25px;
 }
 
 .dropdown-item:hover {
@@ -61,6 +66,7 @@
 .img_item {
   width: 100% !important;
   object-fit: cover;
+  cursor: zoom-in;
 }
 
 .kaydet-button {
@@ -93,7 +99,7 @@
   visibility: hidden;
   background: none;
   border: none;
-  font-size: 8px;
+  font-size: 15px;
 }
 
 .button_arrow {
@@ -221,6 +227,7 @@
     -moz-column-count: 3;
     -webkit-column-count: 3;
     column-count: 3;
+    margin-top: 10px !important;
   }
 }
 
