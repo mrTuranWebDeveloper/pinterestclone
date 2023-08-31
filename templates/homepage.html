@@ -29,7 +29,7 @@
 
 
 
-  <div class="gridd ">
+  <div class="gridd" style="margin-top: 110px;">
     {% for pin in pins %}
     <!-- İmage Card -->
     <div class="item ">
@@ -38,25 +38,25 @@
       </a>
 
       <div class="dropdown board-button">
-        <button class="btn btn-secondary dropdown-toggle no-style" type="button" data-bs-toggle="dropdown"
+        <button class="btn dropdown-toggle no-style" type="button" data-bs-toggle="dropdown"
           aria-expanded="false">
           {% if pin.get_recent_board %}
           <strong>{{ pin.get_recent_board.name }} <img src="/static/img/211687_down_arrow_icon_white.svg"
               style="height: 35px; width: 35px;" alt=""></strong>
           {% else %}
           <strong> Pano Seçiniz <img src="/static/img/211687_down_arrow_icon_white.svg"
-              style="height: 12px; width: 12px;" alt=""></strong>
+              style="height: 35px; width: 35px;" alt=""></strong>
           {% endif %}
 
         </button>
         <ul class="dropdown-menu">
           {% for board in boards %}
-          <li>
+          <li class="mb-2 p-2">
             <form action="{% url 'assign_pin_to_board' 'pin' pin.id 0 board.id %}" method="post">
               {% csrf_token %}
               <input type="hidden" name="board_id" value="{{ board.id }}">
               <input type="hidden" name="pin_type" value="{{ pin_type }}">
-              <button type="submit" class="dropdown-item">{{ board.name }}</button>
+              <button type="submit" class="dropdown-item pano-dropdown">{{ board.name }}</button>
             </form>
           </li>
           {% endfor %}
