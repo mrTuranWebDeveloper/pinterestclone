@@ -32,7 +32,7 @@
   <div class="gridd cols-1 cols-md-2 cols-lg-3 g-4">
     {% for pin in pins %}
     <!-- İmage Card -->
-    <div class="item col-md-4">
+    <div class="item col-3">
       <a href="{% url 'pins' pin.id %}">
         <img class="img_item" src="{{pin.image.url}}" alt="" />
       </a>
@@ -72,8 +72,9 @@
       <button class="kaydet-button" disabled>Kaydet</button>
       {% endif %}
 
-      <i class="button_arrow bi bi-box-arrow-up"></i>
-      <i class="button_points bi bi-three-dots"></i>
+      <i class="button_arrow material-icons">
+        ios_share</i>
+      <i class="button_points material-icons">more_horiz</i>
     </div>
     {% endfor %}
   </div>
