@@ -1,7 +1,7 @@
 {% extends "homepage.html" %}
 {% load static %}
 {% block content %}
-
+<div style="margin-top: 110px;"></div>
 <div class="tab">
     <button class="tablinks" onclick="openCity(event, '1')" id="defaultOpen">Profili Düzenle</button>
     <button class="tablinks" onclick="openCity(event, '2')">Kişisel Bilgiler</button>
@@ -22,7 +22,12 @@
         görülebilir.</p>
     <p class="acıklama">Fotoğraf</p>
     <div class="foto">
-        <img src="https://i.pinimg.com/140x140_RS/3c/80/83/3c80839914db43ed5e33579e357f0aea.jpg" alt="">
+        {% for profil in profiller %}
+        <a href="{% url 'profile' %}">
+        <img src="{{profil.resim.url}}" width="50" height="50" class="rounded-5 me-2 style=" margin-top: 10px;" alt="">
+        </a>
+        {% endfor %}
+        {% comment %} <img src="https://i.pinimg.com/140x140_RS/3c/80/83/3c80839914db43ed5e33579e357f0aea.jpg" alt=""> {% endcomment %}
 
         <div class="button-pp">
             <button>Değiştir</button>
