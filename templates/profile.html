@@ -1,10 +1,21 @@
 {% extends "homepage.html" %}
 {% load static %}
+{% load my_filters %}
 {% block content %}
+<div style="margin-top: 110px;"></div>
 <header class="profile-header">
-    <img class="profile-image" src="../media/profiller/haxx.png" alt="Profil Resmi">
-    <h1 class="profile-name"><b>İsmail Genç</b></h1>
-    <p class="profile-bio">@spartansline</p>
+    {% for profil in profiller %}
+    <a href="{% url 'profile' %}">
+    <img class="profile-image" src="{{profil.resim.url}}" class="rounded-circle me-3 ms-0" width="80" height="80">
+    </a>
+    {% endfor %}
+    {% comment %} <img class="profile-image" src="../media/profiller/haxx.png" alt="Profil Resmi"> {% endcomment %}
+    {% for hesap in hesapBilgi %}
+        <h1 class="profile-name"><b>{{hesap.isim}}</b></h1>
+        <p class="profile-bio">{{hesap.websitesi|remove_https}}</p>
+    {% endfor %}
+    
+    
     <p>13 Takip</p>
     <button><b>Paylaş</b> </button>
     <button><b>Profili Düzenle</b></button>
