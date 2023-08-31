@@ -29,10 +29,10 @@
 
 
 
-  <div class="gridd cols-1 cols-md-2 cols-lg-3 g-4">
+  <div class="gridd ">
     {% for pin in pins %}
     <!-- İmage Card -->
-    <div class="item col-3">
+    <div class="item ">
       <a href="{% url 'pins' pin.id %}">
         <img class="img_item" src="{{pin.image.url}}" alt="" />
       </a>
@@ -42,9 +42,10 @@
           aria-expanded="false">
           {% if pin.get_recent_board %}
           <strong>{{ pin.get_recent_board.name }} <img src="/static/img/211687_down_arrow_icon_white.svg"
-              alt=""></strong>
+              style="height: 35px; width: 35px;" alt=""></strong>
           {% else %}
-          <strong> Pano Seçiniz <img src="/static/img/211687_down_arrow_icon_white.svg" alt=""></strong>
+          <strong> Pano Seçiniz <img src="/static/img/211687_down_arrow_icon_white.svg"
+              style="height: 12px; width: 12px;" alt=""></strong>
           {% endif %}
 
         </button>
@@ -81,10 +82,10 @@
 
 
 
-  <div class="gridd cols-1 cols-md-2 cols-lg-3 g-4">
-    {% for ideapin in ideapins %}
-    <!-- İmage Card -->
-    <div class="item col-md-4">
+  <!-- <div class="gridd "> -->
+  <!-- {% for ideapin in ideapins %} -->
+  <!-- İmage Card -->
+  <!-- <div class="item ">
       <a href="{% url 'ideapins' ideapin.id %}">
         <img class="img_item" src="{{ideapin.image.url}}" alt="" />
       </a>
@@ -128,13 +129,29 @@
       <i class="button_points bi bi-three-dots"></i>
     </div>
     {% endfor %}
-  </div>
+  </div> -->
 
 
 
   {% endblock content %}
 
+  <script>
+    function getRandomSize(min, max) {
+      return Math.round(Math.random() * (max - min) + min);
+    }
 
+    var allImages = "";
+    let testImg = document.querySelectorAll(".img_item")
+    for (var i = 0; i < testImg.length; i++) {
+      var width = getRandomSize(200, 400);
+      var height = getRandomSize(200, 600);
+      testImg[i].style.width = `${width}px`
+      testImg[i].style.height = `${height}px`
+
+    }
+
+
+  </script>
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
