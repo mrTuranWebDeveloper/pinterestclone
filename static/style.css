@@ -48,33 +48,19 @@
   transform: scaleX(1);
 }
 
-@media (max-width: 1024px) {
-  .navbar {
-    top: 0;
-  }
-  
-  .navbar .navbtn button {
-    font-size: 14px;
-  }
-  
-  .nav .navbtn a,
-  .nav .align-items-center li a {
-    font-size: 14px;
-  }
-}
 
-@media (max-width: 768px) {
+@media (min-width: 1440px) {
   .navbar {
     top: 0;
   }
   
   .navbar .navbtn button {
-    font-size: 12px;
+    font-size: 20px;
   }
   
   .nav .navbtn a,
   .nav .align-items-center li a {
-    font-size: 12px;
+    font-size: 20px;
   }
 }
 
@@ -305,162 +291,19 @@
   }
 }
 
-/* Büyük ekranlar için responsive düzenlemeler */
-@media (min-width: 1600px) {
-  .heading .title {
-    font-size: 72px;
-    margin-top: 50px;
-  }
-
-  .heading .wrapper .offsetone .text,
-  .heading .wrapper .offsettwo .text,
-  .heading .wrapper .offsetthree .text,
-  .heading .wrapper .offsetfour .text {
-    font-size: 72px;
-  }
-
-  .grid-container {
-    height: 600px;
-  }
-
-  .grid {
-    grid-template-columns: repeat(5, 1fr);
-    max-height: unset;
-    visibility: visible;
-    pointer-events: auto;
-  }
-
-  .column {
-    margin-top: 200px;
-    transition-delay: 0.3s;
-  }
-
+@media (min-width: 1440px) {
   .scroll-btn {
-    bottom: 100px;
+    position: absolute;
+    bottom: 110px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    z-index: 999;
+    animation: scrollAnimation 2s infinite;
+    border: none;
+    border-radius: 50%;
   }
 }
-
-/* Orta hizalama için responsive düzenlemeler */
-@media (max-width: 1024px) {
-  .heading .title {
-    font-size: 48px;
-    margin-top: 30px;
-  }
-
-  .heading .wrapper .offsetone .text,
-  .heading .wrapper .offsettwo .text,
-  .heading .wrapper .offsetthree .text,
-  .heading .wrapper .offsetfour .text {
-    font-size: 48px;
-  }
-
-  .grid-container {
-    height: auto;
-  }
-
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-    max-height: unset;
-    visibility: visible;
-    pointer-events: auto;
-  }
-
-  .column {
-    margin-top: 150px;
-    transition-delay: 0.3s;
-  }
-
-  .column:nth-child(5),
-  .column:nth-child(6) {
-    margin-top: 0;
-    transition-delay: 0s;
-  }
-
-  .scroll-btn {
-    bottom: 70px;
-  }
-}
-
-
-
-/* Orta hizalama için responsive düzenlemeler */
-@media (max-width: 768px) {
-  .heading .title {
-    font-size: 36px;
-    margin-top: 20px;
-  }
-
-  .heading .wrapper .offsetone .text,
-  .heading .wrapper .offsettwo .text,
-  .heading .wrapper .offsetthree .text,
-  .heading .wrapper .offsetfour .text {
-    font-size: 36px;
-  }
-
-  .grid-container {
-    height: auto;
-  }
-
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    max-height: unset;
-    visibility: visible;
-    pointer-events: auto;
-  }
-
-  .column {
-    margin-top: 100px;
-    transition-delay: 0.3s;
-  }
-
-  .column:nth-child(3),
-  .column:nth-child(4),
-  .column:nth-child(5),
-  .column:nth-child(6) {
-    margin-top: 0;
-    transition-delay: 0s;
-  }
-
-  .scroll-btn {
-    bottom: 50px;
-  }
-}
-
-/* Küçük ekranlar için responsive düzenlemeler */
-@media (max-width: 480px) {
-  .heading .title {
-    font-size: 24px;
-    margin-top: 10px;
-  }
-
-  .heading .wrapper .offsetone .text,
-  .heading .wrapper .offsettwo .text,
-  .heading .wrapper .offsetthree .text,
-  .heading .wrapper .offsetfour .text {
-    font-size: 24px;
-  }
-
-  .grid-container {
-    height: auto;
-  }
-
-  .grid {
-    grid-template-columns: repeat(1, 1fr);
-    max-height: unset;
-    visibility: visible;
-    pointer-events: auto;
-  }
-
-  .column {
-    margin-top: 50px;
-    transition-delay: 0.3s;
-  }
-
-  .scroll-btn {
-    bottom: 30px;
-  }
-}
-
 
 /* ikinci kısım content */
 
@@ -608,95 +451,6 @@
   }
 }
 
-@media (max-width: 768px) {
-  .content {
-    height: auto;
-  }
-
-  .content .col h1 {
-    font-size: 36px;
-    margin-top: 50px;
-  }
-
-  .content .col p {
-    font-size: 18px;
-  }
-
-  #targetSection .origin {
-    width: 200px;
-    height: 300px;
-    margin-top: 30px;
-  }
-
-  #targetSection .left {
-    left: 60px;
-    top: 80px;
-    width: 120px;
-    height: 170px;
-  }
-
-  #targetSection .right {
-    right: 100px;
-    width: 100px;
-    height: 130px;
-  }
-
-  #targetSection .bottom {
-    top: 180px;
-    width: 100px;
-    height: 170px;
-  }
-
-  .content .col button.bg-danger {
-    font-size: 14px;
-    padding: 8px 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .content {
-    height: auto;
-  }
-
-  .content .col h1 {
-    font-size: 24px;
-    margin-top: 30px;
-  }
-
-  .content .col p {
-    font-size: 16px;
-  }
-
-  #targetSection .origin {
-    width: 150px;
-    height: 220px;
-    margin-top: 20px;
-  }
-
-  #targetSection .left {
-    left: 40px;
-    top: 60px;
-    width: 90px;
-    height: 130px;
-  }
-
-  #targetSection .right {
-    right: 70px;
-    width: 80px;
-    height: 100px;
-  }
-
-  #targetSection .bottom {
-    top: 140px;
-    width: 80px;
-    height: 130px;
-  }
-
-  .content .col button.bg-danger {
-    font-size: 12px;
-    padding: 6px 12px;
-  }
-}
 
 /* header üçüncü kısım */
 
@@ -893,135 +647,10 @@
 }
 
 /* Header üçüncü kısım için responsive düzenlemeler */
-@media (max-width: 768px) {
-  .header {
-    height: auto;
-  }
-
-  .header .col-6 h1 {
-    font-size: 36px;
-    margin-top: 30px;
-  }
-
-  .header .col-6 p {
-    font-size: 18px;
-  }
-
-  .header .col-6 .btn {
-    font-size: 14px;
-    padding: 8px 16px;
-  }
-
-  .header .col-3 .future {
-    margin-left: 40px;
-    margin-top: 30px;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .header .col-3 .future img:first-child {
-    width: 280px;
-    height: auto;
-  }
-
-  .header .col-3 .future .home1,
-  .header .col-3 .future .home2,
-  .header .col-3 .future .home3 {
-    display: none;
-  }
-
-  .header .col-3 .future p {
-    font-size: 18px;
-    top: 10px;
-    left: 0;
-    width: 200px;
-    text-align: center;
-  }
-
-  .header .col-3 .drink {
-    margin-top: 20px;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  .header .col-3 .drink p {
-    font-size: 18px;
-    top: 10px;
-    left: 0;
-    width: 200px;
-    text-align: center;
-  }
-
-  .header .col-3 .drink a img {
-    width: 160px;
-    height: auto;
-  }
-
-  .header .col-3 .scandinav {
-    margin-left: 0;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-  }
-
-  .header .col-3 .scandinav p {
-    font-size: 18px;
-    top: 10px;
-    left: 0;
-    width: 200px;
-    text-align: center;
-  }
-
-  .header .col-3 .scandinav a img {
-    width: 160px;
-    height: auto;
-  }
-
-  .header .col-3 .deck {
-    margin-top: 20px;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  .header .col-3 .deck p {
-    font-size: 16px;
-    top: 10px;
-    left: 0;
-    width: 200px;
-    text-align: center;
-  }
-
-  .header .col-3 .deck a img {
-    width: 130px;
-    height: auto;
-  }
-
-  .header .col-3 .bathroom {
-    margin-top: 20px;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  .header .col-3 .bathroom p {
-    font-size: 16px;
-    top: 10px;
-    left: 0;
-    width: 200px;
-    text-align: center;
-  }
-
-  .header .col-3 .bathroom a img {
-    width: 150px;
-    height: auto;
-  }
-}
 
 @media (min-width: 1440px) {
   .header {
-    height: 755px;
+    height: 900px;
   }
 
   .header .col-6 h1 {
@@ -1246,71 +875,31 @@
   border: none;
 }
 
-@media (max-width: 768px) {
+/* responsive */
+@media (min-width: 1440px) {
   .mantion {
-    height: auto;
-    flex-direction: column;
+    height: 900px;
   }
 
-  .mantion .pinone-container {
-    height: 400px;
-    overflow: hidden;
+  .pintwo {
+    width: 260px;
+    height: 455px;
   }
 
-  .mantion .pinone,
-  .mantion .pintwo,
-  .mantion .pinthree,
-  .mantion .pinone-container p {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    width: 100%;
-    height: auto;
-  }
-
-  .mantion .pintwo {
-    width: 60%;
-    height: auto;
-    top: auto;
-    left: auto;
-    transform: none;
-  }
-
-  .mantion .pinthree {
-    width: 40px;
-    height: 40px;
-    top: auto;
-    left: auto;
-    transform: none;
-  }
-
-  .mantion .col {
-    align-items: center;
-    text-align: center;
-  }
-
-  .mantion h1 {
-    font-size: 36px;
+  .pinthree {
+    width: 120px;
+    height: 120px;
   }
 
   .mantion .pinone-container p {
-    top: auto;
-    margin: 0;
-    text-align: center;
-    font-size: 12px;
+    top: 82%;
+    margin-left: 195px;
+    z-index: 6;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
   }
-
-  .mantion p {
-    font-size: 18px;
-    margin-top: 10px;
-  }
-
-  .mantion button {
-    font-size: 16px;
-    margin-top: 20px;
-    padding: 8px 16px;
-  }
+  
 }
 
 
@@ -1478,60 +1067,15 @@
 }
 
 /* Genel düzenlemeler */
-@media (max-width: 768px) {
-  .background {
-    height: auto;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-
-  .col-text {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    text-align: center;
-    width: 100%;
-    padding: 20px;
-    border-radius: 0;
-  }
-
-  .col-text h1 {
-    font-size: 40px;
-  }
-
-  .col-form {
-    flex: 0 0 100%;
-    padding: 40px;
-    position: relative;
-    top: auto;
-    right: auto;
-    transform: none;
-    height: auto;
-  }
-
-  .col-form h1 {
-    font-size: 24px;
-  }
-
-  .col-form form label {
-    text-align: center;
-  }
-
-  .col-form form input {
-    margin-bottom: 10px;
-  }
-
-  .col-form .facebook-button,
-  .col-form .google-button {
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-}
 
 @media (min-width: 1440px) {
   .background {
-    height: 710px;
+    height: 900px;
+  }
+
+  .image-div {
+    width: 400px;
+    
   }
 
   .col-text {
@@ -1548,7 +1092,7 @@
   .col-form {
     flex: 0 0 25%;
     padding: 80px;
-    height: 710px;
+    height: 900px;
   }
 
   .col-form h1 {
@@ -1564,6 +1108,12 @@
     margin-bottom: 5px;
     border: 1px solid #ccc;
     border-radius: 20px;
+  }
+
+  .col-form .text {
+    margin-top: 50px;
+    font-size: 18px;
+    color: #666;
   }
 }
 
@@ -1605,52 +1155,3 @@
   cursor: pointer;
 }
 
-/* Genel düzenlemeler */
-@media (max-width: 768px) {
-  .footer {
-    height: 60px;
-    padding: 10px 0;
-  }
-
-  .footer-menu {
-    display: none; /* Küçük ekranlarda menüyü gizle */
-  }
-
-  .footer-menu li {
-    margin: 0;
-  }
-}
-
-@media (min-width: 769px) {
-  .footer {
-    height: 40px;
-  }
-
-  .footer-menu {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .footer-menu li {
-    margin-right: 20px;
-    margin-top: 0;
-  }
-
-  .footer-menu li:last-child {
-    margin-right: 0;
-  }
-
-  .footer-menu li a {
-    color: #000;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-bottom 0.2s;
-    font-size: 14px; /* Responsive font size */
-  }
-
-  .footer-menu li a:hover {
-    border-bottom: 1px solid #000;
-    cursor: pointer;
-  }
-}
