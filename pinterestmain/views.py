@@ -103,7 +103,13 @@ def settings_page(request):
     return render(request, 'settings.html')
 
 def profile_page(request):
-    return render(request, 'profile.html')
+    ideapins = IdeaPin.objects.all()
+    boards = Board.objects.all()
+    context = {
+        'ideapins': ideapins,
+        'boards': boards
+    }
+    return render(request, 'profile.html', context)
 
 def create_comment(request, content_type_id, object_id):
     content_type = ContentType.objects.get_for_id(content_type_id)
@@ -170,7 +176,7 @@ def create_idea_pin(request):
             board = form.cleaned_data['board']
             board.board_idea_pins.add(ideapin)
             board.save()
-            return redirect('homepage')
+            return redirect('profile')
     else:
         form = IdeaPinForm()
     context = {
