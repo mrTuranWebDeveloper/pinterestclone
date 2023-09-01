@@ -31,5 +31,5 @@ def compact_naturaltime(value):
 
 @register.filter
 def remove_https(value):
-    print(f"remove_http called with value: {value}")
+    # print(f"remove_http called with value: {value}")
     return value.replace('http://', '')
