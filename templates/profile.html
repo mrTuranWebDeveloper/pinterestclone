@@ -28,12 +28,62 @@
 </div>
 <br>
 <br>
-<main class="profile-pins">
-    <div class="pin">
+<div class="profile-pins">
+    <div class="gridd">
+    {% for ideapin in ideapins %}
+    <div class="item ">
+        <a href="{% url 'ideapins' ideapin.id %}">
+          <img class="img_item" src="{{ideapin.image.url}}" alt="" />
+        </a>
+
+        <div class="dropdown board-button">
+          <button class="btn dropdown-toggle no-style" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            {% if ideapin.get_recent_board %}
+            <strong>{{ ideapin.get_recent_board.name }} <img src="/static/img/211687_down_arrow_icon_white.svg"
+                style="height: 35px; width: 35px;"  alt=""></strong>
+            {% else %}
+            <strong>Pano Seçiniz <img src="/static/img/211687_down_arrow_icon_white.svg" style="height: 35px; width: 35px;" alt="" ></strong>
+            {% endif %}
+
+          </button>
+          <ul class="dropdown-menu">
+            {% for board in boards %}
+            <li class="mb-2 p-2">
+              <form action="{% url 'assign_pin_to_board' 'ideapin' 0 ideapin.id board.id %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="board_id" value="{{ board.id }}">
+                <input type="hidden" name="pin_type" value="{{ pin_type }}">
+                <button type="submit" class="dropdown-item pano-dropdown">{{ board.name }}</button>
+              </form>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% if ideapin.get_recent_board %}
+        <form action="{% url 'assign_pin_to_board' 'ideapin' 0 ideapin.id ideapin.get_recent_board.id %}" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="board_id" value="{{ ideapin.get_recent_board.id }}">
+          <input type="hidden" name="pin_type" value="ideapin">
+          <button type="submit" class="kaydet-button">Kaydet</button>
+        </form>
+        {% else %}
+        <button class="kaydet-button" disabled>Kaydet</button>
+        {% endif %}
+        
+        <i class="button_arrow material-icons">
+            ios_share</i>
+          <i class="button_points material-icons">more_horiz</i>
+        <!-- <i class="button_arrow bi bi-box-arrow-up"></i>
+        <i class="button_points bi bi-three-dots"></i> -->
+    </div>
+    {% endfor %}
+    </div>
+    <!-- <div class="pin">
         <img src="../media/pins/dekorasyon1.jpg" alt="Pin 1">
     </div>
     <div class="pin">
         <img src="../media/pins/yemek3.jpg" alt="Pin 2">
-    </div>
-</main>
+    </div>  -->
+</div>
 {% endblock content %}
