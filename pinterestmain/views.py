@@ -155,9 +155,13 @@ def create_pin(request):
             pin.user = request.user
             pin.save()
             board = form.cleaned_data['board']
-            board.board_pins.add(pin)
-            board.save()
+            if board is not None:
+                board.board_pins.add(pin)
+                board.save()
             return redirect('homepage') 
+            # board.board_pins.add(pin)
+            # board.save()
+            # return redirect('homepage') 
     else:
         form = PinForm()
     context = {
@@ -174,9 +178,13 @@ def create_idea_pin(request):
             ideapin.user = request.user
             ideapin.save()
             board = form.cleaned_data['board']
-            board.board_idea_pins.add(ideapin)
-            board.save()
+            if board is not None:
+                board.board_idea_pins.add(ideapin)
+                board.save()
             return redirect('profile')
+            # board.board_idea_pins.add(ideapin)
+            # board.save()
+            # return redirect('profile')
     else:
         form = IdeaPinForm()
     context = {
