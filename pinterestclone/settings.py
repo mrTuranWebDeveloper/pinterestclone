@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-liwm*c^qj#ue53#437y_^g95t@agnnyn$*yqchreisuc9kt)m)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://pinterestcloneweb.netlify.app/']
 
 
 # Application definition

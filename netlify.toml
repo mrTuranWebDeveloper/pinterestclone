@@ -1,0 +1,3 @@
+[build]
+  base = "path/to/your/project"
+  publish = "path/to/your/static/files"
